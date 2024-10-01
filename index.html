@@ -7,6 +7,7 @@
   <style>
     /* Importing the Oswald font from Google Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Garet:wght@300;400&display=swap');
 
     /* General Styles */
     body {
@@ -91,6 +92,38 @@
       width: 100%;
       height: auto;
     }
+
+    /* About Section */
+    .about-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .about-section img {
+      width: 50%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .about-section .content {
+      padding: 20px;
+      width: 50%;
+    }
+
+    .about-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      color: #004b8d; /* Blue heading */
+    }
+
+    .about-section p {
+      font-family: 'Garet', sans-serif;
+      font-size: 1rem;
+      color: #333333; /* Dark grey text */
+      line-height: 1.8;
+    }
   </style>
 </head>
 <body>
@@ -108,7 +141,7 @@
         <a href="charlies.html">Charlie's Café</a>
         <a href="centre-stage.html">Centre Stage</a>
         <a href="coffee-nation.html">Coffee Nation</a>
-        <a href="food-truck.html">Food Truck</a> <!-- Added Food Truck -->
+        <a href="food-truck.html">Food Truck</a>
         <a href="hashtag.html">Hashtag</a>
         <a href="juice-press.html">Juice Press</a>
         <a href="korebi.html">Korebi</a>
@@ -117,10 +150,28 @@
     <a href="cafe-stats.html">Café Stats</a>
   </nav>
 
+  <!-- Map Section -->
   <section id="map">
     <img src="unimap.png" alt="University Cafés Map">
   </section>
 
+  <!-- About Section -->
+  <section class="about-section">
+    <img src="hashtagau.png" alt="About Munch Map Image">
+    <div class="content">
+      <h2>About Munch Map</h2>
+      <p>
+        Munch Map is a student-driven initiative created by FLAME students to provide a comprehensive guide to the best cafes around the FLAME University campus. 
+        Whether you're looking for a quick coffee break, a healthy snack, or a place to hang out with friends, Munch Map is your go-to resource for finding the 
+        perfect café experience on campus.
+      </p>
+      <p>
+        Each café's profile is crafted based on essential questions that students want to know, such as the favorite café on campus, the healthiest food options, 
+        and the price range from least expensive to most expensive. We've also included recommendations on the most popular food and beverage items from each café, 
+        helping you make informed choices.
+      </p>
+    </div>
+  </section>
+
 </body>
 </html>
-
