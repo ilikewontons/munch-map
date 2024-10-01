@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Munch Map</title>
   <style>
-    /* Importing the Oswald font from Google Fonts */
+    /* Importing Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Garet:wght@300;400&display=swap');
 
@@ -33,6 +33,11 @@
       justify-content: center;
       background-color: #ffffff;
       padding: 10px;
+      position: fixed; /* Fixes the nav bar to the top */
+      top: 0; /* Positions it at the very top */
+      width: 100%; /* Ensures the nav spans the full width */
+      z-index: 1000; /* Keeps the nav on top of other elements */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow */
     }
 
     nav a {
@@ -65,7 +70,7 @@
       background-color: white;
       min-width: 160px;
       box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      z-index: 1;
+      z-index: 1001; /* Ensure dropdown is above the nav */
     }
 
     .dropdown-content a {
@@ -96,13 +101,16 @@
     /* About Section */
     .about-section {
       display: flex;
+      flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
       justify-content: center;
       align-items: center;
-      padding: 40px;
+      padding: 40px 20px;
+      margin-top: 100px; /* Adjusts for fixed nav bar height */
     }
 
     .about-section img {
       width: 50%;
+      max-width: 400px;
       height: auto;
       border-radius: 10px;
     }
@@ -110,6 +118,7 @@
     .about-section .content {
       padding: 20px;
       width: 50%;
+      max-width: 600px;
     }
 
     .about-section h2 {
@@ -123,6 +132,28 @@
       font-size: 1rem;
       color: #333333; /* Dark grey text */
       line-height: 1.8;
+    }
+
+    /* Adjusting content to prevent overlap with fixed nav */
+    .content-wrapper {
+      margin-top: 150px; /* Adjusts for header and nav bar height */
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .about-section {
+        flex-direction: column;
+      }
+      .about-section img, .about-section .content {
+        width: 100%;
+      }
+      nav {
+        flex-direction: column;
+        padding: 10px 0;
+      }
+      nav a {
+        margin: 5px 0;
+      }
     }
   </style>
 </head>
@@ -150,28 +181,31 @@
     <a href="cafe-stats.html">Café Stats</a>
   </nav>
 
-  <!-- Map Section -->
-  <section id="map">
-    <img src="unimap.png" alt="University Cafés Map">
-  </section>
+  <!-- Content Wrapper to adjust for fixed nav -->
+  <div class="content-wrapper">
+    <!-- Map Section -->
+    <section id="map">
+      <img src="unimap.png" alt="University Cafés Map">
+    </section>
 
-  <!-- About Section -->
-  <section class="about-section">
-    <img src="hashtagau.png" alt="About Munch Map Image">
-    <div class="content">
-      <h2>About Munch Map</h2>
-      <p>
-        Munch Map is a student-driven initiative created by FLAME students to provide a comprehensive guide to the best cafes around the FLAME University campus. 
-        Whether you're looking for a quick coffee break, a healthy snack, or a place to hang out with friends, Munch Map is your go-to resource for finding the 
-        perfect café experience on campus.
-      </p>
-      <p>
-        Each café's profile is crafted based on essential questions that students want to know, such as the favorite café on campus, the healthiest food options, 
-        and the price range from least expensive to most expensive. We've also included recommendations on the most popular food and beverage items from each café, 
-        helping you make informed choices.
-      </p>
-    </div>
-  </section>
+    <!-- About Section -->
+    <section class="about-section">
+      <img src="hashtagau.png" alt="About Munch Map Image">
+      <div class="content">
+        <h2>About Munch Map</h2>
+        <p>
+          Munch Map is a student-driven initiative created by FLAME students to provide a comprehensive guide to the best cafes around the FLAME University campus.
+          Whether you're looking for a quick coffee break, a healthy snack, or a place to hang out with friends, Munch Map is your go-to resource for finding the
+          perfect café experience on campus.
+        </p>
+        <p>
+          Each café's profile is crafted based on essential questions that students want to know, such as the favorite café on campus, the healthiest food options,
+          and the price range from least expensive to most expensive. We've also included recommendations on the most popular food and beverage items from each café,
+          helping you make informed choices.
+        </p>
+      </div>
+    </section>
+  </div>
 
 </body>
 </html>
