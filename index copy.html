@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Munch Map</title>
+  <style>
+    /* Importing the Oswald font from Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap');
+
+    /* General Styles */
+    body {
+      font-family: 'Oswald', sans-serif;
+      background-color: #f0f4f8; /* Light blue */
+      color: #333333; /* Dark grey */
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #E7E7E0; /* Header color */
+      color: #004b8d; /* Dark blue text color */
+      padding: 20px;
+      text-align: center;
+      font-family: 'Impact', sans-serif; /* Impact font for header */
+    }
+
+    /* Navigation Styles */
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #ffffff;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #004b8d;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffa500; /* Soft orange */
+    }
+
+    /* Dropdown Container */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropbtn {
+      color: #004b8d;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: #004b8d;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      color: #ffa500; /* Change color on hover */
+    }
+
+    /* Map Section */
+    #map img {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to Munch Map</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#">Meet the Team</a>
+    <div class="dropdown">
+      <span class="dropbtn">Cafés</span>
+      <div class="dropdown-content">
+        <a href="charlies.html">Charlie's Café</a>
+        <a href="centre-stage.html">Centre Stage</a>
+        <a href="coffee-nation.html">Coffee Nation</a>
+        <a href="food-truck.html">Food Truck</a> <!-- Added Food Truck -->
+        <a href="hashtag.html">Hashtag</a>
+        <a href="juice-press.html">Juice Press</a>
+        <a href="korebi.html">Korebi</a>
+      </div>
+    </div>
+    <a href="cafe-stats.html">Café Stats</a>
+  </nav>
+
+  <section id="map">
+    <img src="unimap.png" alt="University Cafés Map">
+  </section>
+
+</body>
+</html>
+
