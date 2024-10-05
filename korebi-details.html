@@ -2,130 +2,193 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Korebi Café - Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     /* Importing Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Garet:wght@300;400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Garet:wght@300;400&display=swap');
 
-    /* General Styles */
-    body, html {
+    /* Reset Styles */
+    * {
       margin: 0;
       padding: 0;
-      font-family: 'Garet', sans-serif;
-      background-color: #f9f9f9;
+      box-sizing: border-box;
     }
 
-    /* Header Navigation Menu */
+    /* General Styles */
+    body {
+      font-family: 'Garet', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Navigation Menu */
     .nav-menu {
-      background-color: #333;
-      color: white;
+      background-color: #ffffff;
       padding: 20px;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 1000;
+      border-bottom: 1px solid #e0e0e0;
+      transition: background-color 0.3s ease;
     }
 
     .nav-menu a {
       font-family: 'Oswald', sans-serif;
       font-size: 1.2rem;
-      color: white;
+      color: #333;
       text-decoration: none;
       margin: 0 20px;
-      border: 2px solid white;
       padding: 10px 20px;
       border-radius: 5px;
-      transition: background-color 0.3s ease;
+      position: relative;
     }
 
-    .nav-menu a:hover {
-      background-color: rgba(255, 255, 255, 0.3); /* Light overlay on hover */
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background-color: #57A2D8;
+      left: 50%;
+      bottom: 0;
+      transition: all 0.3s ease-in-out;
     }
 
-    h1, h2 {
+    .nav-menu a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Section Titles */
+    h2 {
       font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
       color: #333;
-      text-align: center;
-      margin-top: 50px;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 50px 20px;
     }
 
     /* Menu Section */
     .menu-section {
-      padding: 20px;
-      text-align: center;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      padding: 40px;
+      margin-bottom: 50px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
     }
 
-    .menu-wrapper {
-      max-width: 1000px;
-      margin: 0 auto;
+    .menu-category {
+      margin-bottom: 40px;
     }
 
-    .menu-section h2 {
-      font-size: 2.5rem;
-      color: #333;
-      margin-bottom: 30px;
+    .menu-category:last-child {
+      margin-bottom: 0;
     }
 
-    /* For Menu Layout */
-    .menu-section .menu-list, .hours-section, .contact-section {
-      width: 100%;
-      text-align: left;
-      margin: 0 auto;
+    .menu-category h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem;
+      color: #57A2D8;
+      margin-bottom: 20px;
     }
 
-    .menu-section ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .menu-section li {
-      font-size: 1.2rem;
-      margin: 15px 0;
+    .menu-item {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e0e0e0;
     }
 
-    .menu-section li span {
-      color: #666;
-      font-weight: bold;
+    .menu-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
 
-    .section {
-      padding: 50px 20px;
+    .menu-item .item-name {
+      font-size: 1.1rem;
+      font-weight: 500;
     }
 
-    /* Footer Note */
-    .menu-footer {
+    .menu-item .item-price {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #57A2D8;
+    }
+
+    .menu-item .item-description {
       font-size: 0.9rem;
-      color: #666;
-      margin-top: 20px;
-      text-align: left;
+      color: #777;
+      margin-top: 5px;
     }
 
-    /* Café Hours Section */
-    .hours-section h2, .contact-section h2 {
-      text-align: center;
-      font-size: 2.5rem;
+    /* Animations */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
     }
 
-    /* Contact Section Styling */
-    .contact-section ul {
+    /* Café Hours and Contact Sections */
+    .section {
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    .hours-section, .contact-section {
+      margin-bottom: 50px;
+    }
+
+    .hours-list, .contact-list {
       list-style: none;
       padding: 0;
+      font-size: 1.1rem;
+      line-height: 2;
     }
 
-    .contact-section li {
-      margin: 10px 0;
-      font-size: 1.2rem;
-    }
-
-    /* Social Media Links */
-    .contact-section a {
-      text-decoration: none;
+    .contact-list a {
       color: #57A2D8;
-      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-list a:hover {
+      color: #333;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-menu a {
+        margin: 0 10px;
+      }
+
+      .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-item .item-price {
+        margin-top: 5px;
+      }
     }
   </style>
 </head>
@@ -139,45 +202,116 @@
   </div>
 
   <!-- Menu Section -->
-  <div id="menu-section" class="menu-section section">
-    <div class="menu-wrapper">
-      <h2>Our Menu</h2>
-      <ul>
-        <li>Espresso <span>₹69</span></li>
-        <li>Americano (Hot/Iced) <span>₹79</span></li>
-        <li>Cortado (Regular Milk/Almond Milk) <span>₹99</span></li>
-        <li>Cappuccino (Regular Milk/Almond Milk) <span>₹99</span></li>
-        <li>Latte (Hot/Iced, Regular Milk/Almond Milk) <span>₹119</span></li>
-        <li>Mocha (Hot/Iced, Regular Milk/Almond Milk) <span>₹169</span></li>
-        <li>Korebi FOMO <span>₹129</span></li>
-        <li>Vietnamese Iced Coffee <span>₹119</span></li>
-        <li>Espresso Tonic <span>₹119</span></li>
-        <li>Espresso + Orange Juice <span>₹149</span></li>
-      </ul>
-      <div class="menu-footer">
-        *Signature Drinks: Almond Milk ₹80 extra | Flavors ₹20 extra.<br>
-        Cold Beverages: 350ml | Hot Beverages: 250ml.<br>
-        All prices are inclusive of GST.
+  <div id="menu-section" class="container menu-section">
+    <h2>Our Menu</h2>
+
+    <!-- Espresso Bar -->
+    <div class="menu-category">
+      <h3>Espresso Bar</h3>
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Espresso</div>
+        </div>
+        <div class="item-price">₹69</div>
       </div>
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Americano (Hot/Iced)</div>
+        </div>
+        <div class="item-price">₹79</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Cortado</div>
+          <div class="item-description">Regular Milk / Almond Milk</div>
+        </div>
+        <div class="item-price">₹99</div>
+      </div>
+      <!-- Add more items similarly -->
+      <!-- ... -->
+    </div>
+
+    <!-- Alternative Brewing -->
+    <div class="menu-category">
+      <h3>Alternative Brewing</h3>
+      <div class="menu-item">
+        <div class="item-name">Cold Brew</div>
+        <div class="item-price">₹169</div>
+      </div>
+      <!-- Add more items -->
+      <!-- ... -->
+    </div>
+
+    <!-- Frappes -->
+    <div class="menu-category">
+      <h3>Frappes</h3>
+      <div class="menu-item">
+        <div class="item-name">Malt</div>
+        <div class="item-price">₹179</div>
+      </div>
+      <!-- Add more items -->
+      <!-- ... -->
+    </div>
+
+    <!-- Specialty Teas -->
+    <div class="menu-category">
+      <h3>Specialty Teas (Hot/Iced)</h3>
+      <div class="menu-item">
+        <div class="item-name">Cranberry Nutmeg Rosemary</div>
+        <div class="item-price">₹59</div>
+      </div>
+      <!-- Add more items -->
+      <!-- ... -->
+    </div>
+
+    <!-- Bakes -->
+    <div class="menu-category">
+      <h3>Bakes</h3>
+      <div class="menu-item">
+        <div class="item-name">Butter Croissant</div>
+        <div class="item-price">₹150</div>
+      </div>
+      <!-- Add more items -->
+      <!-- ... -->
+    </div>
+
+    <!-- Chocolate -->
+    <div class="menu-category">
+      <h3>Chocolate</h3>
+      <div class="menu-item">
+        <div class="item-name">Hot Chocolate</div>
+        <div class="item-price">₹149</div>
+      </div>
+      <!-- Add more items -->
+      <!-- ... -->
+    </div>
+
+    <!-- Footer Note -->
+    <div class="menu-footer">
+      <p>*Signature Drinks: Almond Milk ₹80 extra | Additional Flavors ₹20 extra.</p>
+      <p>Cold Beverages: 350 ml | Hot Beverages: 250 ml.</p>
+      <p>All prices are inclusive of GST.</p>
     </div>
   </div>
 
   <!-- Café Hours Section -->
-  <div id="hours-section" class="hours-section section">
+  <div id="hours-section" class="container hours-section section">
     <h2>Café Hours</h2>
-    <p>Mon - Fri: 9:00am - 10:00pm</p>
-    <p>Sat: 10:00am - 11:00pm</p>
-    <p>Sun: 5:00pm - 11:00pm</p>
-    <p>Holidays: Closed</p>
+    <ul class="hours-list">
+      <li>Mon - Fri: 9:00 AM - 10:00 PM</li>
+      <li>Sat: 10:00 AM - 11:00 PM</li>
+      <li>Sun: 5:00 PM - 11:00 PM</li>
+      <li>Holidays: Closed</li>
+    </ul>
   </div>
 
   <!-- Contact Section -->
-  <div id="contact-section" class="contact-section section">
+  <div id="contact-section" class="container contact-section section">
     <h2>Contact Korebi</h2>
-    <ul>
-      <li>Instagram: <a href="https://instagram.com/korebi">korebi</a></li>
+    <ul class="contact-list">
+      <li>Instagram: <a href="https://instagram.com/korebi" target="_blank">@korebi</a></li>
       <li>Email: <a href="mailto:korebi@flameuniversity.com">korebi@flameuniversity.com</a></li>
-      <li>Phone: +91 9876543210</li>
+      <li>Phone: <a href="tel:+919876543210">+91 98765 43210</a></li>
     </ul>
   </div>
 
