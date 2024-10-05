@@ -3,97 +3,300 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juice Press Café</title>
+  <title>Juice Press Café - Details</title>
   <style>
     /* Importing Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Garet:wght@300;400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Garet:wght@300;400&display=swap');
 
-    /* General Styles */
-    body, html {
+    /* Reset Styles */
+    * {
       margin: 0;
       padding: 0;
-      height: 100%;
-      font-family: 'Garet', sans-serif;
+      box-sizing: border-box;
     }
 
-    /* Full-Height Background Image */
-    .background {
-      background-image: url('jp.png'); /* The background image file */
-      background-size: cover;
-      background-position: center;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    /* General Styles */
+    body {
+      font-family: 'Garet', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Navigation Menu */
+    .nav-menu {
+      background-color: #ffffff;
+      padding: 20px;
       text-align: center;
-      color: white;
-    }
-
-    /* Animation Keyframes for Fade-In */
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    /* Main Heading Style */
-    h1 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 4rem;
-      margin: 0;
-      opacity: 0;
-      animation: fadeIn 2s ease-in forwards; /* Fade-in animation for the heading */
-    }
-
-    /* Subheading Style */
-    p {
-      font-family: 'Garet', sans-serif;
-      font-size: 1.5rem;
-      margin-top: 10px;
-      max-width: 80%;
-      opacity: 0;
-      animation: fadeIn 2s ease-in 0.5s forwards; /* Fade-in animation for the subtext, delayed by 2 seconds */
-    }
-
-    /* Button Container */
-    .button-container {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 20px; /* Space between buttons */
-    }
-
-    /* Button Styles */
-    .btn {
-      padding: 10px 20px;
-      background-color: #57A2D8;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.2rem;
-      cursor: pointer;
-      text-decoration: none;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #e0e0e0;
       transition: background-color 0.3s ease;
     }
 
-    .btn:hover {
-      background-color: #4a91c0;
+    .nav-menu a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      color: #333;
+      text-decoration: none;
+      margin: 0 20px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background-color: #57A2D8;
+      left: 50%;
+      bottom: 0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Section Titles */
+    h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    /* Menu Section */
+    .menu-section, .hours-section, .contact-section {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      padding: 40px;
+      margin-bottom: 50px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    .menu-category {
+      margin-bottom: 40px;
+    }
+
+    .menu-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .menu-category h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem;
+      color: #57A2D8;
+      margin-bottom: 20px;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .menu-item .item-name {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .menu-item .item-price {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #57A2D8;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+
+    /* Café Hours and Contact Sections */
+    .section {
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    .hours-list, .contact-list {
+      list-style: none;
+      padding: 0;
+      font-size: 1.1rem;
+      line-height: 2;
+    }
+
+    .contact-list a {
+      color: #57A2D8;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-list a:hover {
+      color: #333;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-menu a {
+        margin: 0 10px;
+      }
+
+      .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-item .item-price {
+        margin-top: 5px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="background">
-    <h1>JUICE PRESS</h1>
-    <p>A cute little tucked away café offering freshly pressed juices, and a wide range of parathas, wraps, and sandwiches among other foods.</p>
-    
-    <!-- Button Container -->
-    <div class="button-container">
-      <a href="juicepress-details.html#menu-section" class="btn">Menu</a>
-      <a href="juicepress-details.html#hours-section" class="btn">Café Hours</a>
-      <a href="juicepress-details.html#contact-section" class="btn">Contact Juice Press</a>
+  <!-- Navigation Menu -->
+  <div class="nav-menu">
+    <a href="#menu-section">Menu</a>
+    <a href="#hours-section">Café Hours</a>
+    <a href="#contact-section">Contact Juice Press</a>
+  </div>
+
+  <!-- Menu Section -->
+  <div id="menu-section" class="container menu-section">
+    <h2>Juice Press Menu</h2>
+
+    <!-- Beverages -->
+    <div class="menu-category">
+      <h3>Beverages</h3>
+      <div class="menu-item">
+        <div class="item-name">Tea</div>
+        <div class="item-price">Rs.10</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Black Tea</div>
+        <div class="item-price">Rs.10</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Hot Coffee</div>
+        <div class="item-price">Rs.30</div>
+      </div>
+      <!-- Add other beverage items -->
     </div>
+
+    <!-- Snacks -->
+    <div class="menu-category">
+      <h3>Snacks</h3>
+      <div class="menu-item">
+        <div class="item-name">Vada Pav</div>
+        <div class="item-price">Rs.20</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Cheese Vada Pav</div>
+        <div class="item-price">Rs.40</div>
+      </div>
+      <!-- Add other snack items -->
+    </div>
+
+    <!-- Sandwiches -->
+    <div class="menu-category">
+      <h3>Sandwiches</h3>
+      <div class="menu-item">
+        <div class="item-name">Bread Butter</div>
+        <div class="item-price">Rs.40</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Cheese Grilled Vada Pav</div>
+        <div class="item-price">Rs.45</div>
+      </div>
+      <!-- Add other sandwich items -->
+    </div>
+
+    <!-- Parathas -->
+    <div class="menu-category">
+      <h3>Parathas</h3>
+      <div class="menu-item">
+        <div class="item-name">Alu Paratha (2 Paratha)</div>
+        <div class="item-price">Rs.90</div>
+      </div>
+      <!-- Add other paratha items -->
+    </div>
+
+    <!-- Chat -->
+    <div class="menu-category">
+      <h3>Chat</h3>
+      <div class="menu-item">
+        <div class="item-name">Pani Puri</div>
+        <div class="item-price">Rs.30</div>
+      </div>
+      <!-- Add other chat items -->
+    </div>
+
+    <!-- Fresh Juice -->
+    <div class="menu-category">
+      <h3>Fresh Juice</h3>
+      <div class="menu-item">
+        <div class="item-name">Lemon Juice</div>
+        <div class="item-price">Rs.40</div>
+      </div>
+      <!-- Add other fresh juice items -->
+    </div>
+
+    <!-- Footer Note -->
+    <div class="menu-footer">
+      <p>*Extras: Cheese Rs.20 | Butter Rs.10.</p>
+      <p>All prices are inclusive of GST.</p>
+    </div>
+  </div>
+
+  <!-- Café Hours Section with Container -->
+  <div id="hours-section" class="container hours-section section">
+    <h2>Café Hours</h2>
+    <ul class="hours-list">
+      <li>Mon - Fri: 8:00 AM - 9:00 PM</li>
+      <li>Sat: 9:00 AM - 10:00 PM</li>
+      <li>Sun: 10:00 AM - 8:00 PM</li>
+      <li>Holidays: Closed</li>
+    </ul>
+  </div>
+
+  <!-- Contact Section with Container -->
+  <div id="contact-section" class="container contact-section section">
+    <h2>Contact Juice Press</h2>
+    <ul class="contact-list">
+      <li>Instagram: <a href="https://instagram.com/juicepress" target="_blank">@juicepress</a></li>
+      <li>Email: <a href="mailto:juicepress@flameuniversity.com">juicepress@flameuniversity.com</a></li>
+      <li>Phone: <a href="tel:+919876543210">+91 98765 43210</a></li>
+    </ul>
   </div>
 
 </body>
