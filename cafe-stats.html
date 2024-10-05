@@ -62,20 +62,19 @@
       margin-bottom: 50px;
     }
 
-    /* Polaroid Style for Images */
-    .polaroid {
-      border: 10px solid white;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    /* First Image (Full-width) */
+    .first-image {
       margin: 20px auto;
       width: 50%; /* Full width for the first image */
     }
 
-    .smaller-polaroid {
-      width: 40%; /* Smaller size for the two smaller images */
+    /* Second and Third Images: Same size as Best of the Best section */
+    .small-image {
+      width: 30%; /* Same size as "Best of the Best" images */
       margin: 10px;
     }
 
-    .polaroid img {
+    .small-image img {
       width: 100%;
       height: auto;
     }
@@ -97,11 +96,6 @@
 
     .two-column .col {
       flex: 1;
-    }
-
-    .two-column .polaroid {
-      width: 100%; /* Make sure each smaller image fills its column */
-      height: auto;
     }
 
     /* Three-Column Layout for the last section */
@@ -127,7 +121,11 @@
         flex-direction: column;
       }
 
-      .polaroid {
+      .first-image {
+        width: 90%; /* Smaller size for smaller screens */
+      }
+
+      .small-image {
         width: 90%; /* Smaller size for smaller screens */
       }
 
@@ -155,24 +153,20 @@
       <h2>A CROWD FAVOURITE!</h2>
 
       <!-- First Image: Full width -->
-      <div class="polaroid">
+      <div class="first-image">
         <img src="jppolaroid.png" alt="Juice Press Stats">
         <div class="caption">41% of people voted for Juice Press as their favorite café on campus.</div>
       </div>
 
       <!-- Two smaller images next to each other -->
       <div class="two-column">
-        <div class="col">
-          <div class="polaroid">
-            <img src="jppolaroid.png" alt="Hashtag">
-            <div class="caption">23.4% of people voted for Hashtag</div>
-          </div>
+        <div class="col small-image">
+          <img src="jppolaroid.png" alt="Hashtag">
+          <div class="caption">23.4% of people voted for Hashtag</div>
         </div>
-        <div class="col">
-          <div class="polaroid">
-            <img src="jppolaroid.png" alt="Centre Stage">
-            <div class="caption">9.4% of people voted for Centre Stage</div>
-          </div>
+        <div class="col small-image">
+          <img src="jppolaroid.png" alt="Centre Stage">
+          <div class="caption">9.4% of people voted for Centre Stage</div>
         </div>
       </div>
     </div>
@@ -180,16 +174,16 @@
     <!-- HEALTH MATTERS SECTION -->
     <div class="section">
       <h2>HEALTH MATTERS</h2>
-      <div class="polaroid">
+      <div class="first-image">
         <img src="jppolaroid.png" alt="Healthiest Café">
         <div class="caption">80% of people think Juice Press has the healthiest food.</div>
       </div>
       <div class="two-column">
-        <div class="col polaroid smaller-polaroid">
+        <div class="col small-image">
           <img src="jppolaroid.png" alt="Hashtag">
           <div class="caption">6.3% of people voted for Hashtag</div>
         </div>
-        <div class="col polaroid smaller-polaroid">
+        <div class="col small-image">
           <img src="jppolaroid.png" alt="Coffee Nation">
           <div class="caption">6.3% of people voted for Coffee Nation</div>
         </div>
@@ -199,16 +193,16 @@
     <!-- YOUNG, (DUMB), BROKE SECTION -->
     <div class="section">
       <h2>YOUNG, (DUMB), BROKE</h2>
-      <div class="polaroid">
+      <div class="first-image">
         <img src="jppolaroid.png" alt="Cheapest Café">
         <div class="caption">80% of people think Juice Press has the cheapest food.</div>
       </div>
       <div class="two-column">
-        <div class="col polaroid smaller-polaroid">
+        <div class="col small-image">
           <img src="jppolaroid.png" alt="Charlie's Café">
           <div class="caption">10.9% of people voted for Charlie's</div>
         </div>
-        <div class="col polaroid smaller-polaroid">
+        <div class="col small-image">
           <img src="jppolaroid.png" alt="Centre Stage">
           <div class="caption">6.3% of people voted for Centre Stage</div>
         </div>
@@ -218,16 +212,16 @@
     <!-- A CUP OF COFFEE FOR YOUR HEAD SECTION -->
     <div class="section">
       <h2>A CUP OF COFFEE FOR YOUR HEAD</h2>
-      <div class="polaroid">
+      <div class="first-image">
         <img src="jppolaroid.png" alt="Best Coffee Café">
         <div class="caption">61% of people voted for Coffee Nation having the best coffee.</div>
       </div>
       <div class="two-column">
-        <div class="col polaroid smaller-polaroid">
+        <div class="col small-image">
           <img src="jppolaroid.png" alt="Korebi">
           <div class="caption">14.8% of people voted for Korebi</div>
         </div>
-        <div class="col polaroid smaller-polaroid">
+        <div class="col small-image">
           <img src="jppolaroid.png" alt="Charlie's Café">
           <div class="caption">10.9% of people voted for Charlie's</div>
         </div>
@@ -238,15 +232,15 @@
     <div class="section">
       <h2>THE BEST OF THE BEST</h2>
       <div class="three-column">
-        <div class="col polaroid">
+        <div class="col">
           <img src="jppolaroid.png" alt="Hashtag Fries">
           <div class="caption">71.7% chose Hashtag fries as their favorite!</div>
         </div>
-        <div class="col polaroid">
+        <div class="col">
           <img src="jppolaroid.png" alt="Juice Press Maggi">
           <div class="caption">35% chose Juice Press Maggi as their favorite!</div>
         </div>
-        <div class="col polaroid">
+        <div class="col">
           <img src="jppolaroid.png" alt="Centre Stage Sandwiches">
           <div class="caption">41.1% chose Centre Stage sandwiches as their favorite!</div>
         </div>
