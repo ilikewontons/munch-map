@@ -71,6 +71,11 @@
       width: 50%; /* Full width for the first image */
     }
 
+    .smaller-polaroid {
+      width: 40%; /* Smaller size for the two smaller images */
+      margin: 10px;
+    }
+
     .polaroid img {
       width: 100%;
       height: auto;
@@ -88,11 +93,10 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      flex-wrap: wrap;
     }
 
     .two-column .col {
-      flex: 50%;
+      flex: 1;
       margin: 10px;
     }
 
@@ -145,16 +149,20 @@
     <!-- A CROWD FAVOURITE SECTION -->
     <div class="section">
       <h2>A CROWD FAVOURITE!</h2>
+
+      <!-- First Image: Full width -->
       <div class="polaroid">
         <img src="jppolaroid.png" alt="Juice Press Stats">
         <div class="caption">41% of people voted for Juice Press as their favorite café on campus.</div>
       </div>
+
+      <!-- Two smaller images next to each other -->
       <div class="two-column">
-        <div class="col polaroid">
+        <div class="col polaroid smaller-polaroid">
           <img src="jppolaroid.png" alt="Hashtag">
           <div class="caption">23.4% of people voted for Hashtag</div>
         </div>
-        <div class="col polaroid">
+        <div class="col polaroid smaller-polaroid">
           <img src="jppolaroid.png" alt="Centre Stage">
           <div class="caption">9.4% of people voted for Centre Stage</div>
         </div>
@@ -169,11 +177,11 @@
         <div class="caption">80% of people think Juice Press has the healthiest food.</div>
       </div>
       <div class="two-column">
-        <div class="col polaroid">
+        <div class="col polaroid smaller-polaroid">
           <img src="jppolaroid.png" alt="Hashtag">
           <div class="caption">6.3% of people voted for Hashtag</div>
         </div>
-        <div class="col polaroid">
+        <div class="col polaroid smaller-polaroid">
           <img src="jppolaroid.png" alt="Coffee Nation">
           <div class="caption">6.3% of people voted for Coffee Nation</div>
         </div>
@@ -188,11 +196,11 @@
         <div class="caption">80% of people think Juice Press has the cheapest food.</div>
       </div>
       <div class="two-column">
-        <div class="col polaroid">
+        <div class="col polaroid smaller-polaroid">
           <img src="jppolaroid.png" alt="Charlie's Café">
           <div class="caption">10.9% of people voted for Charlie's</div>
         </div>
-        <div class="col polaroid">
+        <div class="col polaroid smaller-polaroid">
           <img src="jppolaroid.png" alt="Centre Stage">
           <div class="caption">6.3% of people voted for Centre Stage</div>
         </div>
@@ -207,11 +215,11 @@
         <div class="caption">61% of people voted for Coffee Nation having the best coffee.</div>
       </div>
       <div class="two-column">
-        <div class="col polaroid">
+        <div class="col polaroid smaller-polaroid">
           <img src="jppolaroid.png" alt="Korebi">
           <div class="caption">14.8% of people voted for Korebi</div>
         </div>
-        <div class="col polaroid">
+        <div class="col polaroid smaller-polaroid">
           <img src="jppolaroid.png" alt="Charlie's Café">
           <div class="caption">10.9% of people voted for Charlie's</div>
         </div>
