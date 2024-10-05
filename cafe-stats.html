@@ -17,9 +17,6 @@
       background-image: url('arjuna.png'); /* Background image file */
       background-size: cover;
       background-position: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       text-align: center;
       color: #57A2D8; /* Text color */
     }
@@ -37,13 +34,199 @@
       font-size: 1.5rem;
       margin-top: 10px;
     }
+
+    /* Content Styling */
+    .content {
+      padding: 50px 10px;
+      background-color: rgba(255, 255, 255, 0.8); /* White background with transparency */
+      border-radius: 10px;
+      width: 90%;
+      margin: 20px auto;
+    }
+
+    h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      color: #57A2D8;
+      margin-top: 40px;
+    }
+
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .polaroid {
+      border: 10px solid white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin: 20px;
+      display: inline-block;
+      width: auto;
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: auto;
+    }
+
+    .caption {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      padding: 10px;
+      color: black;
+    }
+
+    /* Two-Column Layout */
+    .two-column {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .two-column .left {
+      flex: 60%;
+      margin-right: 20px;
+    }
+
+    .two-column .right {
+      flex: 40%;
+    }
+
+    /* Three-Column Layout */
+    .three-column {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .three-column .col {
+      flex: 30%;
+      margin: 10px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .two-column {
+        flex-direction: column;
+      }
+
+      .three-column {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
 
   <div class="content">
+    <!-- Café Stats Heading -->
     <h1>CAFÉ STATS</h1>
     <p>based on survey results from students of FLAME</p>
+
+    <!-- A CROWD FAVOURITE SECTION -->
+    <div class="section">
+      <h2>A CROWD FAVOURITE!</h2>
+      <div class="two-column">
+        <div class="left polaroid">
+          <img src="jppolaroid.png" alt="Juice Press Stats">
+          <div class="caption">41% of people voted for Juice Press as their favorite café on campus.</div>
+        </div>
+        <div class="right">
+          <div class="polaroid">
+            <img src="jppolaroid.png" alt="Hashtag">
+            <div class="caption">23.4% of people voted for Hashtag</div>
+          </div>
+          <div class="polaroid">
+            <img src="jppolaroid.png" alt="Centre Stage">
+            <div class="caption">9.4% of people voted for Centre Stage</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEALTH MATTERS SECTION -->
+    <div class="section">
+      <h2>HEALTH MATTERS</h2>
+      <div class="two-column">
+        <div class="left polaroid">
+          <img src="jppolaroid.png" alt="Healthiest Café">
+          <div class="caption">80% of people think Juice Press has the healthiest food.</div>
+        </div>
+        <div class="right">
+          <div class="polaroid">
+            <img src="jppolaroid.png" alt="Hashtag">
+            <div class="caption">6.3% of people voted for Hashtag</div>
+          </div>
+          <div class="polaroid">
+            <img src="jppolaroid.png" alt="Coffee Nation">
+            <div class="caption">6.3% of people voted for Coffee Nation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YOUNG, (DUMB), BROKE SECTION -->
+    <div class="section">
+      <h2>YOUNG, (DUMB), BROKE</h2>
+      <div class="two-column">
+        <div class="left polaroid">
+          <img src="jppolaroid.png" alt="Cheapest Café">
+          <div class="caption">80% of people think Juice Press has the cheapest food.</div>
+        </div>
+        <div class="right">
+          <div class="polaroid">
+            <img src="jppolaroid.png" alt="Charlie's Café">
+            <div class="caption">10.9% of people voted for Charlie's</div>
+          </div>
+          <div class="polaroid">
+            <img src="jppolaroid.png" alt="Centre Stage">
+            <div class="caption">6.3% of people voted for Centre Stage</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A CUP OF COFFEE FOR YOUR HEAD SECTION -->
+    <div class="section">
+      <h2>A CUP OF COFFEE FOR YOUR HEAD</h2>
+      <div class="two-column">
+        <div class="left polaroid">
+          <img src="jppolaroid.png" alt="Best Coffee Café">
+          <div class="caption">61% of people voted for Coffee Nation having the best coffee.</div>
+        </div>
+        <div class="right">
+          <div class="polaroid">
+            <img src="jppolaroid.png" alt="Korebi">
+            <div class="caption">14.8% of people voted for Korebi</div>
+          </div>
+          <div class="polaroid">
+            <img src="jppolaroid.png" alt="Charlie's Café">
+            <div class="caption">10.9% of people voted for Charlie's</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE BEST OF THE BEST SECTION -->
+    <div class="section">
+      <h2>THE BEST OF THE BEST</h2>
+      <div class="three-column">
+        <div class="col polaroid">
+          <img src="jppolaroid.png" alt="Hashtag Fries">
+          <div class="caption">71.7% chose Hashtag fries as their favorite!</div>
+        </div>
+        <div class="col polaroid">
+          <img src="jppolaroid.png" alt="Juice Press Maggi">
+          <div class="caption">35% chose Juice Press Maggi as their favorite!</div>
+        </div>
+        <div class="col polaroid">
+          <img src="jppolaroid.png" alt="Centre Stage Sandwiches">
+          <div class="caption">41.1% chose Centre Stage sandwiches as their favorite!</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </body>
