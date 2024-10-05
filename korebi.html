@@ -54,6 +54,42 @@
       opacity: 0;
       animation: fadeIn 2s ease-in 0.5s forwards; /* Fade in animation for the subtext, delayed by 2 seconds */
     }
+
+    /* Menu Navigation */
+    .nav-menu {
+      margin-top: 30px;
+      opacity: 0;
+      animation: fadeIn 2s ease-in 1s forwards; /* Fade in animation for the menu */
+    }
+
+    .nav-menu a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      border: 2px solid white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+      background-color: rgba(255, 255, 255, 0.3); /* Light overlay on hover */
+    }
+
+    /* Section Styling */
+    .section {
+      display: none;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      max-width: 80%;
+      margin: 20px auto;
+    }
+
   </style>
 </head>
 <body>
@@ -61,6 +97,29 @@
   <div class="background">
     <h1>KOREBI</h1>
     <p>FLAME University's newest café, offering artisan coffee to the students here.</p>
+
+    <!-- Menu Navigation -->
+    <div class="nav-menu">
+      <a href="#menu-section">Menu</a>
+      <a href="#hours-section">Café Hours</a>
+      <a href="#contact-section">Contact Korebi</a>
+    </div>
+  </div>
+
+  <!-- Sections to be filled -->
+  <div id="menu-section" class="section">
+    <h2>Our Menu</h2>
+    <!-- Menu details will go here -->
+  </div>
+
+  <div id="hours-section" class="section">
+    <h2>Café Hours</h2>
+    <!-- Café hours will go here -->
+  </div>
+
+  <div id="contact-section" class="section">
+    <h2>Contact Korebi</h2>
+    <!-- Contact details will go here -->
   </div>
 
 </body>
