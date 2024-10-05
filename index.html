@@ -27,22 +27,20 @@
       font-family: 'Impact', sans-serif; /* Impact font for header */
     }
 
-    /* Navigation Styles */
+    /* Increased Navigation Bar Styles */
     nav {
       display: flex;
       justify-content: center;
       background-color: #ffffff;
-      padding: 10px;
-      position: fixed; /* Fixes the nav bar to the top */
-      top: 0; /* Positions it at the very top */
+      padding: 20px; /* Increase size */
+      font-size: 1.2rem; /* Increase font size */
       width: 100%; /* Ensures the nav spans the full width */
-      z-index: 1000; /* Keeps the nav on top of other elements */
       box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow */
     }
 
     nav a {
       color: #004b8d;
-      margin: 0 15px;
+      margin: 0 20px;
       text-decoration: none;
       font-weight: bold;
     }
@@ -96,6 +94,7 @@
     #map img {
       width: 100%;
       height: auto;
+      margin-top: 0; /* Remove white space above the map */
     }
 
     /* About Section */
@@ -105,11 +104,11 @@
       justify-content: center;
       align-items: center;
       padding: 40px 20px;
-      margin-top: 100px; /* Adjusts for fixed nav bar height */
+      margin-top: 0; /* Remove margin above */
     }
 
     .about-section img {
-      width: 70%;
+      width: 50%;
       max-width: 400px;
       height: auto;
       border-radius: 10px;
@@ -132,11 +131,6 @@
       font-size: 1rem;
       color: #333333; /* Dark grey text */
       line-height: 1.8;
-    }
-
-    /* Adjusting content to prevent overlap with fixed nav */
-    .content-wrapper {
-      margin-top: 150px; /* Adjusts for header and nav bar height */
     }
 
     /* Meet the Team Section */
@@ -201,10 +195,12 @@
 </head>
 <body>
 
+  <!-- Header -->
   <header>
     <h1>Welcome to Munch Map</h1>
   </header>
 
+  <!-- Navigation moved below the header -->
   <nav>
     <a href="index.html">Home</a>
     <a href="#">Meet the Team</a>
@@ -223,7 +219,7 @@
     <a href="cafe-stats.html">Café Stats</a>
   </nav>
 
-  <!-- Content Wrapper to adjust for fixed nav -->
+  <!-- Content Wrapper -->
   <div class="content-wrapper">
     <!-- Map Section -->
     <section id="map">
