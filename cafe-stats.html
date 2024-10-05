@@ -67,7 +67,6 @@
       border: 10px solid white;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       margin: 20px auto;
-      display: block;
       width: 50%; /* Full width for the first image */
     }
 
@@ -90,14 +89,19 @@
 
     /* Two-Column Layout for smaller images */
     .two-column {
-      display: flex;
+      display: flex; /* Ensures the columns are side-by-side */
       justify-content: center;
       align-items: flex-start;
+      gap: 20px; /* Space between the two images */
     }
 
     .two-column .col {
       flex: 1;
-      margin: 10px;
+    }
+
+    .two-column .polaroid {
+      width: 100%; /* Make sure each smaller image fills its column */
+      height: auto;
     }
 
     /* Three-Column Layout for the last section */
@@ -158,13 +162,17 @@
 
       <!-- Two smaller images next to each other -->
       <div class="two-column">
-        <div class="col polaroid smaller-polaroid">
-          <img src="jppolaroid.png" alt="Hashtag">
-          <div class="caption">23.4% of people voted for Hashtag</div>
+        <div class="col">
+          <div class="polaroid">
+            <img src="jppolaroid.png" alt="Hashtag">
+            <div class="caption">23.4% of people voted for Hashtag</div>
+          </div>
         </div>
-        <div class="col polaroid smaller-polaroid">
-          <img src="jppolaroid.png" alt="Centre Stage">
-          <div class="caption">9.4% of people voted for Centre Stage</div>
+        <div class="col">
+          <div class="polaroid">
+            <img src="jppolaroid.png" alt="Centre Stage">
+            <div class="caption">9.4% of people voted for Centre Stage</div>
+          </div>
         </div>
       </div>
     </div>
