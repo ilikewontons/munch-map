@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Juice Press Café</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     /* Importing Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Garet:wght@300;400&display=swap');
@@ -18,10 +19,11 @@
 
     /* Full-Height Background Image */
     .background {
-      background-image: url('jp.png'); /* The background image file */
+      background-image: url('jp.png'); /* Replace with your background image file */
       background-size: cover;
       background-position: center;
-      height: 100%;
+      background-repeat: no-repeat;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -32,8 +34,8 @@
 
     /* Animation Keyframes for Fade-In */
     @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     /* Main Heading Style */
@@ -42,7 +44,7 @@
       font-size: 4rem;
       margin: 0;
       opacity: 0;
-      animation: fadeIn 2s ease-in forwards; /* Fade-in animation for the heading */
+      animation: fadeIn 2s ease-in forwards;
     }
 
     /* Subheading Style */
@@ -52,7 +54,7 @@
       margin-top: 10px;
       max-width: 80%;
       opacity: 0;
-      animation: fadeIn 2s ease-in 0.5s forwards; /* Fade-in animation for the subtext, delayed by 2 seconds */
+      animation: fadeIn 2s ease-in 0.5s forwards;
     }
 
     /* Button Container */
@@ -60,7 +62,9 @@
       margin-top: 30px;
       display: flex;
       justify-content: center;
-      gap: 20px; /* Space between buttons */
+      gap: 20px;
+      opacity: 0;
+      animation: fadeIn 2s ease-in 1s forwards;
     }
 
     /* Button Styles */
@@ -86,8 +90,8 @@
 
   <div class="background">
     <h1>JUICE PRESS</h1>
-    <p>A cute little tucked away café offering freshly pressed juices, and a wide range of parathas, wraps, and sandwiches among other foods.</p>
-    
+    <p>A cozy café offering freshly pressed juices, and a wide range of parathas, wraps, sandwiches, and more.</p>
+
     <!-- Button Container -->
     <div class="button-container">
       <a href="juicepress-details.html#menu-section" class="btn">Menu</a>
