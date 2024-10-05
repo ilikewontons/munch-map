@@ -54,6 +54,32 @@
       opacity: 0;
       animation: fadeIn 2s ease-in 0.5s forwards; /* Fade-in animation for the subtext, delayed by 2 seconds */
     }
+
+    /* Button Container */
+    .button-container {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px; /* Space between buttons */
+    }
+
+    /* Button Styles */
+    .btn {
+      padding: 10px 20px;
+      background-color: #57A2D8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #4a91c0;
+    }
   </style>
 </head>
 <body>
@@ -61,6 +87,13 @@
   <div class="background">
     <h1>JUICE PRESS</h1>
     <p>A cute little tucked away café offering freshly pressed juices, and a wide range of parathas, wraps, and sandwiches among other foods.</p>
+    
+    <!-- Button Container -->
+    <div class="button-container">
+      <a href="juicepress-details.html#menu-section" class="btn">Menu</a>
+      <a href="juicepress-details.html#hours-section" class="btn">Café Hours</a>
+      <a href="juicepress-details.html#contact-section" class="btn">Contact Juice Press</a>
+    </div>
   </div>
 
 </body>
