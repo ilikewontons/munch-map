@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Juice Press Café - Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     /* Importing Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Garet:wght@300;400&display=swap');
@@ -31,7 +32,6 @@
       top: 0;
       z-index: 1000;
       border-bottom: 1px solid #e0e0e0;
-      transition: background-color 0.3s ease;
     }
 
     .nav-menu a {
@@ -39,26 +39,15 @@
       font-size: 1.2rem;
       color: #333;
       text-decoration: none;
-      margin: 0 20px;
-      padding: 10px 20px;
+      margin: 0 15px;
+      padding: 10px 15px;
       border-radius: 5px;
       position: relative;
+      transition: background-color 0.3s ease;
     }
 
-    .nav-menu a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      background-color: #57A2D8;
-      left: 50%;
-      bottom: 0;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .nav-menu a:hover::after {
-      width: 100%;
-      left: 0;
+    .nav-menu a:hover {
+      background-color: #f0f0f0;
     }
 
     /* Section Titles */
@@ -108,8 +97,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 15px;
-      padding-bottom: 15px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
       border-bottom: 1px solid #e0e0e0;
     }
 
@@ -132,13 +121,13 @@
 
     /* Animations */
     @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
       from {
         opacity: 0;
         transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
@@ -165,10 +154,32 @@
       color: #333;
     }
 
+    /* Back to Home Button */
+    .back-home {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .back-home a {
+      padding: 10px 20px;
+      background-color: #57A2D8;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-home a:hover {
+      background-color: #4a91c0;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .nav-menu a {
         margin: 0 10px;
+        font-size: 1rem;
       }
 
       .menu-item {
@@ -198,6 +209,7 @@
     <!-- Beverages -->
     <div class="menu-category">
       <h3>Beverages</h3>
+      <!-- Beverages Items -->
       <div class="menu-item">
         <div class="item-name">Tea</div>
         <div class="item-price">Rs.10</div>
@@ -206,16 +218,14 @@
         <div class="item-name">Black Tea</div>
         <div class="item-price">Rs.10</div>
       </div>
-      <div class="menu-item">
-        <div class="item-name">Hot Coffee</div>
-        <div class="item-price">Rs.30</div>
-      </div>
-      <!-- Add other beverage items -->
+      <!-- Add all other beverage items here -->
+      <!-- ... -->
     </div>
 
     <!-- Snacks -->
     <div class="menu-category">
       <h3>Snacks</h3>
+      <!-- Snacks Items -->
       <div class="menu-item">
         <div class="item-name">Vada Pav</div>
         <div class="item-price">Rs.20</div>
@@ -224,51 +234,72 @@
         <div class="item-name">Cheese Vada Pav</div>
         <div class="item-price">Rs.40</div>
       </div>
-      <!-- Add other snack items -->
+      <!-- Add all other snack items here -->
+      <!-- ... -->
     </div>
 
     <!-- Sandwiches -->
     <div class="menu-category">
       <h3>Sandwiches</h3>
+      <!-- Sandwiches Items -->
       <div class="menu-item">
         <div class="item-name">Bread Butter</div>
         <div class="item-price">Rs.40</div>
       </div>
       <div class="menu-item">
-        <div class="item-name">Cheese Grilled Vada Pav</div>
-        <div class="item-price">Rs.45</div>
+        <div class="item-name">Jam Sandwich</div>
+        <div class="item-price">Rs.40</div>
       </div>
-      <!-- Add other sandwich items -->
+      <!-- Add all other sandwich items here -->
+      <!-- ... -->
     </div>
 
     <!-- Parathas -->
     <div class="menu-category">
       <h3>Parathas</h3>
+      <!-- Parathas Items -->
       <div class="menu-item">
         <div class="item-name">Alu Paratha (2 Paratha)</div>
         <div class="item-price">Rs.90</div>
       </div>
-      <!-- Add other paratha items -->
+      <div class="menu-item">
+        <div class="item-name">Mix Veg Paratha (2 Paratha)</div>
+        <div class="item-price">Rs.90</div>
+      </div>
+      <!-- Add all other paratha items here -->
+      <!-- ... -->
     </div>
 
     <!-- Chat -->
     <div class="menu-category">
       <h3>Chat</h3>
+      <!-- Chat Items -->
       <div class="menu-item">
         <div class="item-name">Pani Puri</div>
         <div class="item-price">Rs.30</div>
       </div>
-      <!-- Add other chat items -->
+      <div class="menu-item">
+        <div class="item-name">Bhel</div>
+        <div class="item-price">Rs.50</div>
+      </div>
+      <!-- Add all other chat items here -->
+      <!-- ... -->
     </div>
 
     <!-- Fresh Juice -->
     <div class="menu-category">
       <h3>Fresh Juice</h3>
+      <!-- Fresh Juice Items -->
       <div class="menu-item">
         <div class="item-name">Lemon Juice</div>
         <div class="item-price">Rs.40</div>
       </div>
-      <!-- Add other fresh juice items -->
+      <div class="menu-item">
+        <div class="item-name">Orange Juice</div>
+        <div class="item-price">Rs.60</div>
+      </div>
+      <!-- Add all other fresh juice items here -->
+      <!-- ... -->
     </div>
 
     <!-- Footer Note -->
@@ -278,7 +309,7 @@
     </div>
   </div>
 
-  <!-- Café Hours Section with Container -->
+  <!-- Café Hours Section -->
   <div id="hours-section" class="container hours-section section">
     <h2>Café Hours</h2>
     <ul class="hours-list">
@@ -289,7 +320,7 @@
     </ul>
   </div>
 
-  <!-- Contact Section with Container -->
+  <!-- Contact Section -->
   <div id="contact-section" class="container contact-section section">
     <h2>Contact Juice Press</h2>
     <ul class="contact-list">
@@ -297,6 +328,11 @@
       <li>Email: <a href="mailto:juicepress@flameuniversity.com">juicepress@flameuniversity.com</a></li>
       <li>Phone: <a href="tel:+919876543210">+91 98765 43210</a></li>
     </ul>
+  </div>
+
+  <!-- Back to Home Button -->
+  <div class="back-home">
+    <a href="index.html">Back to Home</a>
   </div>
 
 </body>
