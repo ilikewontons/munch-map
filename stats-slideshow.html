@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café Stats - Slideshow</title>
+  <style>
+    /* General Styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Garet', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      height: 100%;
+    }
+
+    /* Slideshow Container */
+    .slideshow-container {
+      position: relative;
+      max-width: 1000px;
+      margin: auto;
+      padding-top: 50px;
+    }
+
+    /* Slides */
+    .mySlides {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Slide Content */
+    .slide-content {
+      font-size: 1.5rem;
+      font-family: 'Oswald', sans-serif;
+      color: #57A2D8;
+    }
+
+    /* Next & Previous Buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    /* Dots for navigation */
+    .dot {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+      background-color: #57A2D8;
+    }
+
+    /* Slide Animation */
+    @keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slideshow-container">
+
+    <!-- First Slide -->
+    <div class="mySlides fade">
+      <div class="slide-content">
+        <h2>A Crowd Favourite</h2>
+        <p>Discover the most visited café on campus.</p>
+      </div>
+    </div>
+
+    <!-- Second Slide -->
+    <div class="mySlides fade">
+      <div class="slide-content">
+        <h2>Health Matters</h2>
+        <p>Explore the healthiest options available.</p>
+      </div>
+    </div>
+
+    <!-- Third Slide -->
+    <div class="mySlides fade">
+      <div class="slide-content">
+        <h2>Young, (dumb), broke</h2>
+        <p>Where you can eat well on a budget.</p>
+      </div>
+    </div>
+
+    <!-- Fourth Slide -->
+    <div class="mySlides fade">
+      <div class="slide-content">
+        <h2>A Cup of Coffee for Your Head</h2>
+        <p>The best places to grab a cup of coffee.</p>
+      </div>
+    </div>
+
+    <!-- Fifth Slide -->
+    <div class="mySlides fade">
+      <div class="slide-content">
+        <h2>Best of the Best #1</h2>
+        <p>The top-ranked café for its ambiance.</p>
+      </div>
+    </div>
+
+    <!-- Sixth Slide -->
+    <div class="mySlides fade">
+      <div class="slide-content">
+        <h2>Best of the Best #2</h2>
+        <p>The café with the most creative menu.</p>
+      </div>
+    </div>
+
+    <!-- Seventh Slide -->
+    <div class="mySlides fade">
+      <div class="slide-content">
+        <h2>Best of the Best #3</h2>
+        <p>The best café for socializing and chilling out.</p>
+      </div>
+    </div>
+
+    <!-- Next and Previous Buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+
+  <!-- Dots Navigation -->
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span> 
+    <span class="dot" onclick="currentSlide(3)"></span> 
+    <span class="dot" onclick="currentSlide(4)"></span> 
+    <span class="dot" onclick="currentSlide(5)"></span> 
+    <span class="dot" onclick="currentSlide(6)"></span> 
+    <span class="dot" onclick="currentSlide(7)"></span> 
+  </div>
+
+  <!-- JavaScript for the Slideshow -->
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+  </script>
+
+</body>
+</html>
