@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hashtag Café - Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Importing Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Garet:wght@300;400&display=swap');
+
+    /* Reset Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* General Styles */
+    body {
+      font-family: 'Garet', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Navigation Menu */
+    .nav-menu {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #e0e0e0;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-menu a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      color: #333;
+      text-decoration: none;
+      margin: 0 20px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background-color: #57A2D8;
+      left: 50%;
+      bottom: 0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Section Titles */
+    h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    /* Menu Section */
+    .menu-section, .hours-section, .contact-section {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      padding: 40px;
+      margin-bottom: 50px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    .menu-category {
+      margin-bottom: 40px;
+    }
+
+    .menu-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .menu-category h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem;
+      color: #57A2D8;
+      margin-bottom: 20px;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .menu-item .item-name {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .menu-item .item-price {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #57A2D8;
+    }
+
+    .menu-item .item-description {
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 5px;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+
+    /* Café Hours and Contact Sections */
+    .section {
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    .hours-list, .contact-list {
+      list-style: none;
+      padding: 0;
+      font-size: 1.1rem;
+      line-height: 2;
+    }
+
+    .contact-list a {
+      color: #57A2D8;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-list a:hover {
+      color: #333;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-menu a {
+        margin: 0 10px;
+      }
+
+      .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-item .item-price {
+        margin-top: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Menu -->
+  <div class="nav-menu">
+    <a href="#menu-section">Menu</a>
+    <a href="#hours-section">Café Hours</a>
+    <a href="#contact-section">Contact Hashtag</a>
+    <a href="index.html">Back to Home</a>
+  </div>
+
+  <!-- Menu Section -->
+  <div id="menu-section" class="container menu-section">
+    <h2>Menu</h2>
+
+    <!-- Mojitos -->
+    <div class="menu-category">
+      <h3>Mojitos</h3>
+      <div class="menu-item">
+        <div class="item-name">Mint Mojito</div>
+        <div class="item-price">₹99</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Strawberry Mojito</div>
+        <div class="item-price">₹99</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Watermelon Mojito</div>
+        <div class="item-price">₹99</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Blue Ocean Mojito</div>
+        <div class="item-price">₹99</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Green Apple Mojito</div>
+        <div class="item-price">₹99</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Orange Mojito</div>
+        <div class="item-price">₹99</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Bubble Gum Mojito</div>
+        <div class="item-price">₹99</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Mosambi</div>
+        <div class="item-price">₹120</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Sunrise (Summer Special)</div>
+        <div class="item-price">₹120</div>
+      </div>
+    </div>
+
+    <!-- Beverages -->
+    <div class="menu-category">
+      <h3>Beverages</h3>
+      <div class="menu-item">
+        <div class="item-name">Soft Drinks</div>
+        <div class="item-price">₹50</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Fresh Lime Soda</div>
+        <div class="item-price">₹60</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Lemon Iced Tea</div>
+        <div class="item-price">₹80</div>
+      </div>
+    </div>
+
+    <!-- Happy Ending (Desserts) -->
+    <div class="menu-category">
+      <h3>Happy Ending (Desserts)</h3>
+      <div class="menu-item">
+        <div class="item-name">Chocolate Muffin</div>
+        <div class="item-price">₹80</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Almond Muffin</div>
+        <div class="item-price">₹80</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Hot Brownie with Chocolate</div>
+        <div class="item-price">₹100</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Hot Brownie with Ice Cream</div>
+        <div class="item-price">₹140</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Choco-Chips Cookie</div>
+        <div class="item-price">₹30</div>
+      </div>
+    </div>
+
+    <!-- Appetisers -->
+    <div class="menu-category">
+      <h3>Appetisers</h3>
+      <div class="menu-item">
+        <div class="item-name">French Fries</div>
+        <div class="item-price">₹70</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Onion Rings</div>
+        <div class="item-price">₹80</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Spring Rolls</div>
+        <div class="item-price">₹90</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Garlic Bread</div>
+        <div class="item-price">₹60</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Café Hours Section -->
+  <div id="hours-section" class="container hours-section">
+    <h2>Café Hours</h2>
+    <ul class="hours-list">
+      <li>Monday to Friday: 9 AM - 10 PM</li>
+      <li>Saturday and Sunday: 10 AM - 11 PM</li>
+    </ul>
+  </div>
+
+  <!-- Contact Section -->
+  <div id="contact-section" class="container contact-section">
+    <h2>Contact Hashtag</h2>
+    <ul class="contact-list">
+      <li>Email: <a href="mailto:contact@hashtagcafe.com">contact@hashtagcafe.com</a></li>
+      <li>Phone: <a href="tel:+1234567890">+123 456 7890</a></li>
+      <li>Address: 123 Café Lane, Coffee Town, CT 12345</li>
+    </ul>
+  </div>
+
+</body>
+</html>
