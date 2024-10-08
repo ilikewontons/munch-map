@@ -55,33 +55,29 @@
       animation: fadeIn 2s ease-in 0.5s forwards;
     }
 
-    /* Button Container */
-    .button-container {
+  /* Menu Navigation */
+    .nav-menu {
       margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
       opacity: 0;
-      animation: fadeIn 2s ease-in 1s forwards;
+      animation: fadeIn 2s ease-in 1s forwards; /* Fade in animation for the menu */
     }
 
-    /* Button Styles */
-    .btn {
-      padding: 10px 20px;
-      background-color: #57A2D8;
-      color: white;
-      border: none;
-      border-radius: 5px;
+    .nav-menu a {
       font-family: 'Oswald', sans-serif;
       font-size: 1.2rem;
-      cursor: pointer;
+      color: white;
       text-decoration: none;
+      margin: 0 15px;
+      border: 2px solid white;
+      padding: 10px 20px;
+      border-radius: 5px;
       transition: background-color 0.3s ease;
     }
 
-    .btn:hover {
-      background-color: #4a91c0;
+    .nav-menu a:hover {
+      background-color: rgba(255, 255, 255, 0.3); /* Light overlay on hover */
     }
+    
   </style>
 </head>
 <body>
