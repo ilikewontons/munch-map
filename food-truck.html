@@ -18,10 +18,10 @@
 
     /* Full-Height Background Image */
     .background {
-      background-image: url('truck.png'); /* The background image file */
+      background-image: url('truck.png'); /* Replace with your actual background image */
       background-size: cover;
       background-position: center;
-      height: 100%;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -42,7 +42,7 @@
       font-size: 4rem;
       margin: 0;
       opacity: 0;
-      animation: fadeIn 2s ease-in forwards; /* Fade in animation for the heading */
+      animation: fadeIn 2s ease-in forwards;
     }
 
     /* Subheading Style */
@@ -52,9 +52,36 @@
       margin-top: 10px;
       max-width: 80%;
       opacity: 0;
-      animation: fadeIn 2s ease-in 0.5s forwards; /* Fade in animation for the subtext, delayed by 2 seconds */
+      animation: fadeIn 2s ease-in 0.5s forwards;
     }
 
+    /* Button Container */
+    .button-container {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      opacity: 0;
+      animation: fadeIn 2s ease-in 1s forwards;
+    }
+
+    /* Button Styles */
+    .btn {
+      padding: 10px 20px;
+      background-color: #57A2D8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #4a91c0;
+    }
   </style>
 </head>
 <body>
@@ -62,6 +89,13 @@
   <div class="background">
     <h1>FOOD TRUCK</h1>
     <p>Your go-to spot for on-the-go food.</p>
+    
+    <!-- Button Container -->
+    <div class="button-container">
+      <a href="foodtruck-details.html#menu-section" class="btn">Menu</a>
+      <a href="foodtruck-details.html#hours-section" class="btn">Café Hours</a>
+      <a href="foodtruck-details.html#contact-section" class="btn">Contact Food Truck</a>
+    </div>
   </div>
 
 </body>
