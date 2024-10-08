@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Juice Press Café - Details</title>
+  <title>Korebi Café - Details</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <style>
     /* Importing Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Garet:wght@300;400&display=swap');
@@ -32,6 +31,7 @@
       top: 0;
       z-index: 1000;
       border-bottom: 1px solid #e0e0e0;
+      transition: background-color 0.3s ease;
     }
 
     .nav-menu a {
@@ -39,15 +39,26 @@
       font-size: 1.2rem;
       color: #333;
       text-decoration: none;
-      margin: 0 15px;
-      padding: 10px 15px;
+      margin: 0 20px;
+      padding: 10px 20px;
       border-radius: 5px;
       position: relative;
-      transition: background-color 0.3s ease;
     }
 
-    .nav-menu a:hover {
-      background-color: #f0f0f0;
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background-color: #57A2D8;
+      left: 50%;
+      bottom: 0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+      left: 0;
     }
 
     /* Section Titles */
@@ -97,8 +108,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
-      padding-bottom: 10px;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
       border-bottom: 1px solid #e0e0e0;
     }
 
@@ -119,15 +130,21 @@
       color: #57A2D8;
     }
 
+    .menu-item .item-description {
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 5px;
+    }
+
     /* Animations */
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
       }
     }
 
@@ -154,32 +171,10 @@
       color: #333;
     }
 
-    /* Back to Home Button */
-    .back-home {
-      text-align: center;
-      margin: 20px 0;
-    }
-
-    .back-home a {
-      padding: 10px 20px;
-      background-color: #57A2D8;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.2rem;
-      transition: background-color 0.3s ease;
-    }
-
-    .back-home a:hover {
-      background-color: #4a91c0;
-    }
-
     /* Responsive Design */
     @media (max-width: 768px) {
       .nav-menu a {
         margin: 0 10px;
-        font-size: 1rem;
       }
 
       .menu-item {
@@ -194,6 +189,16 @@
   </style>
 </head>
 <body>
+
+  <!-- Navigation Menu -->
+  <div class="nav-menu">
+    <a href="#menu-section">Menu</a>
+    <a href="#hours-section">Café Hours</a>
+    <a href="#contact-section">Contact Juice Press</a>
+  <a href="index.html">Back to Home</a>
+</div>
+
+  </div>
 
   <!-- Navigation Menu -->
   <div class="nav-menu">
