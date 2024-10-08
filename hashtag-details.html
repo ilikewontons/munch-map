@@ -198,114 +198,719 @@
     <a href="index.html">Back to Home</a>
   </div>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Korebi Café - Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Importing Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Garet:wght@300;400&display=swap');
+
+    /* Reset Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* General Styles */
+    body {
+      font-family: 'Garet', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Navigation Menu */
+    .nav-menu {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #e0e0e0;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-menu a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      color: #333;
+      text-decoration: none;
+      margin: 0 20px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background-color: #57A2D8;
+      left: 50%;
+      bottom: 0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Section Titles */
+    h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    /* Menu Section */
+    .menu-section, .hours-section, .contact-section {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      padding: 40px;
+      margin-bottom: 50px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    .menu-category {
+      margin-bottom: 40px;
+    }
+
+    .menu-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .menu-category h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem;
+      color: #57A2D8;
+      margin-bottom: 20px;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .menu-item .item-name {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .menu-item .item-price {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #57A2D8;
+    }
+
+    .menu-item .item-description {
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 5px;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+
+    /* Café Hours and Contact Sections */
+    .section {
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    .hours-list, .contact-list {
+      list-style: none;
+      padding: 0;
+      font-size: 1.1rem;
+      line-height: 2;
+    }
+
+    .contact-list a {
+      color: #57A2D8;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-list a:hover {
+      color: #333;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-menu a {
+        margin: 0 10px;
+      }
+
+      .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-item .item-price {
+        margin-top: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Menu -->
+  <div class="nav-menu">
+    <a href="#menu-section">Menu</a>
+    <a href="#hours-section">Café Hours</a>
+    <a href="#contact-section">Contact Korebi</a>
+  <a href="index.html">Back to Home</a>
+</div>
+
+  </div>
+
   <!-- Menu Section -->
-  <div id="menu-section" class="container menu-section">
-    <h2>Menu</h2>
+<div id="menu-section" class="container menu-section">
+  <h2>Menu</h2>
 
-    <!-- Mojitos -->
-    <div class="menu-category">
-      <h3>Mojitos</h3>
-      <div class="menu-item">
-        <div class="item-name">Mint Mojito</div>
-        <div class="item-price">₹99</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-name">Strawberry Mojito</div>
-        <div class="item-price">₹99</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-name">Watermelon Mojito</div>
-        <div class="item-price">₹99</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-name">Blue Ocean Mojito</div>
-        <div class="item-price">₹99</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-name">Green Apple Mojito</div>
-        <div class="item-price">₹99</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-name">Orange Mojito</div>
-        <div class="item-price">₹99</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-name">Bubble Gum Mojito</div>
-        <div class="item-price">₹99</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-name">Mosambi</div>
-        <div class="item-price">₹120</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-name">Sunrise (Summer Special)</div>
-        <div class="item-price">₹120</div>
-      </div>
+  <!-- Mojitos -->
+  <div class="menu-category">
+    <h3>Mojitos</h3>
+    <div class="menu-item">
+      <div class="item-name">Mint Mojito</div>
+      <div class="item-price">₹99</div>
     </div>
-
-    <!-- Beverages -->
-    <div class="menu-category">
-      <h3>Beverages</h3>
-      <div class="menu-item">
-        <div class="item-name">Soft Drinks</div>
-        <div class="item-price">₹50</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-name">Fresh Lime Soda</div>
-        <div class="item-price">₹60</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-name">Lemon Iced Tea</div>
-        <div class="item-price">₹80</div>
-      </div>
+    <div class="menu-item">
+      <div class="item-name">Strawberry Mojito</div>
+      <div class="item-price">₹99</div>
     </div>
-
-    <!-- Happy Ending (Desserts) -->
-    <div class="menu-category">
-      <h3>Happy Ending (Desserts)</h3>
-      <div class="menu-item">
-        <div class="item-name">Chocolate Muffin</div>
-        <div class="item-price">₹80</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-name">Almond Muffin</div>
-        <div class="item-price">₹80</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-name">Hot Brownie with Chocolate</div>
-        <div class="item-price">₹100</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-name">Hot Brownie with Ice Cream</div>
-        <div class="item-price">₹140</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-name">Choco-Chips Cookie</div>
-        <div class="item-price">₹30</div>
-      </div>
+    <div class="menu-item">
+      <div class="item-name">Watermelon Mojito</div>
+      <div class="item-price">₹99</div>
     </div>
-
-    <!-- Appetisers -->
-    <div class="menu-category">
-      <h3>Appetisers</h3>
-      <div class="menu-item">
-        <div class="item-name">French Fries</div>
-        <div class="item-price">₹70</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-name">Onion Rings</div>
-        <div class="item-price">₹80</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-name">Spring Rolls</div>
-        <div class="item-price">₹90</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-name">Garlic Bread</div>
-        <div class="item-price">₹60</div>
-      </div>
+    <div class="menu-item">
+      <div class="item-name">Blue Ocean Mojito</div>
+      <div class="item-price">₹99</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Green Apple Mojito</div>
+      <div class="item-price">₹99</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Orange Mojito</div>
+      <div class="item-price">₹99</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Bubble Gum Mojito</div>
+      <div class="item-price">₹99</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Mosambi Mojito</div>
+      <div class="item-price">₹120</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Sunrise (Summer Special)</div>
+      <div class="item-price">₹120</div>
     </div>
   </div>
+
+  <!-- Beverages -->
+  <div class="menu-category">
+    <h3>Beverages</h3>
+    <div class="menu-item">
+      <div class="item-name">Soft Drinks</div>
+      <div class="item-price">₹50</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Fresh Lime Soda</div>
+      <div class="item-price">₹60</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Lemon Iced Tea</div>
+      <div class="item-price">₹80</div>
+    </div>
+  </div>
+
+  <!-- Happy Ending (Desserts) -->
+  <div class="menu-category">
+    <h3>Happy Ending (Desserts)</h3>
+    <div class="menu-item">
+      <div class="item-name">Chocolate Muffin</div>
+      <div class="item-price">₹80</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Almond Muffin</div>
+      <div class="item-price">₹80</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Hot Brownie with Chocolate</div>
+      <div class="item-price">₹100</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Hot Brownie with Ice Cream</div>
+      <div class="item-price">₹140</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Choco-Chips Cookie</div>
+      <div class="item-price">₹30</div>
+    </div>
+  </div>
+
+  <!-- Appetisers -->
+  <div class="menu-category">
+    <h3>Appetisers</h3>
+    <div class="menu-item">
+      <div class="item-name">Samosa</div>
+      <div class="item-price">₹30</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Cheese Samosa</div>
+      <div class="item-price">₹50</div>
+    </div>
+  </div>
+
+  <!-- Coffee & Shakes -->
+  <div class="menu-category">
+    <h3>Coffee & Shakes</h3>
+    <div class="menu-item">
+      <div class="item-name">Espresso (Black Coffee Short)</div>
+      <div class="item-price">₹50</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Espresso Lungo (Black Coffee Double Shot)</div>
+      <div class="item-price">₹80</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Cappuccino</div>
+      <div class="item-price">₹80</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Cafe Latte</div>
+      <div class="item-price">₹90</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Classic Cold Coffee</div>
+      <div class="item-price">₹80</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Cold Coco</div>
+      <div class="item-price">₹90</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Cold Coffee with Ice Cream</div>
+      <div class="item-price">₹140</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Orange Espresso</div>
+      <div class="item-price">₹110</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Mango Espresso</div>
+      <div class="item-price">₹110</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Mint Espresso Soda</div>
+      <div class="item-price">₹110</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Strawberry Latte</div>
+      <div class="item-price">₹120</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Choco Espresso</div>
+      <div class="item-price">₹120</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Strawberry Milkshake</div>
+      <div class="item-price">₹100</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Mango Milkshake</div>
+      <div class="item-price">₹100</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Caramel</div>
+      <div class="item-price">₹30</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Hazelnut</div>
+      <div class="item-price">₹30</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Vanilla</div>
+      <div class="item-price">₹30</div>
+    </div>
+  </div>
+
+  <!-- Biryani -->
+  <div class="menu-category">
+    <h3>Biryani</h3>
+    <div class="menu-item">
+      <div class="item-name">Paneer Tikka Biryani</div>
+      <div class="item-price">₹280</div>
+    </div>
+  </div>
+
+  <!-- Salads -->
+  <div class="menu-category">
+    <h3>Salads</h3>
+    <div class="menu-item">
+      <div class="item-name">All Good Caesar Salad</div>
+      <div class="item-price">₹130</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Subway Style Veggie Delight Salad</div>
+      <div class="item-price">₹140</div>
+    </div>
+  </div>
+
+  <!-- Quick Bites -->
+  <div class="menu-category">
+    <h3>Quick Bites</h3>
+    <div class="menu-item">
+      <div class="item-name">Avocado Toast</div>
+      <div class="item-price">₹180</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Cheese Chilli Toast</div>
+      <div class="item-price">₹120</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Nachos with Salsa</div>
+      <div class="item-price">₹100</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Nachos with Cheese & Salsa</div>
+      <div class="item-price">₹150</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Awesome Nachos</div>
+      <div class="item-price">₹180</div>
+    </div>
+  </div>
+
+  <!-- Fries & Sides -->
+  <div class="menu-category">
+    <h3>Fries & Sides</h3>
+    <div class="menu-item">
+      <div class="item-name">Salted French Fries</div>
+      <div class="item-price">₹100</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Masala French Fries</div>
+      <div class="item-price">₹120</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Peri-Peri Fries</div>
+      <div class="item-price">₹120</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Awesome French Fries</div>
+      <div class="item-price">₹150</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Peanut Chaat</div>
+      <div class="item-price">₹100</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Potato Smiley</div>
+      <div class="item-price">₹100</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Onion Rings</div>
+      <div class="item-price">₹100</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Paneer Puff</div>
+      <div class="item-price">₹50</div>
+    </div>
+  </div>
+
+  <!-- Maggi -->
+  <div class="menu-category">
+    <h3>Maggi</h3>
+    <div class="menu-item">
+      <div class="item-name">Plain Maggi</div>
+      <div class="item-price">₹50</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Masala Maggi</div>
+      <div class="item-price">₹50</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Butter Maggi</div>
+      <div class="item-price">₹80</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Double Masala Maggi</div>
+      <div class="item-price">₹80</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Veg Maggi</div>
+      <div class="item-price">₹80</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Cheese Maggi</div>
+      <div class="item-price">₹80</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Veg Cheese Maggi</div>
+      <div class="item-price">₹90</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Double Cheese Maggi</div>
+      <div class="item-price">₹90</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Schezwan Maggi</div>
+      <div class="item-price">₹80</div>
+    </div>
+  </div>
+
+  <!-- Momos -->
+  <div class="menu-category">
+    <h3>Momos</h3>
+    <div class="menu-item">
+      <div class="item-name">Steamed Veg Momo</div>
+      <div class="item-price">₹70</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Fried Veg Momo</div>
+      <div class="item-price">₹80</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Paneer Steamed Momo</div>
+      <div class="item-price">₹80</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Paneer Fried Momo</div>
+      <div class="item-price">₹100</div>
+    </div>
+  </div>
+
+  <!-- Sandwiches -->
+  <div class="menu-category">
+    <h3>Sandwiches</h3>
+    <div class="menu-item">
+      <div class="item-name">Bread Butter</div>
+      <div class="item-price">₹40</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Bombay Sandwich</div>
+      <div class="item-price">₹70</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Rainbow Sandwich</div>
+      <div class="item-price">₹70</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Butter Cheese Garlic Sandwich</div>
+      <div class="item-price">₹100</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Subway Style Sandwich</div>
+      <div class="item-price">₹150</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Healthy Sandwich</div>
+      <div class="item-price">₹140</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Schezwan Paneer Sandwich</div>
+      <div class="item-price">₹140</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Triple Decker Sandwich</div>
+      <div class="item-price">₹180</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Garlic Cheese Sandwich</div>
+      <div class="item-price">₹100</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Cheese Corn Sandwich</div>
+      <div class="item-price">₹100</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Veg Club Sandwich</div>
+      <div class="item-price">₹150</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Mushroom Cheese Sandwich</div>
+      <div class="item-price">₹140</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Pesto Veggie Sandwich</div>
+      <div class="item-price">₹90</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Pineapple Sandwich</div>
+      <div class="item-price">₹90</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Paneer Teriyaki Subway</div>
+      <div class="item-price">₹199</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Paneer Tikka Subway</div>
+      <div class="item-price">₹199</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Samosa Sandwich</div>
+      <div class="item-price">₹150</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Chocolate Sandwich</div>
+      <div class="item-price">₹90</div>
+    </div>
+  </div>
+
+  <!-- Pizzas -->
+  <div class="menu-category">
+    <h3>Pizzas</h3>
+    <div class="menu-item">
+      <div class="item-name">Margherita Pizza</div>
+      <div class="item-price">₹190</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Peri-Peri Fries Pizza</div>
+      <div class="item-price">₹230</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Farmhouse Pizza</div>
+      <div class="item-price">₹230</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Paneer Loaded Pizza</div>
+      <div class="item-price">₹250</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Paneer Makhni Pizza</div>
+      <div class="item-price">₹250</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">BBQ Mushroom Pizza</div>
+      <div class="item-price">₹260</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Schezwan Paneer Pizza</div>
+      <div class="item-price">₹260</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Mushroom Corn Pizza</div>
+      <div class="item-price">₹250</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Volcano Pizza (Super Spicy)</div>
+      <div class="item-price">₹240</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Tandoori Paneer Pizza</div>
+      <div class="item-price">₹300</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">BBQ Paneer Pizza</div>
+      <div class="item-price">₹260</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Paprika Jalapeno Pizza</div>
+      <div class="item-price">₹250</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">A Special Pizza</div>
+      <div class="item-price">₹350</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Cheese Burst</div>
+      <div class="item-price">₹80</div>
+    </div>
+  </div>
+
+  <!-- Bread Bites -->
+  <div class="menu-category">
+    <h3>Bread Bites</h3>
+    <div class="menu-item">
+      <div class="item-name">Garlic Bread</div>
+      <div class="item-price">₹100</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Garlic Bread with Mozzarella</div>
+      <div class="item-price">₹130</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Spicy Garlic Bread</div>
+      <div class="item-price">₹150</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Garlic Bread (Topped with Chilli, Cheese, Onion, Corn, Capsicum)</div>
+      <div class="item-price">₹150</div>
+    </div>
+  </div>
+
+  <!-- Burgers -->
+  <div class="menu-category">
+    <h3>Burgers</h3>
+    <div class="menu-item">
+      <div class="item-name">Aloo Patty Burger</div>
+      <div class="item-price">₹90</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Veg Patty Burger</div>
+      <div class="item-price">₹100</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Cheese Blast Burger</div>
+      <div class="item-price">₹130</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Mexican Burger</div>
+      <div class="item-price">₹130</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Makhani Burst Burger</div>
+      <div class="item-price">₹150</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Paneer Patty Burger</div>
+      <div class="item-price">₹150</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Spicy Paneer Burger</div>
+      <div class="item-price">₹160</div>
+    </div>
+  </div>
+</div>
 
   <!-- Café Hours Section -->
   <div id="hours-section" class="container hours-section">
