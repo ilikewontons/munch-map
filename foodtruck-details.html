@@ -31,6 +31,7 @@
       top: 0;
       z-index: 1000;
       border-bottom: 1px solid #e0e0e0;
+      transition: background-color 0.3s ease;
     }
 
     .nav-menu a {
@@ -38,14 +39,27 @@
       font-size: 1.2rem;
       color: #333;
       text-decoration: none;
-      margin: 0 15px;
-      padding: 10px 15px;
+      margin: 0 20px;
+      padding: 10px 20px;
       border-radius: 5px;
-      transition: background-color 0.3s ease;
+      position: relative;
     }
 
-    .nav-menu a:hover {
-      background-color: #f0f0f0;
+    /* Underline Hover Effect for Navigation Links */
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #57A2D8;
+      left: 50%;
+      bottom: 0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+      left: 0;
     }
 
     /* Section Titles */
