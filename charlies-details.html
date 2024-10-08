@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Charlie's Café - Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Importing Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Garet:wght@300&display=swap');
+
+    /* Reset Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* General Styles */
+    body {
+      font-family: 'Garet', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Navigation Menu */
+    .nav-menu {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #e0e0e0;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-menu a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      color: #333;
+      text-decoration: none;
+      margin: 0 20px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background-color: #57A2D8;
+      left: 50%;
+      bottom: 0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Section Titles */
+    h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    /* Menu Section */
+    .menu-section, .hours-section, .contact-section {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      padding: 40px;
+      margin-bottom: 50px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    .menu-category {
+      margin-bottom: 40px;
+    }
+
+    .menu-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .menu-category h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem;
+      color: #57A2D8;
+      margin-bottom: 20px;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .menu-item .item-name {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .menu-item .item-price {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #57A2D8;
+    }
+
+    .menu-item .item-description {
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 5px;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+
+    /* Café Hours and Contact Sections */
+    .section {
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    .hours-list, .contact-list {
+      list-style: none;
+      padding: 0;
+      font-size: 1.1rem;
+      line-height: 2;
+    }
+
+    .contact-list a {
+      color: #57A2D8;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-list a:hover {
+      color: #333;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-menu a {
+        margin: 0 10px;
+      }
+
+      .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-item .item-price {
+        margin-top: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Menu -->
+  <div class="nav-menu">
+    <a href="#menu-section">Menu</a>
+    <a href="#hours-section">Café Hours</a>
+    <a href="#contact-section">Contact Charlie's</a>
+    <a href="index.html">Back to Home</a>
+  </div>
+
+  <!-- Menu Section -->
+  <div id="menu-section" class="container menu-section">
+    <h2>Menu</h2>
+
+    <!-- All Day Breakfast -->
+    <div class="menu-category">
+      <h3>All Day Breakfast</h3>
+      <div class="menu-item">
+        <div class="item-name">Irani Bun Maska</div>
+        <div class="item-price">₹60</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Bun Maska Jam</div>
+        <div class="item-price">₹70</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Chocolate Bun Maska</div>
+        <div class="item-price">₹90</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Baked Beans on Toast</div>
+        <div class="item-price">₹80</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Cheese Chilli Baked Beans</div>
+        <div class="item-price">₹100</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Hashbrown</div>
+        <div class="item-price">₹35</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">English Breakfast</div>
+        <div class="item-price">₹220</div>
+      </div>
+    </div>
+
+    <!-- Sandwiches -->
+    <div class="menu-category">
+      <h3>Sandwiches</h3>
+      <div class="menu-item">
+        <div class="item-name">Veg Cheese Grill</div>
+        <div class="item-price">₹80</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Three Cheese Grill</div>
+        <div class="item-price">₹100</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Cheese Chilli Garlic Grill</div>
+        <div class="item-price">₹70</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Bombay Masala Grill</div>
+        <div class="item-price">₹90</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Tandoori Paneer Grill</div>
+        <div class="item-price">₹110</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Paneer Makhani Grill</div>
+        <div class="item-price">₹110</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Schezwan Aloo Grill</div>
+        <div class="item-price">₹100</div>
+      </div>
+    </div>
+
+    <!-- Maggi -->
+    <div class="menu-category">
+      <h3>Maggi</h3>
+      <div class="menu-item">
+        <div class="item-name">Plain Maggi</div>
+        <div class="item-price">₹45</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Masala Maggi</div>
+        <div class="item-price">₹50</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Cheesy Maggi</div>
+        <div class="item-price">₹80</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Charlie’s Spicy Maggi</div>
+        <div class="item-price">₹80</div>
+      </div>
+    </div>
+
+    <!-- Toasties -->
+    <div class="menu-category">
+      <h3>Toasties</h3>
+      <div class="menu-item">
+        <div class="item-name">Garlic Bread</div>
+        <div class="item-price">₹90</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Mozzarella Garlic Bread</div>
+        <div class="item-price">₹110</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Garlic Bread with Hummus</div>
+        <div class="item-price">₹110</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Mexican Toastie</div>
+        <div class="item-price">₹100</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Tandoori Paneer Toastie</div>
+        <div class="item-price">₹110</div>
+      </div>
+    </div>
+
+    <!-- Bun Sliders -->
+    <div class="menu-category">
+      <h3>Bun Sliders</h3>
+      <div class="menu-item">
+        <div class="item-name">Falafel Slider</div>
+        <div class="item-price">₹130</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Manchurian Slider</div>
+        <div class="item-price">₹150</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Veg Patty Slider</div>
+        <div class="item-price">₹130</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Mexican Hashbrown Slider</div>
+        <div class="item-price">₹130</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Tandoori Aloo Slider</div>
+        <div class="item-price">₹130</div>
+      </div>
+    </div>
+
+    <!-- Sides -->
+    <div class="menu-category">
+      <h3>Sides</h3>
+      <div class="menu-item">
+        <div class="item-name">Fries</div>
+        <div class="item-price">₹90</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Samosa</div>
+        <div class="item-price">₹40</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Veg Puff</div>
+        <div class="item-price">₹35</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Hummus with Pita</div>
+        <div class="item-price">₹100</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Seasoned Mozzarella Sticks</div>
+        <div class="item-price">₹99</div>
+      </div>
+    </div>
+
+    <!-- Shawarma -->
+    <div class="menu-category">
+      <h3>Shawarma</h3>
+      <div class="menu-item">
+        <div class="item-name">Falafel Shawarma</div>
+        <div class="item-price">₹100</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Spicy Falafel Shawarma</div>
+        <div class="item-price">₹120</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Cheese Falafel Shawarma</div>
+        <div class="item-price">₹140</div>
+      </div>
+    </div>
+
+    <!-- Hot Drinks -->
+    <div class="menu-category">
+      <h3>Hot Drinks</h3>
+      <div class="menu-item">
+        <div class="item-name">Filter Coffee</div>
+        <div class="item-price">₹35</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Black Coffee</div>
+        <div class="item-price">₹35</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Adrak Chai</div>
+        <div class="item-price">₹35</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Hot Chocolate</div>
+        <div class="item-price">₹90</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Caramel Hot Chocolate</div>
+        <div class="item-price">₹110</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Hazelnut Hot Chocolate</div>
+        <div class="item-price">₹110</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Brownie Hot Chocolate</div>
+        <div class="item-price">₹120</div>
+      </div>
+    </div>
+
+    <!-- Refreshers -->
+    <div class="menu-category">
+      <h3>Refreshers</h3>
+      <div class="menu-item">
+        <div class="item-name">Classic Lemonade</div>
+        <div class="item-price">₹50</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Iced Tea</div>
+        <div class="item-price">₹80</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Peach Iced Tea</div>
+        <div class="item-price">₹100</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Masala Thumbs Up</div>
+        <div class="item-price">₹60</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Jaljeera Soda</div>
+        <div class="item-price">₹60</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Green Apple Mojito</div>
+        <div class="item-price">₹90</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Blue Lagoon</div>
+        <div class="item-price">₹90</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Coke Float</div>
+        <div class="item-price">₹80</div>
+      </div>
+    </div>
+
+    <!-- Cold Beverages -->
+    <div class="menu-category">
+      <h3>Cold Beverages</h3>
+      <div class="menu-item">
+        <div class="item-name">Classic Cold Coffee</div>
+        <div class="item-price">₹100</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Dark Chocolate Cold Coffee</div>
+        <div class="item-price">₹130</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Caramel Frappuccino</div>
+        <div class="item-price">₹140</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Hazelnut Frappuccino</div>
+        <div class="item-price">₹140</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Thick Cold Cocoa</div>
+        <div class="item-price">₹100</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Kitkat Shake</div>
+        <div class="item-price">₹110</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Oreo Shake</div>
+        <div class="item-price">₹110</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Brownie Shake</div>
+        <div class="item-price">₹130</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Strawberry Shake</div>
+        <div class="item-price">₹120</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">French Vanilla Shake</div>
+        <div class="item-price">₹120</div>
+      </div>
+    </div>
+
+    <!-- Softy Ice-Cream -->
+    <div class="menu-category">
+      <h3>Softy Ice-Cream</h3>
+      <div class="menu-item">
+        <div class="item-name">Vanilla Softy Cup</div>
+        <div class="item-price">₹30</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Vanilla Softy Cone</div>
+        <div class="item-price">₹40</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Softy with Hot Fudge</div>
+        <div class="item-price">₹45</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Kitkat Softy</div>
+        <div class="item-price">₹80</div>
+      </div>
+    </div>
+
+    <!-- Rice Bowls -->
+    <div class="menu-category">
+      <h3>Rice Bowls</h3>
+      <div class="menu-item">
+        <div class="item-name">Schezwan Rice Bowl</div>
+        <div class="item-price">₹220</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Paneer Makhani Rice Bowl</div>
+        <div class="item-price">₹220</div>
+      </div>
+      <div class="menu-item">
+        <div class="item-name">Falafel Rice Bowl</div>
+        <div class="item-price">₹220</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Café Hours Section -->
+  <div id="hours-section" class="container hours-section">
+    <h2>Café Hours</h2>
+    <ul class="hours-list">
+      <li>Location: Ground Floor, A.P.J. Abdul Kalam Building</li>
+      <li>Days: Monday to Sunday</li>
+      <li>Café Timings: 08:00 a.m. to 12:00 Midnight</li>
+      <li>Delivery Timings: 12:00 p.m. to 12:00 Midnight</li>
+      <li>Delivery Charge: ₹30</li>
+    </ul>
+  </div>
+
+  <!-- Contact Section -->
+  <div id="contact-section" class="container contact-section">
+    <h2>Contact Charlie's</h2>
+    <ul class="contact-list">
+      <li>Contact Number: <a href="tel:+919619518440">+91 96195 18440</a></li>
+    </ul>
+  </div>
+
+</body>
+</html>
