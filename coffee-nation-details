@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coffee Nation - Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Importing Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Garet:wght@300&display=swap');
+
+    /* Reset Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* General Styles */
+    body {
+      font-family: 'Garet', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Navigation Menu */
+    .nav-menu {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #e0e0e0;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-menu a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      color: #333;
+      text-decoration: none;
+      margin: 0 20px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background-color: #57A2D8;
+      left: 50%;
+      bottom: 0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Section Titles */
+    h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    /* Menu Section */
+    .menu-section, .hours-section, .contact-section {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      padding: 40px;
+      margin-bottom: 50px;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    .menu-category {
+      margin-bottom: 40px;
+    }
+
+    .menu-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .menu-category h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem;
+      color: #57A2D8;
+      margin-bottom: 20px;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .menu-item .item-name {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .menu-item .item-price {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #57A2D8;
+    }
+
+    .menu-item .item-description {
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 5px;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+
+    /* Café Hours and Contact Sections */
+    .section {
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    .hours-list, .contact-list {
+      list-style: none;
+      padding: 0;
+      font-size: 1.1rem;
+      line-height: 2;
+    }
+
+    .contact-list a {
+      color: #57A2D8;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-list a:hover {
+      color: #333;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-menu a {
+        margin: 0 10px;
+      }
+
+      .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-item .item-price {
+        margin-top: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Menu -->
+  <div class="nav-menu">
+    <a href="#menu-section">Menu</a>
+    <a href="#hours-section">Café Hours</a>
+    <a href="#contact-section">Contact Coffee Nation</a>
+    <a href="index.html">Back to Home</a>
+  </div>
+
+ <!-- Menu Section -->
+<div id="menu-section" class="container menu-section">
+  <h2>Menu</h2>
+
+  <!-- Coffees (Hot) -->
+  <div class="menu-category">
+    <h3>Coffees (Hot)</h3>
+    <div class="menu-item">
+      <div class="item-name">Espresso</div>
+      <div class="item-price">₹60</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Americano</div>
+      <div class="item-price">₹70</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Cappuccino</div>
+      <div class="item-price">₹80</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Latte</div>
+      <div class="item-price">₹90</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Flat White</div>
+      <div class="item-price">₹120</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Caffe Mocha</div>
+      <div class="item-price">₹160</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Affogato</div>
+      <div class="item-price">₹170</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Cinnamon Cappuccino</div>
+      <div class="item-price">₹120</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Cinnamon Latte</div>
+      <div class="item-price">₹130</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Mocha Affogato</div>
+      <div class="item-price">₹180</div>
+    </div>
+  </div>
+
+  <!-- Coffees (Cold) -->
+  <div class="menu-category">
+    <h3>Coffees (Cold)</h3>
+    <div class="menu-item">
+      <div class="item-name">Iced Espresso</div>
+      <div class="item-price">₹100</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Cold Coffee</div>
+      <div class="item-price">₹140</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Iced Latte</div>
+      <div class="item-price">₹130</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Iced Americano</div>
+      <div class="item-price">₹120</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Iced Mocha</div>
+      <div class="item-price">₹190</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Spanish Latte</div>
+      <div class="item-price">₹190</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Soy Milk Latte</div>
+      <div class="item-price">₹190</div>
+    </div>
+  </div>
+
+  <!-- Specialty Coffees -->
+  <div class="menu-category">
+    <h3>Specialty Coffees</h3>
+    <div class="menu-item">
+      <div class="item-name">Eiskaffe</div>
+      <div class="item-price">₹170</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Classic Cold Brew</div>
+      <div class="item-price">₹150</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Cold Brew Iced Coffee</div>
+      <div class="item-price">₹200</div>
+    </div>
+  </div>
+
+  <!-- Teas -->
+  <div class="menu-category">
+    <h3>Teas (Iced & Green)</h3>
+    <div class="menu-item">
+      <div class="item-name">Lemon Iced Tea</div>
+      <div class="item-price">₹130</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Peach Iced Tea</div>
+      <div class="item-price">₹130</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Passionfruit Iced Tea</div>
+      <div class="item-price">₹130</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Strawberry Iced Tea</div>
+      <div class="item-price">₹130</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Elderflower Iced Tea</div>
+      <div class="item-price">₹150</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Darjeeling Green Tea</div>
+      <div class="item-price">₹70</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Lemongrass Green Tea</div>
+      <div class="item-price">₹70</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Chamomile Green Tea</div>
+      <div class="item-price">₹70</div>
+    </div>
+  </div>
+
+  <!-- Hot Chocolates -->
+  <div class="menu-category">
+    <h3>Hot Chocolates</h3>
+    <div class="menu-item">
+      <div class="item-name">Traditional Hot Chocolate</div>
+      <div class="item-price">₹140</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Hazelnut Hot Chocolate</div>
+      <div class="item-price">₹160</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Nutella Hot Chocolate</div>
+      <div class="item-price">₹160</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Mint Hot Chocolate</div>
+      <div class="item-price">₹160</div>
+    </div>
+  </div>
+
+  <!-- Shakes -->
+  <div class="menu-category">
+    <h3>Shakes</h3>
+    <div class="menu-item">
+      <div class="item-name">Vanilla Shake</div>
+      <div class="item-price">₹180</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Chocolate Shake</div>
+      <div class="item-price">₹180</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Strawberry Shake</div>
+      <div class="item-price">₹180</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Oreo Nutella Shake</div>
+      <div class="item-price">₹220</div>
+    </div>
+  </div>
+
+  <!-- Croissants & Sandwiches -->
+  <div class="menu-category">
+    <h3>Croissants & Sandwiches</h3>
+    <div class="menu-item">
+      <div class="item-name">Butter Croissant</div>
+      <div class="item-price">₹140</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Cheese Chilli Croissant</div>
+      <div class="item-price">₹160</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Three Cheese Melt Sandwich</div>
+      <div class="item-price">₹180</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Corn & Spinach Sandwich</div>
+      <div class="item-price">₹180</div>
+    </div>
+  </div>
+
+  <!-- Waffles -->
+  <div class="menu-category">
+    <h3>Waffles</h3>
+    <div class="menu-item">
+      <div class="item-name">Classic Waffle</div>
+      <div class="item-price">₹180</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Chocochip Ferrero Waffle</div>
+      <div class="item-price">₹260</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Kit Kat Waffle</div>
+      <div class="item-price">₹260</div>
+    </div>
+  </div>
+
+  <!-- Pastas -->
+  <div class="menu-category">
+    <h3>Pastas</h3>
+    <div class="menu-item">
+      <div class="item-name">Mac n Cheese</div>
+      <div class="item-price">₹210</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Penne Arrabbiata</div>
+      <div class="item-price">₹210</div>
+    </div>
+  </div>
+
+  <!-- Desserts -->
+  <div class="menu-category">
+    <h3>Desserts</h3>
+    <div class="menu-item">
+      <div class="item-name">Chocolate Mud Cake</div>
+      <div class="item-price">₹220</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Chocochip Cookie</div>
+      <div class="item-price">₹140</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Blueberry Muffin</div>
+      <div class="item-price">₹150</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Nutella Muffin</div>
+      <div class="item-price">₹150</div>
+    </div>
+  </div>
+
+</div>
+
+  </div>
+
+  <!-- Café Hours Section -->
+  <div id="hours-section" class="container hours-section">
+    <h2>Café Hours</h2>
+    <ul class="hours-list">
+      <li>Location: Vivekananda Library</li>
+      <li>Days: Monday to Sunday</li>
+      <li>Café Timings: 08:00 a.m. to 11:30 p.m.</li>
+    </ul>
+  </div>
+
+  <!-- Contact Section -->
+  <div id="contact-section" class="container contact-section">
+    <h2>Contact Coffee Nation</h2>
+    <ul class="contact-list">
+      <li>Contact Number: <a href="tel:+919123456789">+91 91234 56789</a></li>
+    </ul>
+  </div>
+
+</body>
+</html>
