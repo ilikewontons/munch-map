@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Café Stats</title>
+  <title>Café Stats - Landing</title>
   <style>
     /* Importing Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Garet:wght@300;400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Garet:wght@300;400&display=swap');
 
     /* General Styles */
     body, html {
@@ -14,246 +14,57 @@
       padding: 0;
       height: 100%;
       font-family: 'Garet', sans-serif;
-      text-align: center;
-      color: #57A2D8; /* Text color */
-    }
-
-    /* Background image for the top section */
-    .background-section {
-      background-image: url('arjuna.png'); /* Background image */
+      background-image: url('arjuna.png');
       background-size: cover;
       background-position: center;
-      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #57A2D8; /* Text color over image */
-    }
-
-    /* Main Heading (Café Stats) */
-    h1 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 4rem;
-      margin: 0;
-    }
-
-    /* Subheading (Survey Description) */
-    p {
-      font-family: 'Garet', sans-serif;
-      font-size: 1.5rem;
-      margin-top: 10px;
-    }
-
-    /* Content Section Styling (plain white background after the image) */
-    .content-section {
-      background-color: white;
-      padding: 50px 10px;
       text-align: center;
+      color: white;
     }
 
-    h2 {
+    /* Transparent button */
+    .transparent-button {
       font-family: 'Oswald', sans-serif;
-      font-size: 2.5rem;
-      color: #57A2D8;
-      margin-top: 40px;
+      font-size: 1.5rem;
+      color: white;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 15px 30px;
+      border: 2px solid white;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
     }
 
-    .section {
-      margin-bottom: 50px;
+    .transparent-button:hover {
+      background-color: rgba(255, 255, 255, 0.4);
     }
 
-    /* Polaroid Style for Images */
-    .polaroid {
-      border: 10px solid white;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      margin: 20px auto;
-      width: 50%; /* Full width for the first image */
+    /* Content Container */
+    .content {
+      max-width: 600px;
     }
 
-    .smaller-polaroid {
-      width: 40%; /* Smaller size for the two smaller images */
-      margin: 10px;
-    }
-
-    .polaroid img {
-      width: 100%;
-      height: auto;
-    }
-
-    .caption {
+    .content h1 {
       font-family: 'Oswald', sans-serif;
-      font-size: 1.2rem;
-      padding: 10px;
-      color: black;
+      font-size: 3rem;
+      margin-bottom: 20px;
     }
 
-    /* Two-Column Layout for smaller images */
-    .two-column {
-      display: flex; /* Ensures the columns are side-by-side */
-      justify-content: center;
-      align-items: flex-start;
-      gap: 20px; /* Space between the two images */
+    .content p {
+      font-family: 'Garet', sans-serif;
+      font-size: 1.3rem;
+      margin-bottom: 40px;
     }
 
-    .two-column .col {
-      flex: 1;
-    }
-
-    .two-column .polaroid {
-      width: 100%; /* Make sure each smaller image fills its column */
-      height: auto;
-    }
-
-    /* Three-Column Layout for the last section */
-    .three-column {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-
-    .three-column .col {
-      flex: 30%;
-      margin: 10px;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .two-column {
-        flex-direction: column;
-      }
-
-      .three-column {
-        flex-direction: column;
-      }
-
-      .polaroid {
-        width: 90%; /* Smaller size for smaller screens */
-      }
-
-      .two-column .col {
-        flex: 100%; /* Full width for columns on small screens */
-      }
-    }
   </style>
 </head>
 <body>
-
-  <!-- Background Section with arjuna.png and heading -->
-  <div class="background-section">
-    <div class="text">
-      <h1>CAFÉ STATS</h1>
-      <p>based on survey results from students of FLAME</p>
-    </div>
+  <div class="content">
+    <h1>Café Stats</h1>
+    <p>Discover the top cafes on campus based on our student survey.</p>
+    <a href="stats-slideshow.html" class="transparent-button">View Stats</a>
   </div>
-
-  <!-- Content Section starts here with plain white background -->
-  <div class="content-section">
-
-    <!-- A CROWD FAVOURITE SECTION -->
-    <div class="section">
-      <h2>A CROWD FAVOURITE!</h2>
-
-      <!-- First Image: Full width -->
-      <div class="polaroid">
-        <img src="jppolaroid.png" alt="Juice Press Stats">
-        <div class="caption">41% of people voted for Juice Press as their favorite café on campus.</div>
-      </div>
-
-      <!-- Two smaller images next to each other -->
-      <div class="two-column">
-        <div class="col">
-          <div class="polaroid">
-            <img src="jppolaroid.png" alt="Hashtag">
-            <div class="caption">23.4% of people voted for Hashtag</div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="polaroid">
-            <img src="jppolaroid.png" alt="Centre Stage">
-            <div class="caption">9.4% of people voted for Centre Stage</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- HEALTH MATTERS SECTION -->
-    <div class="section">
-      <h2>HEALTH MATTERS</h2>
-      <div class="polaroid">
-        <img src="jppolaroid.png" alt="Healthiest Café">
-        <div class="caption">80% of people think Juice Press has the healthiest food.</div>
-      </div>
-      <div class="two-column">
-        <div class="col polaroid smaller-polaroid">
-          <img src="jppolaroid.png" alt="Hashtag">
-          <div class="caption">6.3% of people voted for Hashtag</div>
-        </div>
-        <div class="col polaroid smaller-polaroid">
-          <img src="jppolaroid.png" alt="Coffee Nation">
-          <div class="caption">6.3% of people voted for Coffee Nation</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- YOUNG, (DUMB), BROKE SECTION -->
-    <div class="section">
-      <h2>YOUNG, (DUMB), BROKE</h2>
-      <div class="polaroid">
-        <img src="jppolaroid.png" alt="Cheapest Café">
-        <div class="caption">80% of people think Juice Press has the cheapest food.</div>
-      </div>
-      <div class="two-column">
-        <div class="col polaroid smaller-polaroid">
-          <img src="jppolaroid.png" alt="Charlie's Café">
-          <div class="caption">10.9% of people voted for Charlie's</div>
-        </div>
-        <div class="col polaroid smaller-polaroid">
-          <img src="jppolaroid.png" alt="Centre Stage">
-          <div class="caption">6.3% of people voted for Centre Stage</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- A CUP OF COFFEE FOR YOUR HEAD SECTION -->
-    <div class="section">
-      <h2>A CUP OF COFFEE FOR YOUR HEAD</h2>
-      <div class="polaroid">
-        <img src="jppolaroid.png" alt="Best Coffee Café">
-        <div class="caption">61% of people voted for Coffee Nation having the best coffee.</div>
-      </div>
-      <div class="two-column">
-        <div class="col polaroid smaller-polaroid">
-          <img src="jppolaroid.png" alt="Korebi">
-          <div class="caption">14.8% of people voted for Korebi</div>
-        </div>
-        <div class="col polaroid smaller-polaroid">
-          <img src="jppolaroid.png" alt="Charlie's Café">
-          <div class="caption">10.9% of people voted for Charlie's</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- THE BEST OF THE BEST SECTION -->
-    <div class="section">
-      <h2>THE BEST OF THE BEST</h2>
-      <div class="three-column">
-        <div class="col polaroid">
-          <img src="jppolaroid.png" alt="Hashtag Fries">
-          <div class="caption">71.7% chose Hashtag fries as their favorite!</div>
-        </div>
-        <div class="col polaroid">
-          <img src="jppolaroid.png" alt="Juice Press Maggi">
-          <div class="caption">35% chose Juice Press Maggi as their favorite!</div>
-        </div>
-        <div class="col polaroid">
-          <img src="jppolaroid.png" alt="Centre Stage Sandwiches">
-          <div class="caption">41.1% chose Centre Stage sandwiches as their favorite!</div>
-        </div>
-      </div>
-    </div>
-
-  </div> <!-- End of Content Section -->
-
 </body>
 </html>
