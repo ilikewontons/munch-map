@@ -3,195 +3,189 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Café Stats - Slideshow</title>
+  <title>Stats Slideshow</title>
   <style>
     /* General Styles */
     body, html {
       margin: 0;
       padding: 0;
-      font-family: 'Garet', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      height: 100%;
-    }
-
-    /* Slideshow Container */
-    .slideshow-container {
-      position: relative;
-      max-width: 1000px;
-      margin: auto;
-      padding-top: 50px;
-    }
-
-    /* Slides */
-    .mySlides {
-      display: none;
-      text-align: center;
-      padding: 20px;
-      background-color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Slide Content */
-    .slide-content {
-      font-size: 1.5rem;
       font-family: 'Oswald', sans-serif;
-      color: #57A2D8;
+      background-image: url('arjuna.png'); /* Background Image */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    /* Next & Previous Buttons */
-    .prev, .next {
-      cursor: pointer;
+    /* Carousel Container */
+    .carousel {
+      position: relative;
+      width: 70%;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Carousel Slide */
+    .carousel-slide {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    /* Individual Slide */
+    .carousel-slide img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* Slide Text */
+    .slide-text {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1.5rem;
+    }
+
+    /* Navigation Buttons */
+    .carousel-button {
       position: absolute;
       top: 50%;
-      width: auto;
-      padding: 16px;
-      margin-top: -22px;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
       color: white;
-      font-weight: bold;
-      font-size: 18px;
-      transition: 0.6s ease;
-      border-radius: 0 3px 3px 0;
-      user-select: none;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 100;
     }
 
-    .next {
-      right: 0;
-      border-radius: 3px 0 0 3px;
+    .carousel-button.left {
+      left: 10px;
     }
 
-    .prev:hover, .next:hover {
-      background-color: rgba(0,0,0,0.8);
+    .carousel-button.right {
+      right: 10px;
     }
 
-    /* Dots for navigation */
-    .dot {
-      height: 15px;
-      width: 15px;
-      margin: 0 2px;
-      background-color: #bbb;
-      border-radius: 50%;
+    /* Dots (indicators) */
+    .carousel-dots {
+      text-align: center;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .carousel-dots span {
       display: inline-block;
-      transition: background-color 0.6s ease;
+      height: 12px;
+      width: 12px;
+      background-color: #ccc;
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
     }
 
-    .active, .dot:hover {
+    .carousel-dots .active {
       background-color: #57A2D8;
     }
 
-    /* Slide Animation */
-    @keyframes fade {
-      from {opacity: .4} 
-      to {opacity: 1}
+    /* 3D Effect */
+    .carousel-slide img {
+      perspective: 1000px;
+      transform-style: preserve-3d;
+    }
+
+    /* Media Query for Responsive Design */
+    @media (max-width: 768px) {
+      .carousel {
+        width: 90%;
+        height: 300px;
+      }
+
+      .slide-text {
+        font-size: 1.2rem;
+      }
+
+      .carousel-button {
+        padding: 8px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="slideshow-container">
-
-    <!-- First Slide -->
-    <div class="mySlides fade">
-      <div class="slide-content">
-        <h2>A Crowd Favourite</h2>
-        <p>Discover the most visited café on campus.</p>
-      </div>
-    </div>
-
-    <!-- Second Slide -->
-    <div class="mySlides fade">
-      <div class="slide-content">
-        <h2>Health Matters</h2>
-        <p>Explore the healthiest options available.</p>
-      </div>
-    </div>
-
-    <!-- Third Slide -->
-    <div class="mySlides fade">
-      <div class="slide-content">
-        <h2>Young, (dumb), broke</h2>
-        <p>Where you can eat well on a budget.</p>
-      </div>
-    </div>
-
-    <!-- Fourth Slide -->
-    <div class="mySlides fade">
-      <div class="slide-content">
-        <h2>A Cup of Coffee for Your Head</h2>
-        <p>The best places to grab a cup of coffee.</p>
-      </div>
-    </div>
-
-    <!-- Fifth Slide -->
-    <div class="mySlides fade">
-      <div class="slide-content">
-        <h2>Best of the Best #1</h2>
-        <p>The top-ranked café for its ambiance.</p>
-      </div>
-    </div>
-
-    <!-- Sixth Slide -->
-    <div class="mySlides fade">
-      <div class="slide-content">
-        <h2>Best of the Best #2</h2>
-        <p>The café with the most creative menu.</p>
-      </div>
-    </div>
-
-    <!-- Seventh Slide -->
-    <div class="mySlides fade">
-      <div class="slide-content">
-        <h2>Best of the Best #3</h2>
-        <p>The best café for socializing and chilling out.</p>
-      </div>
-    </div>
-
-    <!-- Next and Previous Buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  <!-- Button to View Stats on Landing Page -->
+  <div class="carousel-intro">
+    <h1>Stats</h1>
+    <p>Your favorite café data at a glance!</p>
+    <a href="#stats-section">
+      <button class="carousel-button view-stats">View Stats</button>
+    </a>
   </div>
 
-  <!-- Dots Navigation -->
-  <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span> 
-    <span class="dot" onclick="currentSlide(2)"></span> 
-    <span class="dot" onclick="currentSlide(3)"></span> 
-    <span class="dot" onclick="currentSlide(4)"></span> 
-    <span class="dot" onclick="currentSlide(5)"></span> 
-    <span class="dot" onclick="currentSlide(6)"></span> 
-    <span class="dot" onclick="currentSlide(7)"></span> 
+  <!-- Slideshow Section -->
+  <div id="stats-section" class="carousel">
+    <div class="carousel-slide">
+      <img src="slide1.jpg" alt="Slide 1">
+      <div class="slide-text">A crowd favourite</div>
+
+      <img src="slide2.jpg" alt="Slide 2">
+      <div class="slide-text">Health matters</div>
+
+      <img src="slide3.jpg" alt="Slide 3">
+      <div class="slide-text">Young, (dumb), broke</div>
+
+      <!-- Add the rest of your slides here -->
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button class="carousel-button left" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="carousel-button right" onclick="moveSlide(1)">&#10095;</button>
+
+    <!-- Dots (indicators) -->
+    <div class="carousel-dots">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <!-- Add more dots for more slides -->
+    </div>
   </div>
 
-  <!-- JavaScript for the Slideshow -->
   <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
+    let slideIndex = 0;
 
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
+    function showSlides() {
+      let slides = document.querySelectorAll(".carousel-slide img");
+      let dots = document.querySelectorAll(".dot");
+
+      slides.forEach((slide, index) => {
+        slide.style.display = index === slideIndex ? "block" : "none";
+        dots[index].classList.toggle("active", index === slideIndex);
+      });
+    }
+
+    function moveSlide(n) {
+      slideIndex = (slideIndex + n + slides.length) % slides.length;
+      showSlides();
     }
 
     function currentSlide(n) {
-      showSlides(slideIndex = n);
+      slideIndex = n - 1;
+      showSlides();
     }
 
-    function showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {slideIndex = 1}    
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";  
-      dots[slideIndex-1].className += " active";
-    }
+    window.onload = function () {
+      showSlides();
+    };
   </script>
-
 </body>
 </html>
