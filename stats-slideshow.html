@@ -3,211 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stats Slideshow</title>
+  <title>Café Stats</title>
   <style>
-    /* General Styles */
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: 'Oswald', sans-serif;
-      background-image: url('arjuna.png'); /* Background Image */
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-
     /* Carousel Container */
     .carousel {
       position: relative;
-      width: 80%;
-      height: 50vh; /* Carousel is half the height of the background */
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
       overflow: hidden;
-      border-radius: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      border-radius: 15px; /* Rounded corners */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adding some shadow for depth */
     }
 
-    /* Carousel Slide */
-    .carousel-slide {
+    /* Carousel Inner (for the slides) */
+    .carousel-inner {
       display: flex;
-      width: 100%; /* Full width for smooth sliding */
-      height: 100%;
       transition: transform 0.5s ease-in-out;
     }
 
     /* Individual Slide */
-    .carousel-slide img {
-      min-width: 100%; /* This makes sure each slide takes full width */
-      height: 100%;
-      border-radius: 10px;
+    .carousel-item {
+      min-width: 100%; /* Each slide takes up full carousel width */
+      box-sizing: border-box;
+    }
+
+    /* Image in the Slide */
+    .carousel-item img {
+      width: 100%;
+      height: 400px;
       object-fit: cover;
+      border-radius: 15px;
     }
 
-    /* Slide Text */
-    .slide-text {
-      position: absolute;
-      bottom: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #fff;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 1.5rem;
-      text-align: center;
-    }
-
-    /* Navigation Buttons */
-    .carousel-button {
+    /* Previous & Next Buttons */
+    .prev, .next {
+      cursor: pointer;
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
       color: white;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      z-index: 100;
-    }
-
-    .carousel-button.left {
-      left: 10px;
-    }
-
-    .carousel-button.right {
-      right: 10px;
-    }
-
-    /* Dots (indicators) */
-    .carousel-dots {
-      text-align: center;
-      position: absolute;
-      bottom: 2%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .carousel-dots span {
-      display: inline-block;
-      height: 12px;
-      width: 12px;
-      background-color: #ccc;
+      font-weight: bold;
+      font-size: 24px;
+      transition: 0.3s;
       border-radius: 50%;
-      margin: 0 5px;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 10;
+    }
+
+    .prev {
+      left: 0;
+    }
+
+    .next {
+      right: 0;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    /* Dots for slide indication */
+    .dot-container {
+      text-align: center;
+      padding: 15px;
+      background: #E7E7E0;
+    }
+
+    .dot {
       cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
     }
 
-    .carousel-dots .active {
-      background-color: #57A2D8;
+    .active, .dot:hover {
+      background-color: #717171;
     }
 
-    /* Media Query for Responsiveness */
-    @media (max-width: 768px) {
-      .carousel {
-        width: 95%;
-        height: 40vh;
-      }
-
-      .slide-text {
-        font-size: 1.2rem;
-      }
-
-      .carousel-button {
-        padding: 5px;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <!-- Slideshow Section -->
-  <div id="stats-section" class="carousel">
-    <div class="carousel-slide" id="slide-track">
-      <div>
-        <img src="slide1.jpg" alt="Slide 1">
-        <div class="slide-text">A crowd favourite</div>
+  <div class="carousel">
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item">
+        <img src="hashtagau.png" alt="Café 1">
+        <div class="carousel-caption">
+          <h3>Café 1 Stats</h3>
+          <p>Most popular drink: Espresso</p>
+        </div>
       </div>
-      <div>
-        <img src="slide2.jpg" alt="Slide 2">
-        <div class="slide-text">Health matters</div>
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <img src="hashtagau.png" alt="Café 2">
+        <div class="carousel-caption">
+          <h3>Café 2 Stats</h3>
+          <p>Most popular drink: Cappuccino</p>
+        </div>
       </div>
-      <div>
-        <img src="slide3.jpg" alt="Slide 3">
-        <div class="slide-text">Young, (dumb), broke</div>
-      </div>
-      <div>
-        <img src="slide4.jpg" alt="Slide 4">
-        <div class="slide-text">Classic Blend</div>
-      </div>
-      <div>
-        <img src="slide5.jpg" alt="Slide 5">
-        <div class="slide-text">Seasonal Special</div>
-      </div>
-      <div>
-        <img src="slide6.jpg" alt="Slide 6">
-        <div class="slide-text">Coffee Bliss</div>
-      </div>
-      <div>
-        <img src="slide7.jpg" alt="Slide 7">
-        <div class="slide-text">Top Seller</div>
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <img src="hashtagau.png" alt="Café 3">
+        <div class="carousel-caption">
+          <h3>Café 3 Stats</h3>
+          <p>Most popular drink: Cold Brew</p>
+        </div>
       </div>
     </div>
+    <!-- Buttons to navigate -->
+    <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+    <a class="next" onclick="moveSlide(1)">&#10095;</a>
+  </div>
 
-    <!-- Navigation Buttons -->
-    <button class="carousel-button left" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="carousel-button right" onclick="moveSlide(1)">&#10095;</button>
-
-    <!-- Dots (indicators) -->
-    <div class="carousel-dots">
-      <span class="dot" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-      <span class="dot" onclick="currentSlide(3)"></span>
-      <span class="dot" onclick="currentSlide(4)"></span>
-      <span class="dot" onclick="currentSlide(5)"></span>
-      <span class="dot" onclick="currentSlide(6)"></span>
-      <span class="dot" onclick="currentSlide(7)"></span>
-    </div>
+  <!-- The dots/circles for the slides -->
+  <div class="dot-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
   </div>
 
   <script>
     let slideIndex = 0;
-    const slides = document.querySelectorAll(".carousel-slide div");
-    const dots = document.querySelectorAll(".dot");
-    const slideTrack = document.getElementById("slide-track");
+    showSlides(slideIndex);
 
-    function showSlides() {
-      slideTrack.style.transform = `translateX(-${slideIndex * 100}%)`; // Move the entire track left by percentage
-      dots.forEach((dot, index) => {
-        dot.classList.toggle("active", index === slideIndex);
-      });
-    }
-
+    // Function to move slides
     function moveSlide(n) {
-      slideIndex = (slideIndex + n + slides.length) % slides.length;
-      showSlides();
+      showSlides(slideIndex += n);
     }
 
+    // Function to show a specific slide
     function currentSlide(n) {
-      slideIndex = n - 1;
-      showSlides();
+      showSlides(slideIndex = n - 1);
     }
 
-    // Autoplay function to move slides automatically every 5 seconds
-    function autoPlay() {
-      moveSlide(1); // Move to the next slide
-      setTimeout(autoPlay, 5000); // Repeat every 5 seconds
-    }
+    // Main function to display slides
+    function showSlides(n) {
+      const slides = document.querySelectorAll('.carousel-item');
+      const dots = document.querySelectorAll('.dot');
 
-    // Show carousel immediately on page load and start autoplay
-    window.onload = function() {
-      showSlides();
-      autoPlay(); // Start autoplay
-    };
+      if (n >= slides.length) { slideIndex = 0 }
+      if (n < 0) { slideIndex = slides.length - 1 }
+
+      slides.forEach(slide => slide.style.display = 'none'); // Hide all slides
+      dots.forEach(dot => dot.className = dot.className.replace(' active', '')); // Remove 'active' class from all dots
+
+      slides[slideIndex].style.display = 'block'; // Show current slide
+      dots[slideIndex].className += ' active'; // Activate current dot
+    }
   </script>
+
 </body>
 </html>
