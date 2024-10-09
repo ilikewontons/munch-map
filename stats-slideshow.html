@@ -20,9 +20,8 @@
     /* Main Carousel Container */
     .carousel-container {
       position: relative;
-      width: 90%;
-      max-width: 1440px;
-      height: 600px;
+      width: 934px; /* Match image width */
+      height: 742px; /* Match image height */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -56,7 +55,7 @@
     .carousel-slide img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain; /* Ensures the entire image is visible without cropping */
       border-radius: 10px;
     }
 
@@ -71,14 +70,15 @@
       padding: 0;
       border: none;
       cursor: pointer;
+      z-index: 10;
     }
 
     .prev {
-      left: 0;
+      left: 10px;
     }
 
     .next {
-      right: 0;
+      right: 10px;
     }
 
     .prev:hover, .next:hover {
@@ -120,37 +120,37 @@
     <div class="carousel-track" id="carousel-track">
       <!-- Slide 1 -->
       <div class="carousel-slide">
-        <img src="1.png" alt="Café 1">
+        <img src="hashtagau.png" alt="Café 1">
       </div>
 
       <!-- Slide 2 (Main active slide) -->
       <div class="carousel-slide active">
-        <img src="2.png" alt="Café 2">
+        <img src="hashtagau.png" alt="Café 2">
       </div>
 
       <!-- Slide 3 -->
       <div class="carousel-slide">
-        <img src="3.png" alt="Café 3">
+        <img src="hashtagau.png" alt="Café 3">
       </div>
 
       <!-- Slide 4 -->
       <div class="carousel-slide">
-        <img src="4.png" alt="Café 4">
+        <img src="hashtagau.png" alt="Café 4">
       </div>
 
       <!-- Slide 5 -->
       <div class="carousel-slide">
-        <img src="5.png" alt="Café 5">
+        <img src="hashtagau.png" alt="Café 5">
       </div>
 
       <!-- Slide 6 -->
       <div class="carousel-slide">
-        <img src="6.png" alt="Café 6">
+        <img src="hashtagau.png" alt="Café 6">
       </div>
 
       <!-- Slide 7 -->
       <div class="carousel-slide">
-        <img src="7.png" alt="Café 7">
+        <img src="hashtagau.png" alt="Café 7">
       </div>
     </div>
 
