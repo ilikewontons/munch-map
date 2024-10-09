@@ -20,49 +20,16 @@
       overflow: hidden;
     }
 
-    /* Button to View Stats */
-    .carousel-intro {
-      position: absolute;
-      top: 20%;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      color: white;
-    }
-
-    .carousel-intro h1 {
-      font-size: 4rem;
-    }
-
-    .carousel-intro p {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-    }
-
-    .carousel-intro .view-stats-btn {
-      padding: 10px 30px;
-      font-size: 1.2rem;
-      background-color: rgba(255, 255, 255, 0.5);
-      border: none;
-      border-radius: 5px;
-      color: black;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .carousel-intro .view-stats-btn:hover {
-      background-color: rgba(255, 255, 255, 0.8);
-    }
-
     /* Carousel Container */
     .carousel {
-      position: absolute;
-      bottom: 5%;
+      position: relative;
       width: 80%;
       height: 50vh; /* Carousel is half the height of the background */
       overflow: hidden;
-      display: none; /* Hidden initially */
       border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     /* Carousel Slide */
@@ -73,8 +40,10 @@
 
     /* Individual Slide */
     .carousel-slide img {
-      width: 100%;
+      min-width: 100%;
+      height: 100%;
       border-radius: 10px;
+      object-fit: cover;
     }
 
     /* Slide Text */
@@ -88,6 +57,7 @@
       padding: 10px 20px;
       border-radius: 5px;
       font-size: 1.5rem;
+      text-align: center;
     }
 
     /* Navigation Buttons */
@@ -141,24 +111,17 @@
         height: 40vh;
       }
 
-      .carousel-intro h1 {
-        font-size: 3rem;
+      .slide-text {
+        font-size: 1.2rem;
       }
 
-      .carousel-intro p {
-        font-size: 1.2rem;
+      .carousel-button {
+        padding: 5px;
       }
     }
   </style>
 </head>
 <body>
-
-  <!-- Button to View Stats on Landing Page -->
-  <div class="carousel-intro">
-    <h1>Stats</h1>
-    <p>Your favorite café data at a glance!</p>
-    <button class="view-stats-btn" onclick="showCarousel()">View Stats</button>
-  </div>
 
   <!-- Slideshow Section -->
   <div id="stats-section" class="carousel">
@@ -172,7 +135,17 @@
       <img src="slide3.jpg" alt="Slide 3">
       <div class="slide-text">Young, (dumb), broke</div>
 
-      <!-- Add more slides for other stats -->
+      <img src="slide4.jpg" alt="Slide 4">
+      <div class="slide-text">Classic Blend</div>
+
+      <img src="slide5.jpg" alt="Slide 5">
+      <div class="slide-text">Seasonal Special</div>
+
+      <img src="slide6.jpg" alt="Slide 6">
+      <div class="slide-text">Coffee Bliss</div>
+
+      <img src="slide7.jpg" alt="Slide 7">
+      <div class="slide-text">Top Seller</div>
     </div>
 
     <!-- Navigation Buttons -->
@@ -184,7 +157,10 @@
       <span class="dot" onclick="currentSlide(1)"></span>
       <span class="dot" onclick="currentSlide(2)"></span>
       <span class="dot" onclick="currentSlide(3)"></span>
-      <!-- Add dots for more slides -->
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+      <span class="dot" onclick="currentSlide(6)"></span>
+      <span class="dot" onclick="currentSlide(7)"></span>
     </div>
   </div>
 
@@ -210,10 +186,17 @@
       showSlides();
     }
 
-    function showCarousel() {
-      document.querySelector(".carousel").style.display = "block";
-      showSlides();
+    // Autoplay function to move slides automatically every 5 seconds
+    function autoPlay() {
+      moveSlide(1); // Move to the next slide
+      setTimeout(autoPlay, 5000); // Repeat every 5 seconds
     }
+
+    // Show carousel immediately on page load and start autoplay
+    window.onload = function() {
+      showSlides();
+      autoPlay(); // Start autoplay
+    };
   </script>
 </body>
 </html>
