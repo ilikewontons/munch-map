@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Café Stats</title>
+  <title>Café Stats Carousel</title>
   <style>
     /* General Page Styling */
     body, html {
@@ -20,9 +20,9 @@
     /* Main Carousel Container */
     .carousel-container {
       position: relative;
-      width: 80%;
-      max-width: 1200px;
-      height: 400px;
+      width: 96%; /* Increased size by 20% */
+      max-width: 1440px; /* Maximum width increased */
+      height: 600px; /* Increased height */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -33,7 +33,7 @@
       position: relative;
       width: 50%;
       height: 100%;
-      margin: 0 20px;
+      margin: 0 30px;
       background-color: #ddd;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       transition: transform 0.5s ease-in-out;
@@ -72,31 +72,30 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      font-size: 24px;
-      padding: 16px;
-      border-radius: 50%;
+      background-color: transparent;
+      color: black;
+      font-size: 48px;
+      padding: 0;
+      border: none;
       cursor: pointer;
-      transition: background-color 0.3s;
     }
 
     .prev {
-      left: 5%;
+      left: 0;
     }
 
     .next {
-      right: 5%;
+      right: 0;
     }
 
     .prev:hover, .next:hover {
-      background-color: rgba(0, 0, 0, 0.8);
+      color: gray;
     }
 
     /* Dots for slide indication */
     .dot-container {
       position: absolute;
-      bottom: -30px;
+      bottom: -40px;
       text-align: center;
       width: 100%;
     }
@@ -120,9 +119,9 @@
 <body>
 
   <!-- Carousel Container -->
-  <div class="carousel-container">
+  <div class="carousel-container" id="carousel-container">
     <!-- Previous Button -->
-    <span class="prev" onclick="moveSlide(-1)">&#10094;</span>
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
 
     <!-- Left Preview (cafe 1) -->
     <div class="preview-slide">
@@ -140,7 +139,7 @@
     </div>
 
     <!-- Next Button -->
-    <span class="next" onclick="moveSlide(1)">&#10095;</span>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
 
     <!-- Dots -->
     <div class="dot-container">
@@ -152,32 +151,70 @@
 
   <script>
     let currentIndex = 0;
+    let autoPlayInterval;
 
     // Function to move between slides
     function moveSlide(n) {
+      clearInterval(autoPlayInterval);  // Pause autoplay when arrow is clicked
+      currentIndex = (currentIndex + n + 3) % 3;  // Loop between 3 slides
+      updateCarousel();
+      startAutoPlay();  // Restart autoplay after interaction
+    }
+
+    // Function to move to a specific slide
+    function currentSlide(n) {
+      clearInterval(autoPlayInterval);  // Pause autoplay when dot is clicked
+      currentIndex = n - 1;
+      updateCarousel();
+      startAutoPlay();  // Restart autoplay
+    }
+
+    // Update Carousel and Dots
+    function updateCarousel() {
       const slides = document.querySelectorAll('.carousel-slide img');
       const previews = document.querySelectorAll('.preview-slide img');
       const dots = document.querySelectorAll('.dot');
 
-      currentIndex = (currentIndex + n + slides.length) % slides.length;
-
-      // Update active slide and previews
-      slides[0].src = previews[currentIndex].src;
-      previews[0].src = previews[(currentIndex - 1 + slides.length) % slides.length].src;
-      previews[1].src = previews[(currentIndex + 1) % slides.length].src;
+      // Update main slide and previews
+      const images = ['hashtagau.png', 'hashtagau.png', 'hashtagau.png'];  // Replace with actual image sources
+      slides[0].src = images[currentIndex];
+      previews[0].src = images[(currentIndex - 1 + 3) % 3];
+      previews[1].src = images[(currentIndex + 1) % 3];
 
       // Update dots
       dots.forEach(dot => dot.classList.remove('active'));
       dots[currentIndex].classList.add('active');
     }
 
-    // Function to move to a specific slide
-    function currentSlide(n) {
-      moveSlide(n - currentIndex - 1);
+    // Autoplay Functionality
+    function startAutoPlay() {
+      autoPlayInterval = setInterval(() => {
+        moveSlide(1);  // Move to next slide every 5 seconds
+      }, 5000);
     }
 
-    // Set initial previews and active slide
-    moveSlide(0);
+    // Swipe functionality for mobile devices
+    const carouselContainer = document.getElementById('carousel-container');
+    let startX;
+
+    carouselContainer.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    carouselContainer.addEventListener('touchmove', (e) => {
+      if (!startX) return;
+      let diffX = startX - e.touches[0].clientX;
+      if (diffX > 50) {
+        moveSlide(1);  // Swipe left for next slide
+      } else if (diffX < -50) {
+        moveSlide(-1);  // Swipe right for previous slide
+      }
+      startX = null;  // Reset swipe start
+    });
+
+    // Start with the first slide and autoplay
+    updateCarousel();
+    startAutoPlay();
   </script>
 
 </body>
