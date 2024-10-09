@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Café Stats Carousel</title>
+  <title>Café Stats Carousel with Transitions</title>
   <style>
     /* General Page Styling */
     body, html {
@@ -20,23 +20,27 @@
     /* Main Carousel Container */
     .carousel-container {
       position: relative;
-      width: 96%; /* Increased size by 20% */
-      max-width: 1440px; /* Maximum width increased */
-      height: 600px; /* Increased height */
+      width: 96%;
+      max-width: 1440px;
+      height: 600px;
       display: flex;
       justify-content: center;
       align-items: center;
+      overflow: hidden; /* Hide overflowing slides */
+    }
+
+    /* Carousel Track */
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out; /* Smooth slide transition */
+      width: calc(100% * 3); /* Enough width to fit all three visible slides */
     }
 
     /* Active Slide in the center */
     .carousel-slide {
-      position: relative;
-      width: 50%;
+      width: 100%; /* Each slide takes up full width of container */
       height: 100%;
-      margin: 0 30px;
-      background-color: #ddd;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: transform 0.5s ease-in-out;
+      flex: 0 0 100%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -50,19 +54,10 @@
 
     /* Left and Right previews (smaller slides) */
     .preview-slide {
-      width: 20%;
-      height: 80%;
       opacity: 0.5;
-      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+      transition: opacity 0.5s ease-in-out;
     }
 
-    .preview-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Hover effect for previews */
     .preview-slide:hover {
       opacity: 1;
     }
@@ -123,19 +118,22 @@
     <!-- Previous Button -->
     <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
 
-    <!-- Left Preview (cafe 1) -->
-    <div class="preview-slide">
-      <img src="hashtagau.png" alt="Café 1">
-    </div>
+    <!-- Carousel Track (holds all slides) -->
+    <div class="carousel-track" id="carousel-track">
+      <!-- Left Preview (cafe 1) -->
+      <div class="carousel-slide preview-slide">
+        <img src="hashtagau.png" alt="Café 1">
+      </div>
 
-    <!-- Main Active Slide (cafe 2) -->
-    <div class="carousel-slide">
-      <img src="hashtagau.png" alt="Café 2">
-    </div>
+      <!-- Main Active Slide (cafe 2) -->
+      <div class="carousel-slide">
+        <img src="hashtagau.png" alt="Café 2">
+      </div>
 
-    <!-- Right Preview (cafe 3) -->
-    <div class="preview-slide">
-      <img src="hashtagau.png" alt="Café 3">
+      <!-- Right Preview (cafe 3) -->
+      <div class="carousel-slide preview-slide">
+        <img src="hashtagau.png" alt="Café 3">
+      </div>
     </div>
 
     <!-- Next Button -->
@@ -150,8 +148,21 @@
   </div>
 
   <script>
-    let currentIndex = 0;
+    let currentIndex = 1; // Start with the center slide (café 2)
     let autoPlayInterval;
+
+    // Update Carousel with transition
+    function updateCarousel() {
+      const track = document.getElementById('carousel-track');
+      const dots = document.querySelectorAll('.dot');
+
+      // Move the track to show the active slide with a smooth transition
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      // Update active dot
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[(currentIndex - 1 + dots.length) % dots.length].classList.add('active');
+    }
 
     // Function to move between slides
     function moveSlide(n) {
@@ -164,26 +175,9 @@
     // Function to move to a specific slide
     function currentSlide(n) {
       clearInterval(autoPlayInterval);  // Pause autoplay when dot is clicked
-      currentIndex = n - 1;
+      currentIndex = n;
       updateCarousel();
       startAutoPlay();  // Restart autoplay
-    }
-
-    // Update Carousel and Dots
-    function updateCarousel() {
-      const slides = document.querySelectorAll('.carousel-slide img');
-      const previews = document.querySelectorAll('.preview-slide img');
-      const dots = document.querySelectorAll('.dot');
-
-      // Update main slide and previews
-      const images = ['hashtagau.png', 'hashtagau.png', 'hashtagau.png'];  // Replace with actual image sources
-      slides[0].src = images[currentIndex];
-      previews[0].src = images[(currentIndex - 1 + 3) % 3];
-      previews[1].src = images[(currentIndex + 1) % 3];
-
-      // Update dots
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[currentIndex].classList.add('active');
     }
 
     // Autoplay Functionality
@@ -219,3 +213,4 @@
 
 </body>
 </html>
+
