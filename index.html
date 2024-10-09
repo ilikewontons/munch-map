@@ -249,10 +249,9 @@
       <img src="unimap.png" alt="University Cafés Map">
     </section>
 
-    <!-- Search Bar (Moved below the Map) -->
-    <div class="search-container">
-      <input type="text" id="search" placeholder="Search for a dish...">
-    </div>
+   <div class="search-container">
+    <input type="text" id="search" placeholder="Search for a dish...">
+  </div>
 
     <!-- About Section -->
     <section class="about-section">
@@ -309,9 +308,9 @@
       </div>
     </section>
 
-    <!-- Search Results -->
-    <div id="results"></div>
-
+ <!-- Search Results -->
+  <div id="results"></div>
+    
   </div>
 
   <script>
@@ -662,6 +661,8 @@
     // Search functionality
     document.getElementById('search').addEventListener('input', function() {
         const searchTerm = this.value.toLowerCase().trim();  // Trim to remove any extra spaces
+        console.log(`Searching for: ${searchTerm}`);  // Debug: check input value
+
         const results = searchTerm ? items.filter(item => item.name.toLowerCase().includes(searchTerm)) : [];
         displayResults(results);
     });
@@ -670,6 +671,7 @@
     function displayResults(results) {
         const resultsDiv = document.getElementById('results');
         resultsDiv.innerHTML = ''; // Clear previous results
+
         if (results.length > 0) {
             results.forEach(item => {
                 const resultDiv = document.createElement('div');
