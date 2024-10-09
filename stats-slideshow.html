@@ -13,20 +13,56 @@
       background-image: url('arjuna.png'); /* Background Image */
       background-size: cover;
       background-position: center;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Button to View Stats */
+    .carousel-intro {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: white;
+    }
+
+    .carousel-intro h1 {
+      font-size: 4rem;
+    }
+
+    .carousel-intro p {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .carousel-intro .view-stats-btn {
+      padding: 10px 30px;
+      font-size: 1.2rem;
+      background-color: rgba(255, 255, 255, 0.5);
+      border: none;
+      border-radius: 5px;
+      color: black;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .carousel-intro .view-stats-btn:hover {
+      background-color: rgba(255, 255, 255, 0.8);
     }
 
     /* Carousel Container */
     .carousel {
-      position: relative;
-      width: 70%;
-      height: 400px;
+      position: absolute;
+      bottom: 5%;
+      width: 80%;
+      height: 50vh; /* Carousel is half the height of the background */
       overflow: hidden;
+      display: none; /* Hidden initially */
       border-radius: 10px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
     /* Carousel Slide */
@@ -44,7 +80,7 @@
     /* Slide Text */
     .slide-text {
       position: absolute;
-      bottom: 20px;
+      bottom: 10%;
       left: 50%;
       transform: translateX(-50%);
       color: #fff;
@@ -79,7 +115,7 @@
     .carousel-dots {
       text-align: center;
       position: absolute;
-      bottom: 10px;
+      bottom: 2%;
       left: 50%;
       transform: translateX(-50%);
     }
@@ -98,25 +134,19 @@
       background-color: #57A2D8;
     }
 
-    /* 3D Effect */
-    .carousel-slide img {
-      perspective: 1000px;
-      transform-style: preserve-3d;
-    }
-
-    /* Media Query for Responsive Design */
+    /* Media Query for Responsiveness */
     @media (max-width: 768px) {
       .carousel {
-        width: 90%;
-        height: 300px;
+        width: 95%;
+        height: 40vh;
       }
 
-      .slide-text {
+      .carousel-intro h1 {
+        font-size: 3rem;
+      }
+
+      .carousel-intro p {
         font-size: 1.2rem;
-      }
-
-      .carousel-button {
-        padding: 8px;
       }
     }
   </style>
@@ -127,9 +157,7 @@
   <div class="carousel-intro">
     <h1>Stats</h1>
     <p>Your favorite café data at a glance!</p>
-    <a href="#stats-section">
-      <button class="carousel-button view-stats">View Stats</button>
-    </a>
+    <button class="view-stats-btn" onclick="showCarousel()">View Stats</button>
   </div>
 
   <!-- Slideshow Section -->
@@ -144,7 +172,7 @@
       <img src="slide3.jpg" alt="Slide 3">
       <div class="slide-text">Young, (dumb), broke</div>
 
-      <!-- Add the rest of your slides here -->
+      <!-- Add more slides for other stats -->
     </div>
 
     <!-- Navigation Buttons -->
@@ -156,17 +184,16 @@
       <span class="dot" onclick="currentSlide(1)"></span>
       <span class="dot" onclick="currentSlide(2)"></span>
       <span class="dot" onclick="currentSlide(3)"></span>
-      <!-- Add more dots for more slides -->
+      <!-- Add dots for more slides -->
     </div>
   </div>
 
   <script>
     let slideIndex = 0;
+    const slides = document.querySelectorAll(".carousel-slide img");
+    const dots = document.querySelectorAll(".dot");
 
     function showSlides() {
-      let slides = document.querySelectorAll(".carousel-slide img");
-      let dots = document.querySelectorAll(".dot");
-
       slides.forEach((slide, index) => {
         slide.style.display = index === slideIndex ? "block" : "none";
         dots[index].classList.toggle("active", index === slideIndex);
@@ -183,9 +210,10 @@
       showSlides();
     }
 
-    window.onload = function () {
+    function showCarousel() {
+      document.querySelector(".carousel").style.display = "block";
       showSlides();
-    };
+    }
   </script>
 </body>
 </html>
