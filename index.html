@@ -5,31 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Munch Map</title>
   <style>
-    /* Importing the Oswald and Garet fonts from Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Garet:wght@300;400&display=swap');
-
     /* General Styles */
     body {
       font-family: 'Oswald', sans-serif;
-      background-color: #f0f4f8; /* Light blue */
-      color: #333333; /* Dark grey */
+      background-color: #f0f4f8;
+      color: #333333;
       margin: 0;
       padding: 0;
     }
 
-    /* Header Styles */
     header {
-      background-color: #E7E7E0; /* Header color */
-      color: #004b8d; /* Dark blue text color */
+      background-color: #E7E7E0;
+      color: #004b8d;
       padding: 20px;
-      text-align: left;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    /* Navigation Bar Styles */
     nav {
       display: flex;
       justify-content: center;
@@ -44,58 +37,15 @@
     }
 
     nav a:hover {
-      color: #ffa500; /* Soft orange */
+      color: #ffa500;
     }
 
-    /* Dropdown Container */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropbtn {
-      color: #004b8d;
-      text-decoration: none;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: white;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      z-index: 1001; /* Ensure dropdown is above the nav */
-    }
-
-    .dropdown-content a {
-      color: #004b8d;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #f1f1f1;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdown:hover .dropbtn {
-      color: #ffa500; /* Change color on hover */
-    }
-
-    /* Search Container for Header */
     .search-container {
       display: flex;
       align-items: center;
       width: 100%;
       max-width: 500px;
       margin: 0 0 0 auto;
-      text-align: right;
     }
 
     input[type="text"] {
@@ -107,96 +57,6 @@
       border: 1px solid #ddd;
     }
 
-    /* Map Section */
-    #map img {
-      width: 100%;
-      height: auto;
-      margin-top: 0; /* Remove white space above the map */
-    }
-
-    /* About Section */
-    .about-section {
-      display: flex;
-      flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
-      justify-content: center;
-      align-items: center;
-      padding: 40px 20px;
-      margin-top: 0; /* Remove margin above */
-    }
-
-    .about-section img {
-      width: 17cm;
-      max-width: 17cm;
-      height: 10cm;
-      border-radius: 1cm;
-    }
-
-    .about-section .content {
-      padding: 20px;
-      width: 50%;
-      max-width: 600px;
-    }
-
-    .about-section h2 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 2.5rem;
-      color: #004b8d; /* Blue heading */
-    }
-
-    .about-section p {
-      font-family: 'Garet', sans-serif;
-      font-size: 1rem;
-      color: #333333; /* Dark grey text */
-      line-height: 1.8;
-    }
-
-    /* Meet the Team Section */
-    h1 {
-      font-size: 2.5rem;
-      color: #004b8d;
-      margin: 40px 0 20px;
-      text-align: center; /* Center the heading */
-    }
-
-    .team {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      padding: 0 10%;
-    }
-
-    .team .team-member {
-      background-color: white;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .team img {
-      width: 110%; /* Increase image size by 10% */
-      border-radius: 10px;
-    }
-
-    .team h3 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.5rem;
-      color: #004b8d;
-      margin-top: 15px;
-    }
-
-    .team p {
-      font-family: 'Garet', sans-serif;
-      font-size: 1rem;
-      color: #333;
-    }
-
-    .team-bottom {
-      grid-template-columns: repeat(2, 1fr);
-      padding: 0 20%;
-      gap: 20px;
-      margin-top: 30px; /* Add space between top and bottom rows */
-    }
-
     /* Search Result */
     .result {
       background-color: #f9f9f9;
@@ -204,18 +64,6 @@
       padding: 15px;
       margin-top: 10px;
       text-align: left;
-    }
-
-    /* Responsive design for smaller screens */
-    @media (max-width: 768px) {
-      .team {
-        grid-template-columns: 1fr;
-        padding: 0 20px;
-      }
-      .team-bottom {
-        grid-template-columns: 1fr;
-        padding: 0 20px;
-      }
     }
   </style>
 </head>
@@ -229,259 +77,153 @@
       <nav>
         <a href="index.html">Home</a>
         <a href="#">Meet the Team</a>
-        <div class="dropdown">
-          <span class="dropbtn">Cafés</span>
-          <div class="dropdown-content">
-            <a href="charlies.html">Charlie's Café</a>
-            <a href="centre-stage.html">Centre Stage</a>
-            <a href="coffee-nation.html">Coffee Nation</a>
-            <a href="food-truck.html">Food Truck</a>
-            <a href="hashtag.html">Hashtag</a>
-            <a href="juice-press.html">Juice Press</a>
-            <a href="korebi.html">Korebi</a>
-          </div>
-        </div>
-        <a href="cafe-stats.html">Café Stats</a>
       </nav>
       <input type="text" id="search" placeholder="Search for a dish...">
     </div>
   </header>
 
-  <!-- Content Wrapper -->
-  <div class="content-wrapper">
-    <!-- Map Section -->
-    <section id="map">
-      <img src="unimap.png" alt="University Cafés Map">
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section">
-      <img src="hashtagau.png" alt="About Munch Map Image">
-      <div class="content">
-        <h2>About Munch Map</h2>
-        <p>
-          Munch Map is a student-driven initiative created by FLAME students to provide a comprehensive guide to the best cafes around the FLAME University campus.
-          Whether you're looking for a quick coffee break, a healthy snack, or a place to hang out with friends, Munch Map is your go-to resource for finding the
-          perfect café experience on campus.
-        </p>
-        <p>
-          Each café's profile is crafted based on essential questions that students want to know, such as the favorite café on campus, the healthiest food options,
-          and the price range from least expensive to most expensive. We've also included recommendations on the most popular food and beverage items from each café,
-          helping you make informed choices.
-        </p>
-      </div>
-    </section>
-
-    <!-- Meet the Team Section -->
-    <section class="meet-the-team">
-      <h1>Our Team</h1>
-      <!-- Top Row: Three Team Members -->
-      <div class="team">
-        <div class="team-member">
-          <img src="bala.png" alt="Aarushi Agarwal">
-          <h3>Aarushi Agarwal</h3>
-          <p>Team Member</p>
-        </div>
-        <div class="team-member">
-          <img src="bala.png" alt="Mahira Khurana">
-          <h3>Mahira Khurana</h3>
-          <p>Team Member</p>
-        </div>
-        <div class="team-member">
-          <img src="bala.png" alt="Shristi Ostwal">
-          <h3>Shristi Ostwal</h3>
-          <p>Team Member</p>
-        </div>
-      </div>
-
-      <!-- Bottom Row: Two Team Members -->
-      <div class="team team-bottom">
-        <div class="team-member">
-          <img src="bala.png" alt="Saksham Jain">
-          <h3>Saksham Jain</h3>
-          <p>Team Member</p>
-        </div>
-        <div class="team-member">
-          <img src="bala.png" alt="Yug Jain">
-          <h3>Yug Jain</h3>
-          <p>Team Member</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Search Results -->
-    <div id="results"></div>
-
-  </div>
+  <!-- Search Results -->
+  <div id="results"></div>
 
   <script>
-    // List of cafes and items
-    const items = [
-        { name: "Masala Chai", price: "Rs. 30", cafe: "Centre Stage Cafe" },
-        { name: "Green Tea", price: "Rs. 30", cafe: "Centre Stage Cafe" },
-        { name: "Filter Coffee", price: "Rs. 40", cafe: "Centre Stage Cafe" },
-        { name: "Espresso", price: "Rs. 60", cafe: "Centre Stage Cafe" },
-        { name: "Americano", price: "Rs. 60", cafe: "Centre Stage Cafe" },
-        { name: "Cappuccino", price: "Rs. 80", cafe: "Centre Stage Cafe" },
-      { name: "Café Latte", price: "Rs. 90", cafe: "Centre Stage Cafe" },
-            { name: "Hot Chocolate", price: "Rs. 120", cafe: "Centre Stage Cafe" },
-            { name: "Café Mocha", price: "Rs. 120", cafe: "Centre Stage Cafe" },
 
-            { name: "Samosa", price: "Rs. 20", cafe: "Centre Stage Cafe" },
-            { name: "Vada Pav", price: "Rs. 20", cafe: "Centre Stage Cafe" },
-            { name: "Bun Maska", price: "Rs. 40", cafe: "Centre Stage Cafe" },
-            { name: "Bun Maska (with Jam)", price: "Rs. 50", cafe: "Centre Stage Cafe" },
-            { name: "Fries", price: "Rs. 90", cafe: "Centre Stage Cafe" },
-            { name: "Loaded Fries", price: "Rs. 140", cafe: "Centre Stage Cafe" },
-
-            { name: "Coke Float", price: "Rs. 50", cafe: "Centre Stage Cafe" },
-            { name: "Iced Tea (Lemon/Peach)", price: "Rs. 100", cafe: "Centre Stage Cafe" },
-            { name: "Mint Mojito", price: "Rs. 100", cafe: "Centre Stage Cafe" },
-            { name: "Iced Americano", price: "Rs. 100", cafe: "Centre Stage Cafe" },
-            { name: "Iced Latte", price: "Rs. 110", cafe: "Centre Stage Cafe" },
-            { name: "Cold Coffee Frappe", price: "Rs. 120", cafe: "Centre Stage Cafe" },
-            { name: "Cold Iced Mocha", price: "Rs. 130", cafe: "Centre Stage Cafe" },
-            { name: "Chocolate Shake", price: "Rs. 160", cafe: "Centre Stage Cafe" },
-            { name: "Berry Shake", price: "Rs. 170", cafe: "Centre Stage Cafe" },
-
-            { name: "Popcorn (Salted)", price: "Rs. 50", cafe: "Centre Stage Cafe" },
-            { name: "Popcorn (Cheese)", price: "Rs. 60", cafe: "Centre Stage Cafe" },
-            { name: "Vanilla Softy", price: "Rs. 30", cafe: "Centre Stage Cafe" },
-            { name: "Chocolate Softy", price: "Rs. 40", cafe: "Centre Stage Cafe" },
-            { name: "Sundae (Strawberry/Chocolate)", price: "Rs. 80", cafe: "Centre Stage Cafe" },
-            { name: "Brownie Sundae", price: "Rs. 100", cafe: "Centre Stage Cafe" },
-
-            { name: "Mumbai Masala Sandwich", price: "Rs. 100", cafe: "Centre Stage Cafe" },
-            { name: "Vegetable Burger", price: "Rs. 120", cafe: "Centre Stage Cafe" },
-            { name: "Corn, Capsicum & Cheese Sandwich", price: "Rs. 120", cafe: "Centre Stage Cafe" },
-            { name: "Sun-Dried Tomato & Cheese Sandwich", price: "Rs. 120", cafe: "Centre Stage Cafe" },
-            { name: "Grilled Paneer Sandwich", price: "Rs. 160", cafe: "Centre Stage Cafe" },
-
-            { name: "Masala Maggi", price: "Rs. 50", cafe: "Centre Stage Cafe" },
-            { name: "Double Masala Maggi", price: "Rs. 60", cafe: "Centre Stage Cafe" },
-            { name: "Cheesy Maggi", price: "Rs. 70", cafe: "Centre Stage Cafe" },
-            { name: "Loaded Nachos", price: "Rs. 120", cafe: "Centre Stage Cafe" },
-            { name: "Hummus with Pita", price: "Rs. 120", cafe: "Centre Stage Cafe" },
-            { name: "Falafel Pita Pockets (with Fries)", price: "Rs. 160", cafe: "Centre Stage Cafe" },
-
-            { name: "Veg Puff", price: "Rs. 40", cafe: "Centre Stage Cafe" },
-            { name: "Tea Cake", price: "Rs. 60", cafe: "Centre Stage Cafe" },
-            { name: "Paneer Puff", price: "Rs. 70", cafe: "Centre Stage Cafe" },
-            { name: "Butter Croissant", price: "Rs. 70", cafe: "Centre Stage Cafe" },
-            { name: "Stuffed Croissant", price: "Rs. 90", cafe: "Centre Stage Cafe" },
-            { name: "Chocolate Brownie", price: "Rs. 120", cafe: "Centre Stage Cafe" },
-
-            { name: "Veg Schezwan Wrap", price: "Rs. 100", cafe: "Centre Stage Cafe" },
-            { name: "Paneer Bhurji Wrap", price: "Rs. 150", cafe: "Centre Stage Cafe" },
-            { name: "Veg Quesadilla (with Nachos & Salsa)", price: "Rs. 160", cafe: "Centre Stage Cafe" },
-
-            // Charlie's Cafe Menu
-            { name: "Irani Bun Maska", price: "Rs. 60", cafe: "Charlie's Cafe" },
-            { name: "Bun Maska Jam", price: "Rs. 70", cafe: "Charlie's Cafe" },
-            { name: "Chocolate Bun Maska", price: "Rs. 90", cafe: "Charlie's Cafe" },
-            { name: "Baked Beans on Toast", price: "Rs. 80", cafe: "Charlie's Cafe" },
-            { name: "Cheese Chilli Baked Beans", price: "Rs. 100", cafe: "Charlie's Cafe" },
-            { name: "Hashbrown", price: "Rs. 35", cafe: "Charlie's Cafe" },
-            { name: "English Breakfast", price: "Rs. 220", cafe: "Charlie's Cafe" },
-
-            { name: "Veg Cheese Grill", price: "Rs. 80", cafe: "Charlie's Cafe" },
-            { name: "Three Cheese Grill", price: "Rs. 100", cafe: "Charlie's Cafe" },
-            { name: "Cheese Chilli Garlic Grill", price: "Rs. 70", cafe: "Charlie's Cafe" },
-            { name: "Bombay Masala Grill", price: "Rs. 90", cafe: "Charlie's Cafe" },
-            { name: "Tandoori Paneer Grill", price: "Rs. 110", cafe: "Charlie's Cafe" },
-            { name: "Paneer Makhani Grill", price: "Rs. 110", cafe: "Charlie's Cafe" },
-            { name: "Schezwan Aloo Grill", price: "Rs. 100", cafe: "Charlie's Cafe" },
-
-            { name: "Plain Maggi", price: "Rs. 45", cafe: "Charlie's Cafe" },
-            { name: "Masala Maggi", price: "Rs. 50", cafe: "Charlie's Cafe" },
-            { name: "Cheesy Maggi", price: "Rs. 80", cafe: "Charlie's Cafe" },
-            { name: "Charlie’s Spicy Maggi", price: "Rs. 80", cafe: "Charlie's Cafe" },
-
-            { name: "Garlic Bread", price: "Rs. 90", cafe: "Charlie's Cafe" },
-            { name: "Mozzarella Garlic Bread", price: "Rs. 110", cafe: "Charlie's Cafe" },
-            { name: "Garlic Bread with Hummus", price: "Rs. 110", cafe: "Charlie's Cafe" },
-            { name: "Mexican Toastie", price: "Rs. 100", cafe: "Charlie's Cafe" },
-            { name: "Tandoori Paneer Toastie", price: "Rs. 110", cafe: "Charlie's Cafe" },
-
-            { name: "Falafel Slider", price: "Rs. 130", cafe: "Charlie's Cafe" },
-            { name: "Manchurian Slider", price: "Rs. 150", cafe: "Charlie's Cafe" },
-            { name: "Veg Patty Slider", price: "Rs. 130", cafe: "Charlie's Cafe" },
-            { name: "Mexican Hashbrown Slider", price: "Rs. 130", cafe: "Charlie's Cafe" },
-            { name: "Tandoori Aloo Slider", price: "Rs. 130", cafe: "Charlie's Cafe" },
-
-            { name: "Fries", price: "Rs. 90", cafe: "Charlie's Cafe" },
-            { name: "Samosa", price: "Rs. 40", cafe: "Charlie's Cafe" },
-            { name: "Veg Puff", price: "Rs. 35", cafe: "Charlie's Cafe" },
-            { name: "Hummus with Pita", price: "Rs. 100", cafe: "Charlie's Cafe" },
-            { name: "Seasoned Mozzarella Sticks", price: "Rs. 99", cafe: "Charlie's Cafe" },
-
-            { name: "Falafel Shawarma", price: "Rs. 100", cafe: "Charlie's Cafe" },
-            { name: "Spicy Falafel Shawarma", price: "Rs. 120", cafe: "Charlie's Cafe" },
-            { name: "Cheese Falafel Shawarma", price: "Rs. 140", cafe: "Charlie's Cafe" },
-
-            { name: "Filter Coffee", price: "Rs. 35", cafe: "Charlie's Cafe" },
-            { name: "Black Coffee", price: "Rs. 35", cafe: "Charlie's Cafe" },
-            { name: "Adrak Chai", price: "Rs. 35", cafe: "Charlie's Cafe" },
-            { name: "Hot Chocolate", price: "Rs. 90", cafe: "Charlie's Cafe" },
-            { name: "Caramel Hot Chocolate", price: "Rs. 110", cafe: "Charlie's Cafe" },
-            { name: "Hazelnut Hot Chocolate", price: "Rs. 110", cafe: "Charlie's Cafe" },
-            { name: "Brownie Hot Chocolate", price: "Rs. 120", cafe: "Charlie's Cafe" },
-
-            { name: "Classic Lemonade", price: "Rs. 50", cafe: "Charlie's Cafe" },
-            { name: "Iced Tea", price: "Rs. 80", cafe: "Charlie's Cafe" },
-            { name: "Peach Iced Tea", price: "Rs. 100", cafe: "Charlie's Cafe" },
-            { name: "Masala Thumbs Up", price: "Rs. 60", cafe: "Charlie's Cafe" },
-            { name: "Jaljeera Soda", price: "Rs. 60", cafe: "Charlie's Cafe" },
-            { name: "Green Apple Mojito", price: "Rs. 90", cafe: "Charlie's Cafe" },
-            { name: "Blue Lagoon", price: "Rs. 90", cafe: "Charlie's Cafe" },
-            { name: "Coke Float", price: "Rs. 80", cafe: "Charlie's Cafe" },
-
-            { name: "Classic Cold Coffee", price: "Rs. 100", cafe: "Charlie's Cafe" },
-            { name: "Dark Chocolate Cold Coffee", price: "Rs. 130", cafe: "Charlie's Cafe" },
-            { name: "Caramel Frappuccino", price: "Rs. 140", cafe: "Charlie's Cafe" },
-            { name: "Hazelnut Frappuccino", price: "Rs. 140", cafe: "Charlie's Cafe" },
-            { name: "Thick Cold Cocoa", price: "Rs. 100", cafe: "Charlie's Cafe" },
-            { name: "Kitkat Shake", price: "Rs. 110", cafe: "Charlie's Cafe" },
-            { name: "Oreo Shake", price: "Rs. 110", cafe: "Charlie's Cafe" },
-            { name: "Brownie Shake", price: "Rs. 130", cafe: "Charlie's Cafe" },
-            { name: "Strawberry Shake", price: "Rs. 120", cafe: "Charlie's Cafe" },
-            { name: "French Vanilla Shake", price: "Rs. 120", cafe: "Charlie's Cafe" },
-
-            { name: "Vanilla Softy Cup", price: "Rs. 30", cafe: "Charlie's Cafe" },
-            { name: "Vanilla Softy Cone", price: "Rs. 40", cafe: "Charlie's Cafe" },
-            { name: "Softy with Hot Fudge", price: "Rs. 45", cafe: "Charlie's Cafe" },
-            { name: "Kitkat Softy", price: "Rs. 80", cafe: "Charlie's Cafe" },
-
-            { name: "Schezwan Rice Bowl", price: "Rs. 220", cafe: "Charlie's Cafe" },
-            { name: "Paneer Makhani Rice Bowl", price: "Rs. 220", cafe: "Charlie's Cafe" },
-            { name: "Falafel Rice Bowl", price: "Rs. 220", cafe: "Charlie's Cafe" },
-
-            // Food Truck Menu
-            { name: "Chatpate Chole Wrap", price: "Rs. 99", cafe: "Food Truck" },
-            { name: "Masala Paneer Tikka Wrap", price: "Rs. 135", cafe: "Food Truck" },
-            { name: "Cheese Melt Paneer Tikka Wrap", price: "Rs. 155", cafe: "Food Truck" },
-            { name: "Cheesy Corn Salsa Wrap", price: "Rs. 159", cafe: "Food Truck" },
-
-            { name: "Steamed Classic Veg Momos", price: "Rs. 99", cafe: "Food Truck" },
-            { name: "Steamed Chilli Cheese Veg Momos", price: "Rs. 129", cafe: "Food Truck" },
-            { name: "Crispy Fried Classic Veg Momos", price: "Rs. 119", cafe: "Food Truck" },
-            { name: "Crispy Fried Chilli Cheese Veg Momos", price: "Rs. 139", cafe: "Food Truck" },
-
-            { name: "Classic Margherita Pizza", price: "Rs. 119", cafe: "Food Truck" },
-            { name: "Corn & Cheese Pizza", price: "Rs. 159", cafe: "Food Truck" },
-            { name: "Tandoori Paneer Tikka Pizza", price: "Rs. 175", cafe: "Food Truck" },
-            { name: "Maharaja Veg Pizza", price: "Rs. 175", cafe: "Food Truck" },
-
-            { name: "Choco Bomb", price: "Rs. 109", cafe: "Food Truck" },
-            { name: "Chocolate Decadence", price: "Rs. 109", cafe: "Food Truck" },
-            { name: "Chocolate Therapy", price: "Rs. 115", cafe: "Food Truck" },
-            { name: "Brownie Crumble", price: "Rs. 115", cafe: "Food Truck" },
-
-            { name: "Swig Jeera Masala", price: "Rs. 59", cafe: "Food Truck" },
-            { name: "Coke", price: "Rs. 60", cafe: "Food Truck" },
-
-            // COFFEES
-    // Hot
+     const items = [
+    { name: "Masala Chai", price: "Rs. 30", cafe: "Centre Stage Cafe" },
+    { name: "Green Tea", price: "Rs. 30", cafe: "Centre Stage Cafe" },
+    { name: "Filter Coffee", price: "Rs. 40", cafe: "Centre Stage Cafe" },
+    { name: "Espresso", price: "Rs. 60", cafe: "Centre Stage Cafe" },
+    { name: "Americano", price: "Rs. 60", cafe: "Centre Stage Cafe" },
+    { name: "Cappuccino", price: "Rs. 80", cafe: "Centre Stage Cafe" },
+    { name: "Café Latte", price: "Rs. 90", cafe: "Centre Stage Cafe" },
+    { name: "Hot Chocolate", price: "Rs. 120", cafe: "Centre Stage Cafe" },
+    { name: "Café Mocha", price: "Rs. 120", cafe: "Centre Stage Cafe" },
+    { name: "Samosa", price: "Rs. 20", cafe: "Centre Stage Cafe" },
+    { name: "Vada Pav", price: "Rs. 20", cafe: "Centre Stage Cafe" },
+    { name: "Bun Maska", price: "Rs. 40", cafe: "Centre Stage Cafe" },
+    { name: "Bun Maska (with Jam)", price: "Rs. 50", cafe: "Centre Stage Cafe" },
+    { name: "Fries", price: "Rs. 90", cafe: "Centre Stage Cafe" },
+    { name: "Loaded Fries", price: "Rs. 140", cafe: "Centre Stage Cafe" },
+    { name: "Coke Float", price: "Rs. 50", cafe: "Centre Stage Cafe" },
+    { name: "Iced Tea (Lemon/Peach)", price: "Rs. 100", cafe: "Centre Stage Cafe" },
+    { name: "Mint Mojito", price: "Rs. 100", cafe: "Centre Stage Cafe" },
+    { name: "Iced Americano", price: "Rs. 100", cafe: "Centre Stage Cafe" },
+    { name: "Iced Latte", price: "Rs. 110", cafe: "Centre Stage Cafe" },
+    { name: "Cold Coffee Frappe", price: "Rs. 120", cafe: "Centre Stage Cafe" },
+    { name: "Cold Iced Mocha", price: "Rs. 130", cafe: "Centre Stage Cafe" },
+    { name: "Chocolate Shake", price: "Rs. 160", cafe: "Centre Stage Cafe" },
+    { name: "Berry Shake", price: "Rs. 170", cafe: "Centre Stage Cafe" },
+    { name: "Popcorn (Salted)", price: "Rs. 50", cafe: "Centre Stage Cafe" },
+    { name: "Popcorn (Cheese)", price: "Rs. 60", cafe: "Centre Stage Cafe" },
+    { name: "Vanilla Softy", price: "Rs. 30", cafe: "Centre Stage Cafe" },
+    { name: "Chocolate Softy", price: "Rs. 40", cafe: "Centre Stage Cafe" },
+    { name: "Sundae (Strawberry/Chocolate)", price: "Rs. 80", cafe: "Centre Stage Cafe" },
+    { name: "Brownie Sundae", price: "Rs. 100", cafe: "Centre Stage Cafe" },
+    { name: "Mumbai Masala Sandwich", price: "Rs. 100", cafe: "Centre Stage Cafe" },
+    { name: "Vegetable Burger", price: "Rs. 120", cafe: "Centre Stage Cafe" },
+    { name: "Corn, Capsicum & Cheese Sandwich", price: "Rs. 120", cafe: "Centre Stage Cafe" },
+    { name: "Sun-Dried Tomato & Cheese Sandwich", price: "Rs. 120", cafe: "Centre Stage Cafe" },
+    { name: "Grilled Paneer Sandwich", price: "Rs. 160", cafe: "Centre Stage Cafe" },
+    { name: "Masala Maggi", price: "Rs. 50", cafe: "Centre Stage Cafe" },
+    { name: "Double Masala Maggi", price: "Rs. 60", cafe: "Centre Stage Cafe" },
+    { name: "Cheesy Maggi", price: "Rs. 70", cafe: "Centre Stage Cafe" },
+    { name: "Loaded Nachos", price: "Rs. 120", cafe: "Centre Stage Cafe" },
+    { name: "Hummus with Pita", price: "Rs. 120", cafe: "Centre Stage Cafe" },
+    { name: "Falafel Pita Pockets (with Fries)", price: "Rs. 160", cafe: "Centre Stage Cafe" },
+    { name: "Veg Puff", price: "Rs. 40", cafe: "Centre Stage Cafe" },
+    { name: "Tea Cake", price: "Rs. 60", cafe: "Centre Stage Cafe" },
+    { name: "Paneer Puff", price: "Rs. 70", cafe: "Centre Stage Cafe" },
+    { name: "Butter Croissant", price: "Rs. 70", cafe: "Centre Stage Cafe" },
+    { name: "Stuffed Croissant", price: "Rs. 90", cafe: "Centre Stage Cafe" },
+    { name: "Chocolate Brownie", price: "Rs. 120", cafe: "Centre Stage Cafe" },
+    { name: "Veg Schezwan Wrap", price: "Rs. 100", cafe: "Centre Stage Cafe" },
+    { name: "Paneer Bhurji Wrap", price: "Rs. 150", cafe: "Centre Stage Cafe" },
+    { name: "Veg Quesadilla (with Nachos & Salsa)", price: "Rs. 160", cafe: "Centre Stage Cafe" },
+    { name: "Irani Bun Maska", price: "Rs. 60", cafe: "Charlie's Cafe" },
+    { name: "Bun Maska Jam", price: "Rs. 70", cafe: "Charlie's Cafe" },
+    { name: "Chocolate Bun Maska", price: "Rs. 90", cafe: "Charlie's Cafe" },
+    { name: "Baked Beans on Toast", price: "Rs. 80", cafe: "Charlie's Cafe" },
+    { name: "Cheese Chilli Baked Beans", price: "Rs. 100", cafe: "Charlie's Cafe" },
+    { name: "Hashbrown", price: "Rs. 35", cafe: "Charlie's Cafe" },
+    { name: "English Breakfast", price: "Rs. 220", cafe: "Charlie's Cafe" },
+    { name: "Veg Cheese Grill", price: "Rs. 80", cafe: "Charlie's Cafe" },
+    { name: "Three Cheese Grill", price: "Rs. 100", cafe: "Charlie's Cafe" },
+    { name: "Cheese Chilli Garlic Grill", price: "Rs. 70", cafe: "Charlie's Cafe" },
+    { name: "Bombay Masala Grill", price: "Rs. 90", cafe: "Charlie's Cafe" },
+    { name: "Tandoori Paneer Grill", price: "Rs. 110", cafe: "Charlie's Cafe" },
+    { name: "Paneer Makhani Grill", price: "Rs. 110", cafe: "Charlie's Cafe" },
+    { name: "Schezwan Aloo Grill", price: "Rs. 100", cafe: "Charlie's Cafe" },
+    { name: "Plain Maggi", price: "Rs. 45", cafe: "Charlie's Cafe" },
+    { name: "Masala Maggi", price: "Rs. 50", cafe: "Charlie's Cafe" },
+    { name: "Cheesy Maggi", price: "Rs. 80", cafe: "Charlie's Cafe" },
+    { name: "Charlie’s Spicy Maggi", price: "Rs. 80", cafe: "Charlie's Cafe" },
+    { name: "Garlic Bread", price: "Rs. 90", cafe: "Charlie's Cafe" },
+    { name: "Mozzarella Garlic Bread", price: "Rs. 110", cafe: "Charlie's Cafe" },
+    { name: "Garlic Bread with Hummus", price: "Rs. 110", cafe: "Charlie's Cafe" },
+    { name: "Mexican Toastie", price: "Rs. 100", cafe: "Charlie's Cafe" },
+    { name: "Tandoori Paneer Toastie", price: "Rs. 110", cafe: "Charlie's Cafe" },
+    { name: "Falafel Slider", price: "Rs. 130", cafe: "Charlie's Cafe" },
+    { name: "Manchurian Slider", price: "Rs. 150", cafe: "Charlie's Cafe" },
+    { name: "Veg Patty Slider", price: "Rs. 130", cafe: "Charlie's Cafe" },
+    { name: "Mexican Hashbrown Slider", price: "Rs. 130", cafe: "Charlie's Cafe" },
+    { name: "Tandoori Aloo Slider", price: "Rs. 130", cafe: "Charlie's Cafe" },
+    { name: "Fries", price: "Rs. 90", cafe: "Charlie's Cafe" },
+    { name: "Samosa", price: "Rs. 40", cafe: "Charlie's Cafe" },
+    { name: "Veg Puff", price: "Rs. 35", cafe: "Charlie's Cafe" },
+    { name: "Hummus with Pita", price: "Rs. 100", cafe: "Charlie's Cafe" },
+    { name: "Seasoned Mozzarella Sticks", price: "Rs. 99", cafe: "Charlie's Cafe" },
+    { name: "Falafel Shawarma", price: "Rs. 100", cafe: "Charlie's Cafe" },
+    { name: "Spicy Falafel Shawarma", price: "Rs. 120", cafe: "Charlie's Cafe" },
+    { name: "Cheese Falafel Shawarma", price: "Rs. 140", cafe: "Charlie's Cafe" },
+    { name: "Filter Coffee", price: "Rs. 35", cafe: "Charlie's Cafe" },
+    { name: "Black Coffee", price: "Rs. 35", cafe: "Charlie's Cafe" },
+    { name: "Adrak Chai", price: "Rs. 35", cafe: "Charlie's Cafe" },
+    { name: "Hot Chocolate", price: "Rs. 90", cafe: "Charlie's Cafe" },
+    { name: "Caramel Hot Chocolate", price: "Rs. 110", cafe: "Charlie's Cafe" },
+    { name: "Hazelnut Hot Chocolate", price: "Rs. 110", cafe: "Charlie's Cafe" },
+    { name: "Brownie Hot Chocolate", price: "Rs. 120", cafe: "Charlie's Cafe" },
+    { name: "Classic Lemonade", price: "Rs. 50", cafe: "Charlie's Cafe" },
+    { name: "Iced Tea", price: "Rs. 80", cafe: "Charlie's Cafe" },
+    { name: "Peach Iced Tea", price: "Rs. 100", cafe: "Charlie's Cafe" },
+    { name: "Masala Thumbs Up", price: "Rs. 60", cafe: "Charlie's Cafe" },
+    { name: "Jaljeera Soda", price: "Rs. 60", cafe: "Charlie's Cafe" },
+    { name: "Green Apple Mojito", price: "Rs. 90", cafe: "Charlie's Cafe" },
+    { name: "Blue Lagoon", price: "Rs. 90", cafe: "Charlie's Cafe" },
+    { name: "Coke Float", price: "Rs. 80", cafe: "Charlie's Cafe" },
+    { name: "Classic Cold Coffee", price: "Rs. 100", cafe: "Charlie's Cafe" },
+    { name: "Dark Chocolate Cold Coffee", price: "Rs. 130", cafe: "Charlie's Cafe" },
+    { name: "Caramel Frappuccino", price: "Rs. 140", cafe: "Charlie's Cafe" },
+    { name: "Hazelnut Frappuccino", price: "Rs. 140", cafe: "Charlie's Cafe" },
+    { name: "Thick Cold Cocoa", price: "Rs. 100", cafe: "Charlie's Cafe" },
+    { name: "Kitkat Shake", price: "Rs. 110", cafe: "Charlie's Cafe" },
+    { name: "Oreo Shake", price: "Rs. 110", cafe: "Charlie's Cafe" },
+    { name: "Brownie Shake", price: "Rs. 130", cafe: "Charlie's Cafe" },
+    { name: "Strawberry Shake", price: "Rs. 120", cafe: "Charlie's Cafe" },
+    { name: "French Vanilla Shake", price: "Rs. 120", cafe: "Charlie's Cafe" },
+    { name: "Vanilla Softy Cup", price: "Rs. 30", cafe: "Charlie's Cafe" },
+    { name: "Vanilla Softy Cone", price: "Rs. 40", cafe: "Charlie's Cafe" },
+    { name: "Softy with Hot Fudge", price: "Rs. 45", cafe: "Charlie's Cafe" },
+    { name: "Kitkat Softy", price: "Rs. 80", cafe: "Charlie's Cafe" },
+    { name: "Schezwan Rice Bowl", price: "Rs. 220", cafe: "Charlie's Cafe" },
+    { name: "Paneer Makhani Rice Bowl", price: "Rs. 220", cafe: "Charlie's Cafe" },
+    { name: "Falafel Rice Bowl", price: "Rs. 220", cafe: "Charlie's Cafe" },
+    { name: "Chatpate Chole Wrap", price: "Rs. 99", cafe: "Food Truck" },
+    { name: "Masala Paneer Tikka Wrap", price: "Rs. 135", cafe: "Food Truck" },
+    { name: "Cheese Melt Paneer Tikka Wrap", price: "Rs. 155", cafe: "Food Truck" },
+    { name: "Cheesy Corn Salsa Wrap", price: "Rs. 159", cafe: "Food Truck" },
+    { name: "Steamed Classic Veg Momos", price: "Rs. 99", cafe: "Food Truck" },
+    { name: "Steamed Chilli Cheese Veg Momos", price: "Rs. 129", cafe: "Food Truck" },
+    { name: "Crispy Fried Classic Veg Momos", price: "Rs. 119", cafe: "Food Truck" },
+    { name: "Crispy Fried Chilli Cheese Veg Momos", price: "Rs. 139", cafe: "Food Truck" },
+    { name: "Classic Margherita Pizza", price: "Rs. 119", cafe: "Food Truck" },
+    { name: "Corn & Cheese Pizza", price: "Rs. 159", cafe: "Food Truck" },
+    { name: "Tandoori Paneer Tikka Pizza", price: "Rs. 175", cafe: "Food Truck" },
+    { name: "Maharaja Veg Pizza", price: "Rs. 175", cafe: "Food Truck" },
+    { name: "Choco Bomb", price: "Rs. 109", cafe: "Food Truck" },
+    { name: "Chocolate Decadence", price: "Rs. 109", cafe: "Food Truck" },
+    { name: "Chocolate Therapy", price: "Rs. 115", cafe: "Food Truck" },
+    { name: "Brownie Crumble", price: "Rs. 115", cafe: "Food Truck" },
+    { name: "Swig Jeera Masala", price: "Rs. 59", cafe: "Food Truck" },
+    { name: "Coke", price: "Rs. 60", cafe: "Food Truck" },
     { name: "Espresso", price: "Rs. 60", cafe: "Coffee Nation" },
     { name: "Americano", price: "Rs. 70", cafe: "Coffee Nation" },
     { name: "Cappuccino", price: "Rs. 80", cafe: "Coffee Nation" },
@@ -492,8 +234,6 @@
     { name: "Cinnamon Cappuccino", price: "Rs. 120", cafe: "Coffee Nation" },
     { name: "Cinnamon Latte", price: "Rs. 130", cafe: "Coffee Nation" },
     { name: "Mocha Affogato", price: "Rs. 180", cafe: "Coffee Nation" },
-
-    // Cold
     { name: "Iced Espresso", price: "Rs. 100", cafe: "Coffee Nation" },
     { name: "Cold Coffee", price: "Rs. 140", cafe: "Coffee Nation" },
     { name: "Iced Latte", price: "Rs. 130", cafe: "Coffee Nation" },
@@ -501,22 +241,15 @@
     { name: "Iced Mocha", price: "Rs. 190", cafe: "Coffee Nation" },
     { name: "Spanish Latte", price: "Rs. 190", cafe: "Coffee Nation" },
     { name: "Soy Milk Latte", price: "Rs. 190", cafe: "Coffee Nation" },
-
-    // Speciality Coffees
     { name: "Eiskaffe", price: "Rs. 170", cafe: "Coffee Nation" },
     { name: "Classic Cold Brew", price: "Rs. 150", cafe: "Coffee Nation" },
     { name: "Cold Brew Iced Coffee", price: "Rs. 200", cafe: "Coffee Nation" },
-
-    // TEAS
-    // Iced Tea
     { name: "Lemon Iced Tea", price: "Rs. 130", cafe: "Coffee Nation" },
     { name: "Peach Iced Tea", price: "Rs. 130", cafe: "Coffee Nation" },
     { name: "Passionfruit Iced Tea", price: "Rs. 130", cafe: "Coffee Nation" },
     { name: "Strawberry Iced Tea", price: "Rs. 130", cafe: "Coffee Nation" },
     { name: "Elderflower Iced Tea", price: "Rs. 150", cafe: "Coffee Nation" },
     { name: "Kokam Iced Tea", price: "Rs. 150", cafe: "Coffee Nation" },
-
-    // Green Tea
     { name: "Darjeeling Green Tea", price: "Rs. 70", cafe: "Coffee Nation" },
     { name: "Lemongrass Green Tea", price: "Rs. 70", cafe: "Coffee Nation" },
     { name: "Zesty Orange Green Tea", price: "Rs. 70", cafe: "Coffee Nation" },
@@ -525,13 +258,9 @@
     { name: "Moroccan Mint Green Tea", price: "Rs. 70", cafe: "Coffee Nation" },
     { name: "English Breakfast Tea", price: "Rs. 70", cafe: "Coffee Nation" },
     { name: "Lavender Blue Tea", price: "Rs. 70", cafe: "Coffee Nation" },
-
-    // Chai
     { name: "Traditional Chai", price: "Rs. 50", cafe: "Coffee Nation" },
     { name: "Masala Chai", price: "Rs. 50", cafe: "Coffee Nation" },
     { name: "Ginger Chai", price: "Rs. 50", cafe: "Coffee Nation" },
-
-    // HOT CHOCOLATES
     { name: "Traditional Hot Chocolate", price: "Rs. 140", cafe: "Coffee Nation" },
     { name: "Hazelnut Hot Chocolate", price: "Rs. 160", cafe: "Coffee Nation" },
     { name: "Nutella Hot Chocolate", price: "Rs. 160", cafe: "Coffee Nation" },
@@ -539,8 +268,6 @@
     { name: "Caramel Hot Chocolate", price: "Rs. 160", cafe: "Coffee Nation" },
     { name: "Irish Hot Chocolate", price: "Rs. 160", cafe: "Coffee Nation" },
     { name: "Vanilla Hot Chocolate", price: "Rs. 160", cafe: "Coffee Nation" },
-
-    // SHAKES
     { name: "Vanilla Shake", price: "Rs. 180", cafe: "Coffee Nation" },
     { name: "Chocolate Shake", price: "Rs. 180", cafe: "Coffee Nation" },
     { name: "Strawberry Shake", price: "Rs. 180", cafe: "Coffee Nation" },
@@ -549,22 +276,15 @@
     { name: "Oreo Nutella Shake", price: "Rs. 220", cafe: "Coffee Nation" },
     { name: "Kit Kat Shake", price: "Rs. 220", cafe: "Coffee Nation" },
     { name: "Ferrero Rocher Shake", price: "Rs. 260", cafe: "Coffee Nation" },
-
-    // CROISSANTS & SANDWICHES
-    // Croissants
     { name: "Butter Croissant", price: "Rs. 140", cafe: "Coffee Nation" },
     { name: "Cheese Chilli Croissant", price: "Rs. 160", cafe: "Coffee Nation" },
     { name: "Chocolate Croissant", price: "Rs. 160", cafe: "Coffee Nation" },
-
-    // Sandwiches
     { name: "Three Cheese Melt Sandwich", price: "Rs. 180", cafe: "Coffee Nation" },
     { name: "Corn & Spinach Sandwich", price: "Rs. 180", cafe: "Coffee Nation" },
     { name: "Cottage Cheese Melt Sandwich", price: "Rs. 180", cafe: "Coffee Nation" },
     { name: "Peri Peri Paneer Sandwich", price: "Rs. 180", cafe: "Coffee Nation" },
     { name: "Veggie Sandwich", price: "Rs. 180", cafe: "Coffee Nation" },
     { name: "Pesto Paneer Ciabatta", price: "Rs. 180", cafe: "Coffee Nation" },
-
-    // WAFFLES
     { name: "Classic Waffle", price: "Rs. 180", cafe: "Coffee Nation" },
     { name: "Poco Loco Veggie Waffle", price: "Rs. 180", cafe: "Coffee Nation" },
     { name: "Honey Waffle", price: "Rs. 200", cafe: "Coffee Nation" },
@@ -573,37 +293,25 @@
     { name: "Chocochip Ferrero Waffle", price: "Rs. 260", cafe: "Coffee Nation" },
     { name: "Oreo Nutella Waffle", price: "Rs. 260", cafe: "Coffee Nation" },
     { name: "Kit Kat Waffle", price: "Rs. 260", cafe: "Coffee Nation" },
-
-    // PASTAS
     { name: "Mac n Cheese", price: "Rs. 210", cafe: "Coffee Nation" },
     { name: "Penne Pesto", price: "Rs. 210", cafe: "Coffee Nation" },
     { name: "Penne Pink", price: "Rs. 210", cafe: "Coffee Nation" },
     { name: "Penne Arrabbiata", price: "Rs. 210", cafe: "Coffee Nation" },
     { name: "Penne Overload (NEW)", price: "Rs. 260", cafe: "Coffee Nation" },
-
-    // WRAPS
     { name: "Paneer Makhani Wrap", price: "Rs. 220", cafe: "Coffee Nation" },
     { name: "Mexican Wrap", price: "Rs. 220", cafe: "Coffee Nation" },
     { name: "Lebanese Wrap", price: "Rs. 220", cafe: "Coffee Nation" },
-
-    // PULL APART BREADS
     { name: "Cheese Garlic Pull Apart", price: "Rs. 200", cafe: "Coffee Nation" },
     { name: "Chilli Garlic Pull Apart", price: "Rs. 200", cafe: "Coffee Nation" },
     { name: "Sweet Korean Bun", price: "Rs. 200", cafe: "Coffee Nation" },
     { name: "Pizza Pull Apart", price: "Rs. 200", cafe: "Coffee Nation" },
-
-    // BUNS
     { name: "Nutella Bun", price: "Rs. 150", cafe: "Coffee Nation" },
     { name: "Jalapeno Bun", price: "Rs. 150", cafe: "Coffee Nation" },
     { name: "Sundried Tomato Pesto Bun", price: "Rs. 150", cafe: "Coffee Nation" },
-
-    // ADD-ONS
     { name: "All Syrups", price: "Rs. 50", cafe: "Coffee Nation" },
     { name: "Ice Cream", price: "Rs. 70", cafe: "Coffee Nation" },
     { name: "Whipped Cream", price: "Rs. 50", cafe: "Coffee Nation" },
     { name: "Water Bottle", price: "Rs. 15", cafe: "Coffee Nation" },
-
-    // DESSERTS
     { name: "Chocolate Mud Cake", price: "Rs. 220", cafe: "Coffee Nation" },
     { name: "Brownie", price: "Rs. 150", cafe: "Coffee Nation" },
     { name: "Chocochip Fudge Slice", price: "Rs. 150", cafe: "Coffee Nation" },
@@ -612,8 +320,6 @@
     { name: "Blueberry Muffin", price: "Rs. 150", cafe: "Coffee Nation" },
     { name: "Nutella Muffin", price: "Rs. 150", cafe: "Coffee Nation" },
     { name: "Cheesecake", price: "Rs. 240", cafe: "Coffee Nation" },
-
-    // MOJITOS
     { name: "Mint Mojito", price: "Rs. 99", cafe: "Hashtag" },
     { name: "Strawberry Mojito", price: "Rs. 99", cafe: "Hashtag" },
     { name: "Watermelon Mojito", price: "Rs. 99", cafe: "Hashtag" },
@@ -623,24 +329,16 @@
     { name: "Bubble Gum Mojito", price: "Rs. 99", cafe: "Hashtag" },
     { name: "Mosambi", price: "Rs. 120", cafe: "Hashtag" },
     { name: "Sunrise (Summer Special)", price: "Rs. 120", cafe: "Hashtag" },
-
-    // BEVERAGES
     { name: "Soft Drinks", price: "Rs. 50", cafe: "Hashtag" },
     { name: "Fresh Lime Soda", price: "Rs. 60", cafe: "Hashtag" },
     { name: "Lemon Iced Tea", price: "Rs. 80", cafe: "Hashtag" },
-
-    // HAPPY ENDING (DESSERTS)
     { name: "Chocolate Muffin", price: "Rs. 80", cafe: "Hashtag" },
     { name: "Almond Muffin", price: "Rs. 80", cafe: "Hashtag" },
     { name: "Hot Brownie with Chocolate", price: "Rs. 100", cafe: "Hashtag" },
     { name: "Hot Brownie with Ice Cream", price: "Rs. 140", cafe: "Hashtag" },
     { name: "Choco-Chips Cookie", price: "Rs. 30", cafe: "Hashtag" },
-
-    // APPETISERS
     { name: "Samosa", price: "Rs. 30", cafe: "Hashtag" },
     { name: "Cheese Samosa", price: "Rs. 50", cafe: "Hashtag" },
-
-    // COFFEE & SHAKES
     { name: "Espresso (Black Coffee Short)", price: "Rs. 50", cafe: "Hashtag" },
     { name: "Espresso Lungo (Black Coffee Double Shot)", price: "Rs. 80", cafe: "Hashtag" },
     { name: "Cappuccino", price: "Rs. 80", cafe: "Hashtag" },
@@ -655,27 +353,17 @@
     { name: "Choco Espresso", price: "Rs. 120", cafe: "Hashtag" },
     { name: "Strawberry Milkshake", price: "Rs. 100", cafe: "Hashtag" },
     { name: "Mango Milkshake", price: "Rs. 100", cafe: "Hashtag" },
-
-    // Classic Flavours
     { name: "Caramel", price: "Rs. 30", cafe: "Hashtag" },
     { name: "Hazelnut", price: "Rs. 30", cafe: "Hashtag" },
     { name: "Vanilla", price: "Rs. 30", cafe: "Hashtag" },
-
-    // BIRYANI
     { name: "Paneer Tikka Biryani", price: "Rs. 280", cafe: "Hashtag" },
-
-    // SALADS
     { name: "All Good Caesar Salad", price: "Rs. 130", cafe: "Hashtag" },
     { name: "Subway Style Veggie Delight Salad", price: "Rs. 140", cafe: "Hashtag" },
-
-    // QUICK BITES
     { name: "Avocado Toast", price: "Rs. 180", cafe: "Hashtag" },
     { name: "Cheese Chilli Toast", price: "Rs. 120", cafe: "Hashtag" },
     { name: "Nachos with Salsa", price: "Rs. 100", cafe: "Hashtag" },
     { name: "Nachos with Cheese & Salsa", price: "Rs. 150", cafe: "Hashtag" },
     { name: "Awesome Nachos", price: "Rs. 180", cafe: "Hashtag" },
-
-    // FRIES & SIDES
     { name: "Salted French Fries", price: "Rs. 100", cafe: "Hashtag" },
     { name: "Masala French Fries", price: "Rs. 120", cafe: "Hashtag" },
     { name: "Peri-Peri Fries", price: "Rs. 120", cafe: "Hashtag" },
@@ -684,8 +372,6 @@
     { name: "Potato Smiley", price: "Rs. 100", cafe: "Hashtag" },
     { name: "Onion Rings", price: "Rs. 100", cafe: "Hashtag" },
     { name: "Paneer Puff", price: "Rs. 50", cafe: "Hashtag" },
-
-    // MAGGI
     { name: "Plain Maggi", price: "Rs. 50", cafe: "Hashtag" },
     { name: "Masala Maggi", price: "Rs. 50", cafe: "Hashtag" },
     { name: "Butter Maggi", price: "Rs. 80", cafe: "Hashtag" },
@@ -695,14 +381,10 @@
     { name: "Veg Cheese Maggi", price: "Rs. 90", cafe: "Hashtag" },
     { name: "Double Cheese Maggi", price: "Rs. 90", cafe: "Hashtag" },
     { name: "Schezwan Maggi", price: "Rs. 80", cafe: "Hashtag" },
-
-    // MOMOS
     { name: "Steamed Veg Momo", price: "Rs. 70", cafe: "Hashtag" },
     { name: "Fried Veg Momo", price: "Rs. 80", cafe: "Hashtag" },
     { name: "Paneer Steamed Momo", price: "Rs. 80", cafe: "Hashtag" },
     { name: "Paneer Fried Momo", price: "Rs. 100", cafe: "Hashtag" },
-
-    // SANDWICHES
     { name: "Bread Butter", price: "Rs. 40", cafe: "Hashtag" },
     { name: "Bombay Sandwich", price: "Rs. 70", cafe: "Hashtag" },
     { name: "Rainbow Sandwich", price: "Rs. 70", cafe: "Hashtag" },
@@ -721,8 +403,6 @@
     { name: "Paneer Tikka Subway", price: "Rs. 199", cafe: "Hashtag" },
     { name: "Samosa Sandwich", price: "Rs. 150", cafe: "Hashtag" },
     { name: "Chocolate Sandwich", price: "Rs. 90", cafe: "Hashtag" },
-
-    // PIZZAS
     { name: "Margherita Pizza", price: "Rs. 190", cafe: "Hashtag" },
     { name: "Peri-Peri Fries Pizza", price: "Rs. 230", cafe: "Hashtag" },
     { name: "Farmhouse Pizza", price: "Rs. 230", cafe: "Hashtag" },
@@ -737,31 +417,24 @@
     { name: "Paprika Jalapeno Pizza", price: "Rs. 250", cafe: "Hashtag" },
     { name: "A Special Pizza", price: "Rs. 350", cafe: "Hashtag" },
     { name: "Cheese Burst Extra", price: "Rs. 80", cafe: "Hashtag" },
-
-    // BREAD BITES
     { name: "Garlic Bread", price: "Rs. 100", cafe: "Hashtag" },
     { name: "Garlic Bread with Mozzarella", price: "Rs. 130", cafe: "Hashtag" },
     { name: "Spicy Garlic Bread", price: "Rs. 150", cafe: "Hashtag" },
-
-    // BURGERS
     { name: "Aloo Patty Burger", price: "Rs. 90", cafe: "Hashtag" },
     { name: "Veg Patty Burger", price: "Rs. 100", cafe: "Hashtag" },
     { name: "Cheese Blast Burger", price: "Rs. 130", cafe: "Hashtag" },
     { name: "Mexican Burger", price: "Rs. 130", cafe: "Hashtag" },
     { name: "Makhani Burst Burger", price: "Rs. 150", cafe: "Hashtag" },
     { name: "Paneer Patty Burger", price: "Rs. 150", cafe: "Hashtag" },
-    { name: "Spicy Paneer Burger", price: "Rs. 160", cafe: "Hashtag" },
+    { name: "Spicy Paneer Burger", price: "Rs. 160", cafe: "Hashtag" }
+      
     ];
 
     // Search functionality
     document.getElementById('search').addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        if (searchTerm === '') {
-            displayResults([]); // Clear results when input is empty
-        } else {
-            const results = items.filter(item => item.name.toLowerCase().includes(searchTerm));
-            displayResults(results);
-        }
+        const searchTerm = this.value.toLowerCase().trim();  // Trim to remove any extra spaces
+        const results = searchTerm ? items.filter(item => item.name.toLowerCase().includes(searchTerm)) : [];
+        displayResults(results);
     });
 
     // Display search results
@@ -775,8 +448,8 @@
                 resultDiv.innerHTML = `<strong>${item.name}</strong> - <em>${item.cafe}</em> <br> Price: ${item.price}`;
                 resultsDiv.appendChild(resultDiv);
             });
-        } else if (results.length === 0) {
-            resultsDiv.innerHTML = ''; // Clear results when nothing is found or search bar is empty
+        } else if (results.length === 0 && document.getElementById('search').value) {
+            resultsDiv.innerHTML = '<p>No results found</p>'; // Show this message if no results match the search
         }
     }
   </script>
