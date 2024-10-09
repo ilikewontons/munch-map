@@ -88,20 +88,18 @@
       color: #ffa500; /* Change color on hover */
     }
 
-    /* Search Container for Header */
+    /* Search Container for Below Map */
     .search-container {
       display: flex;
-      align-items: center;
-      width: 100%;
-      max-width: 500px;
-      margin: 0 0 0 auto;
-      text-align: right;
+      justify-content: center;
+      padding: 20px;
+      background-color: #f7f7f7;
+      margin: 20px 0;
     }
 
     input[type="text"] {
       width: 80%;
       padding: 10px;
-      margin-bottom: 10px;
       font-size: 16px;
       border-radius: 5px;
       border: 1px solid #ddd;
@@ -224,35 +222,37 @@
   <!-- Header -->
   <header>
     <h1>Munch Map</h1>
-    <!-- Search Bar Inside Header -->
-    <div class="search-container">
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="#">Meet the Team</a>
-        <div class="dropdown">
-          <span class="dropbtn">Cafés</span>
-          <div class="dropdown-content">
-            <a href="charlies.html">Charlie's Café</a>
-            <a href="centre-stage.html">Centre Stage</a>
-            <a href="coffee-nation.html">Coffee Nation</a>
-            <a href="food-truck.html">Food Truck</a>
-            <a href="hashtag.html">Hashtag</a>
-            <a href="juice-press.html">Juice Press</a>
-            <a href="korebi.html">Korebi</a>
-          </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Meet the Team</a>
+      <div class="dropdown">
+        <span class="dropbtn">Cafés</span>
+        <div class="dropdown-content">
+          <a href="charlies.html">Charlie's Café</a>
+          <a href="centre-stage.html">Centre Stage</a>
+          <a href="coffee-nation.html">Coffee Nation</a>
+          <a href="food-truck.html">Food Truck</a>
+          <a href="hashtag.html">Hashtag</a>
+          <a href="juice-press.html">Juice Press</a>
+          <a href="korebi.html">Korebi</a>
         </div>
-        <a href="cafe-stats.html">Café Stats</a>
-      </nav>
-      <input type="text" id="search" placeholder="Search for a dish...">
-    </div>
+      </div>
+      <a href="cafe-stats.html">Café Stats</a>
+    </nav>
   </header>
 
   <!-- Content Wrapper -->
   <div class="content-wrapper">
+
     <!-- Map Section -->
     <section id="map">
       <img src="unimap.png" alt="University Cafés Map">
     </section>
+
+    <!-- Search Bar (Moved below the Map) -->
+    <div class="search-container">
+      <input type="text" id="search" placeholder="Search for a dish...">
+    </div>
 
     <!-- About Section -->
     <section class="about-section">
@@ -314,12 +314,9 @@
 
   </div>
 
-  <!-- Search Results -->
-  <div id="results"></div>
-
   <script>
-
      const items = [
+    
     { name: "Masala Chai", price: "Rs. 30", cafe: "Centre Stage Cafe" },
     { name: "Green Tea", price: "Rs. 30", cafe: "Centre Stage Cafe" },
     { name: "Filter Coffee", price: "Rs. 40", cafe: "Centre Stage Cafe" },
