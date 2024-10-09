@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -18,44 +18,41 @@
       padding: 0;
     }
 
- /* Updated Header Styles */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #E7E7E0;
-  }
-     /* Align the h1 to the left */
-  header h1 {
-    flex-grow: 1;
-    text-align: left;
-    margin: 0;
-    font-size: 1.8rem;
-    color: #004b8d;
-  }
+    /* Updated Header Styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #E7E7E0;
+    }
+
+    /* Align the h1 to the left */
+    header h1 {
+      flex-grow: 1;
+      text-align: left;
+      margin: 0;
+      font-size: 1.8rem;
+      color: #004b8d;
+    }
 
     /* Center the navigation links */
-  nav {
-    flex-grow: 2;
-    text-align: center;
-  }
-  
+    nav {
+      flex-grow: 2;
+      text-align: center;
+    }
 
     nav a {
-    margin: 0 10px;
-    color: #004b8d;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
+      margin: 0 10px;
+      color: #004b8d;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
     nav a:hover {
       color: #ffa500; /* Soft orange */
     }
 
- 
-    
     /* Dropdown Container */
     .dropdown {
       position: relative;
@@ -97,26 +94,19 @@
       color: #ffa500; /* Change color on hover */
     }
 
-    /* Search Container for Below Map */
+    /* Search Container inside the Header */
     .search-container {
-      display: flex;
-      justify-content: center;
-      padding: 20px;
-      background-color: #f7f7f7;
-      margin: 20px 0;
       flex-grow: 1;
       text-align: right;
-  }
-    
+    }
 
-       /* Style the search bar */
-  input[type="text"] {
-    width: 300px;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-  }
-
+    /* Style the search bar */
+    input[type="text"] {
+      width: 300px;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
 
     /* Map Section */
     #map img {
@@ -208,33 +198,33 @@
       margin-top: 30px; /* Add space between top and bottom rows */
     }
 
-     /* Style the results container */
-  #results {
-    position: absolute;
-    right: 20px;
-    top: 90px; /* Adjust as needed */
-    width: 300px;
-    background-color: white;
-    border: 1px solid #ddd;
-    max-height: 200px; /* Limit to 4 results */
-    overflow-y: auto; /* Enable scrolling */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    z-index: 1000;
-  }
+    /* Style the results container */
+    #results {
+      position: absolute;
+      right: 20px;
+      top: 90px; /* Adjust as needed */
+      width: 300px;
+      background-color: white;
+      border: 1px solid #ddd;
+      max-height: 200px; /* Limit to 4 results */
+      overflow-y: auto; /* Enable scrolling */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
 
-     .result {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-  }
+    .result {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
 
-  .result:last-child {
-    border-bottom: none;
-  }
+    .result:last-child {
+      border-bottom: none;
+    }
 
-  /* Optionally, you can add hover effects for better UI */
-  .result:hover {
-    background-color: #f1f1f1;
-  }
+    /* Optionally, you can add hover effects for better UI */
+    .result:hover {
+      background-color: #f1f1f1;
+    }
 
     /* Responsive design for smaller screens */
     @media (max-width: 768px) {
@@ -271,21 +261,14 @@
       </div>
       <a href="cafe-stats.html">Café Stats</a>
       <div class="search-container">
-    <input type="text" id="search" placeholder="Search for a dish...">
-  </div>
+        <input type="text" id="search" placeholder="Search for a dish...">
+      </div>
     </nav>
   </header>
 
-  <!-- Content Wrapper -->
-  <div class="content-wrapper">
-
-    
-  
-
-     <!-- Search Results -->
   <div id="results"></div>
-    
-    <!-- Map Section -->
+  
+  <!-- Map Section -->
     <section id="map">
       <img src="unimap.png" alt="University Cafés Map">
     </section>
