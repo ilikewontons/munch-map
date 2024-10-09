@@ -23,19 +23,17 @@
       background-color: #E7E7E0; /* Header color */
       color: #004b8d; /* Dark blue text color */
       padding: 20px;
-      text-align: center;
-      font-family: 'Impact', sans-serif; /* Impact font for header */
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     /* Navigation Bar Styles */
     nav {
       display: flex;
       justify-content: center;
-      background-color: #ffffff;
-      padding: 20px; /* Increase size */
-      font-size: 1.2rem; /* Increase font size */
-      width: 100%; /* Ensures the nav spans the full width */
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow */
+      align-items: center;
     }
 
     nav a {
@@ -88,6 +86,20 @@
 
     .dropdown:hover .dropbtn {
       color: #ffa500; /* Change color on hover */
+    }
+
+    /* Search Container for Header */
+    .search-container {
+      display: flex;
+      align-items: center;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      margin-left: 10px;
     }
 
     /* Map Section */
@@ -180,23 +192,7 @@
       margin-top: 30px; /* Add space between top and bottom rows */
     }
 
-    /* Search Container */
-    .search-container {
-      width: 100%;
-      max-width: 500px;
-      margin: 40px auto;
-      text-align: center;
-    }
-
-    input[type="text"] {
-      width: 80%;
-      padding: 10px;
-      margin-bottom: 10px;
-      font-size: 16px;
-      border-radius: 5px;
-      border: 1px solid #ddd;
-    }
-
+    /* Search Result */
     .result {
       background-color: #f9f9f9;
       border: 1px solid #ddd;
@@ -223,33 +219,28 @@
   <!-- Header -->
   <header>
     <h1>Munch Map</h1>
-  </header>
-
-  <!-- Navigation moved below the header -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="#">Meet the Team</a>
-    <div class="dropdown">
-      <span class="dropbtn">Cafés</span>
-      <div class="dropdown-content">
-        <a href="charlies.html">Charlie's Café</a>
-        <a href="centre-stage.html">Centre Stage</a>
-        <a href="coffee-nation.html">Coffee Nation</a>
-        <a href="food-truck.html">Food Truck</a>
-        <a href="hashtag.html">Hashtag</a>
-        <a href="juice-press.html">Juice Press</a>
-        <a href="korebi.html">Korebi</a>
-      </div>
+    <!-- Search Bar Inside Header -->
+    <div class="search-container">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="#">Meet the Team</a>
+        <div class="dropdown">
+          <span class="dropbtn">Cafés</span>
+          <div class="dropdown-content">
+            <a href="charlies.html">Charlie's Café</a>
+            <a href="centre-stage.html">Centre Stage</a>
+            <a href="coffee-nation.html">Coffee Nation</a>
+            <a href="food-truck.html">Food Truck</a>
+            <a href="hashtag.html">Hashtag</a>
+            <a href="juice-press.html">Juice Press</a>
+            <a href="korebi.html">Korebi</a>
+          </div>
+        </div>
+        <a href="cafe-stats.html">Café Stats</a>
+      </nav>
+      <input type="text" id="search" placeholder="Search for a dish...">
     </div>
-    <a href="cafe-stats.html">Café Stats</a>
-  </nav>
-
-  <!-- Search Bar Section -->
-  <div class="search-container">
-    <h2>Search Cafe Menu</h2>
-    <input type="text" id="search" placeholder="Search for a dish...">
-    <div id="results"></div>
-  </div>
+  </header>
 
   <!-- Content Wrapper -->
   <div class="content-wrapper">
@@ -313,9 +304,12 @@
       </div>
     </section>
 
-  </div>
+    <!-- Search Results -->
+    <div id="results"></div>
 
-  <script>
+  </div>
+  
+ <script>
     // List of cafes and items
     const items = [
         { name: "Masala Chai", price: "Rs. 30", cafe: "Centre Stage Cafe" },
@@ -754,8 +748,12 @@
     // Search functionality
     document.getElementById('search').addEventListener('input', function() {
         const searchTerm = this.value.toLowerCase();
-        const results = items.filter(item => item.name.toLowerCase().includes(searchTerm));
-        displayResults(results);
+        if (searchTerm === '') {
+            displayResults([]); // Clear results when input is empty
+        } else {
+            const results = items.filter(item => item.name.toLowerCase().includes(searchTerm));
+            displayResults(results);
+        }
     });
 
     // Display search results
@@ -769,8 +767,8 @@
                 resultDiv.innerHTML = `<strong>${item.name}</strong> - <em>${item.cafe}</em> <br> Price: ${item.price}`;
                 resultsDiv.appendChild(resultDiv);
             });
-        } else {
-            resultsDiv.innerHTML = '<p>No results found.</p>';
+        } else if (results.length === 0) {
+            resultsDiv.innerHTML = ''; // Clear results when nothing is found or search bar is empty
         }
     }
   </script>
