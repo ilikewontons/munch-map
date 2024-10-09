@@ -44,6 +44,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      opacity: 0.5; /* Faded effect for non-active slides */
+      transition: opacity 0.5s ease;
+    }
+
+    /* Active Slide - Fully Opaque */
+    .carousel-slide.active {
+      opacity: 1;
     }
 
     .carousel-slide img {
@@ -51,16 +58,6 @@
       height: 100%;
       object-fit: cover;
       border-radius: 10px;
-    }
-
-    /* Left and Right previews (smaller slides) */
-    .preview-slide {
-      opacity: 0.5;
-      transition: opacity 0.5s ease-in-out;
-    }
-
-    .preview-slide:hover {
-      opacity: 1;
     }
 
     /* Navigation Buttons */
@@ -107,7 +104,7 @@
       transition: background-color 0.6s ease;
     }
 
-    .active, .dot:hover {
+    .active-dot, .dot:hover {
       background-color: #717171;
     }
   </style>
@@ -122,37 +119,37 @@
     <!-- Carousel Track (holds all slides) -->
     <div class="carousel-track" id="carousel-track">
       <!-- Slide 1 -->
-      <div class="carousel-slide preview-slide">
+      <div class="carousel-slide">
         <img src="hashtagau.png" alt="Café 1">
       </div>
 
       <!-- Slide 2 (Main active slide) -->
-      <div class="carousel-slide">
+      <div class="carousel-slide active">
         <img src="hashtagau.png" alt="Café 2">
       </div>
 
       <!-- Slide 3 -->
-      <div class="carousel-slide preview-slide">
+      <div class="carousel-slide">
         <img src="hashtagau.png" alt="Café 3">
       </div>
 
       <!-- Slide 4 -->
-      <div class="carousel-slide preview-slide">
+      <div class="carousel-slide">
         <img src="hashtagau.png" alt="Café 4">
       </div>
 
       <!-- Slide 5 -->
-      <div class="carousel-slide preview-slide">
+      <div class="carousel-slide">
         <img src="hashtagau.png" alt="Café 5">
       </div>
 
       <!-- Slide 6 -->
-      <div class="carousel-slide preview-slide">
+      <div class="carousel-slide">
         <img src="hashtagau.png" alt="Café 6">
       </div>
 
       <!-- Slide 7 -->
-      <div class="carousel-slide preview-slide">
+      <div class="carousel-slide">
         <img src="hashtagau.png" alt="Café 7">
       </div>
     </div>
@@ -162,7 +159,7 @@
 
     <!-- Dots -->
     <div class="dot-container">
-      <span class="dot active" onclick="currentSlide(1)"></span>
+      <span class="dot active-dot" onclick="currentSlide(1)"></span>
       <span class="dot" onclick="currentSlide(2)"></span>
       <span class="dot" onclick="currentSlide(3)"></span>
       <span class="dot" onclick="currentSlide(4)"></span>
@@ -173,26 +170,32 @@
   </div>
 
   <script>
-    let currentIndex = 1; // Start with the center slide (café 2)
+    let currentIndex = 1; // Start with the center slide (Café 2)
+    const totalSlides = 7;
     let autoPlayInterval;
 
     // Update Carousel with transition
     function updateCarousel() {
       const track = document.getElementById('carousel-track');
       const dots = document.querySelectorAll('.dot');
+      const slides = document.querySelectorAll('.carousel-slide');
 
       // Move the track to show the active slide with a smooth transition
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
+      // Update opacity for active slide
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[currentIndex].classList.add('active');
+
       // Update active dot
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[(currentIndex - 1 + dots.length) % dots.length].classList.add('active');
+      dots.forEach(dot => dot.classList.remove('active-dot'));
+      dots[currentIndex].classList.add('active-dot');
     }
 
     // Function to move between slides in a clockwise manner
     function moveSlide(n) {
       clearInterval(autoPlayInterval);  // Pause autoplay when arrow is clicked
-      currentIndex = (currentIndex + n + 7) % 7;  // Loop between 7 slides
+      currentIndex = (currentIndex + n + totalSlides) % totalSlides;  // Loop between slides
       updateCarousel();
       startAutoPlay();  // Restart autoplay after interaction
     }
