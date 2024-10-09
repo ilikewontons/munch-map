@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Café Stats Carousel with Transitions</title>
+  <title>Café Stats Carousel</title>
   <style>
     /* General Page Styling */
     body, html {
@@ -20,20 +20,20 @@
     /* Main Carousel Container */
     .carousel-container {
       position: relative;
-      width: 96%;
+      width: 90%;
       max-width: 1440px;
       height: 600px;
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden; /* Hide overflowing slides */
+      overflow: hidden;
     }
 
     /* Carousel Track */
     .carousel-track {
       display: flex;
       transition: transform 0.5s ease-in-out; /* Smooth slide transition */
-      width: calc(100% * 3); /* Enough width to fit all three visible slides */
+      width: calc(100% * 7); /* Enough width to fit all seven slides */
     }
 
     /* Active Slide in the center */
@@ -50,6 +50,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      border-radius: 10px;
     }
 
     /* Left and Right previews (smaller slides) */
@@ -120,19 +121,39 @@
 
     <!-- Carousel Track (holds all slides) -->
     <div class="carousel-track" id="carousel-track">
-      <!-- Left Preview (cafe 1) -->
+      <!-- Slide 1 -->
       <div class="carousel-slide preview-slide">
         <img src="hashtagau.png" alt="Café 1">
       </div>
 
-      <!-- Main Active Slide (cafe 2) -->
+      <!-- Slide 2 (Main active slide) -->
       <div class="carousel-slide">
         <img src="hashtagau.png" alt="Café 2">
       </div>
 
-      <!-- Right Preview (cafe 3) -->
+      <!-- Slide 3 -->
       <div class="carousel-slide preview-slide">
         <img src="hashtagau.png" alt="Café 3">
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="carousel-slide preview-slide">
+        <img src="hashtagau.png" alt="Café 4">
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="carousel-slide preview-slide">
+        <img src="hashtagau.png" alt="Café 5">
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="carousel-slide preview-slide">
+        <img src="hashtagau.png" alt="Café 6">
+      </div>
+
+      <!-- Slide 7 -->
+      <div class="carousel-slide preview-slide">
+        <img src="hashtagau.png" alt="Café 7">
       </div>
     </div>
 
@@ -144,6 +165,10 @@
       <span class="dot active" onclick="currentSlide(1)"></span>
       <span class="dot" onclick="currentSlide(2)"></span>
       <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+      <span class="dot" onclick="currentSlide(6)"></span>
+      <span class="dot" onclick="currentSlide(7)"></span>
     </div>
   </div>
 
@@ -164,10 +189,10 @@
       dots[(currentIndex - 1 + dots.length) % dots.length].classList.add('active');
     }
 
-    // Function to move between slides
+    // Function to move between slides in a clockwise manner
     function moveSlide(n) {
       clearInterval(autoPlayInterval);  // Pause autoplay when arrow is clicked
-      currentIndex = (currentIndex + n + 3) % 3;  // Loop between 3 slides
+      currentIndex = (currentIndex + n + 7) % 7;  // Loop between 7 slides
       updateCarousel();
       startAutoPlay();  // Restart autoplay after interaction
     }
@@ -175,7 +200,7 @@
     // Function to move to a specific slide
     function currentSlide(n) {
       clearInterval(autoPlayInterval);  // Pause autoplay when dot is clicked
-      currentIndex = n;
+      currentIndex = n - 1;
       updateCarousel();
       startAutoPlay();  // Restart autoplay
     }
@@ -213,4 +238,3 @@
 
 </body>
 </html>
-
